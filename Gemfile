@@ -10,6 +10,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'devise', '~> 4.2'
 gem 'faker', '~> 1.7', '>= 1.7.3'
 gem 'simple_form', '~> 3.4'
+gem 'will_paginate', '~> 3.1.0'
 # end custom gems
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -16,3 +16,16 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.message{
+    display:inline-block;
+    max-width: 70%;
+}
+
+.justify-right{
+    text-align: right;
+}
+
+.center{
+    text-align: center;
+}

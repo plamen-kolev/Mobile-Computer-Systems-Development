@@ -14,3 +14,42 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require bootstrap-sprockets
+
+function load_messages(url, current_user){
+    messages = [];
+    $.ajax({
+        dataType: "json",
+        url: url,
+        data: 'data',
+        success: function(e){
+
+            if(!e.length){
+                $("#load_more_messages_button").hide();
+            }
+
+            for(var i = 0; i < e.length; i++){
+                var styling;
+
+                if(current_user == e[i].user_id){
+                    styling = 'alert-info pull-right justify-right';
+                } else {
+                    styling = 'alert-success pull-left justify-left';
+                }
+
+                var message =   '<div class="alert message '+styling+'">\
+                                    <p>' + e[i].body + '</p>\
+                                    <span>2017-02-13 21:10:26 UTC</span>\
+                                </div>'
+                $( "#conversation_container" ).prepend( message );
+            }
+        }
+    }).fail(function(e) {
+        
+    });
+
+    
+    
+
+    
+}

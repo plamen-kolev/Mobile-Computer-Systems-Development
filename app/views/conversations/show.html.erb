@@ -1,0 +1,27 @@
+<div class="col-md-12 container">
+    <%= link_to 'load more', '', id: 'load_more_messages_button',class: 'btn btn-primary center', role: "button" %>
+    
+    <div id="conversation_container">
+        <% @messages.each do | msg | %>
+            <div>
+                <div class=" alert  message <% if msg.user.id == current_user.id %>alert-info pull-right justify-right<% else %>alert-success pull-left justify-left<% end %>">
+                    <p><%= msg.body %></p>
+                    <span><%= msg.created_at %></span>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+
+<% content_for :scripts do %>
+    <script type="text/javascript">
+        var page=1
+        $( "#load_more_messages_button" ).click(function(event) {
+            event.preventDefault();
+            load_messages("/conversations/<%= @c.id %>/json/?page=" + page, <%= current_user.id %>)
+            page++;
+        });
+        
+    </script>
+<% end %>

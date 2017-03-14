@@ -1,3 +1,5 @@
-Trollchat is a novelty chat web application that aims to encourage its users to respond to messages in a timeply manner.
+Trollchat is a novelty chat web application that aims to encourage its users to respond to messages in a timely manner.
 
-The main concept is   
+Nowadays almost all messaging applications have a form of notifying the user if their message has been delivered or viewed. This web application aims to take the concept further by building and extending the messaging interface with additional features.
+The core concept is that the person you talk to has to answer the conversation within a certain timeout or negative consequences will follow.
+For the purpouse of the application, I have chosen to

@@ -1,24 +1,17 @@
-# README
+12.02.2017 09:00-12:00
+Brainstorm on app ideas and features
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+13.02.2017 14:00-19:00
+Initialised the basic skeleton of the code with dependencies and environment
 
-Things you may want to cover:
+05.03.2017 15:00-16:00
+Wireframes for storyboard
 
-* Ruby version
+13.03.2017 17:00-21:00
+Fontboard creation
+Font picking
+Arrangement
+Print production work
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+14.03.2017 8:00-11:00
+Write-up on user stories

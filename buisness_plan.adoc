@@ -1,0 +1,3 @@
+Trollchat is a novelty chat web application that aims to encourage its users to respond to messages in a timeply manner.
+
+The main concept is   

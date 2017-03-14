@@ -1,0 +1,64 @@
+# Jason Starkiz
+// image::http://www.robotbutt.com/wp-content/uploads/2015/08/College-Student-Thumbs-Up-e1440734712137.jpg[Sunset]
+
+.Table Title
+|===
+|Name of Column 1 |Name of Column 2
+
+| Background
+| University Student
+
+| Computer Proficiency
+| Casual
+
+| Internet usage
+| Social media power user
+
+| Likes
+| Chatting with friends, occasional prankster.
+|===
+
+`I want to be the heart of the party !`
+
+## Key goals
+Jason is the popular friend in his group, he likes to be outgoing and meet new people.
+He stays in touch with all of his friends on social media and is always engaged with the conversation.
+Jason enjoys trying new apps and prefers texting to phone calls.
+Often sends memes and funny pictures to his friends.
+
+## Day in the life
+Jason is trying to find the perfect balance between his social life and his degree and coursework.
+He is a casual computer user and mostly uses it for internet browsing and for productivity tools like Microsoft Office.
+
+If he gets invited to a new social media, he will try it out and will try to invite all of his friends along.
+Jason stays in shape by jogging and playing tennis.
+He prefers a simple and clean apps and will refuse and abandon something that does not feel intuitive.
+
+
+# Emma Obrien
+// image::http://blogem.ruffalonl.com/wp-content/uploads/2014/10/bigstock-Mixed-Race-College-Student-8291091.jpg[emma]
+
+|===
+|Name of Column 1 |Name of Column 2
+
+| Background
+| Studies Media communications in Manchester
+
+| Computer Proficiency
+| Blogging expert, loves facebook, likes convenience of online shopping
+
+| Internet usage
+| Proffessional social media (linkedin), email, chatting with friends, staying in touch with coleagues
+
+| Likes
+| Comedies, Netflix, meeting new people, is different and stands out
+|===
+
+## Key goals
+Emma likes meeting exciting new people.
+
+## Day in the life
+Emma is a young media student and has a medium-size following on instagram.
+She likes to read books and learn more about trends and latest news around the world.
+In her free time, she talks to her friends and family via facebook.
+She aspires to be a great journalist after graduating university.

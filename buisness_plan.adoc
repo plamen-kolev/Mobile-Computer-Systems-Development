@@ -1,5 +1,22 @@
-Trollchat is a novelty chat web application that aims to encourage its users to respond to messages in a timely manner.
+Trollchat is a novelty chat web application that aims to encourage its users to respond to messages as soon as possible.
 
-Nowadays almost all messaging applications have a form of notifying the user if their message has been delivered or viewed. This web application aims to take the concept further by building and extending the messaging interface with additional features.
-The core concept is that the person you talk to has to answer the conversation within a certain timeout or negative consequences will follow.
-For the purpouse of the application, I have chosen to
+Nowadays almost all messaging applications have a form of notifying the user if their message has been delivered or to the recipient. This web application aims to take the concept further by building and extending the messaging interface with additional features.
+The core concept is that the person you talk to has to answer the conversation within a certain time period or negative consequences will follow.
+
+A person ignoring your messages allows you to gain karma points towards that person. Gaining karma points allows you to unlock and send rude emoticons expressing the user's lack of amusement due to their messages being ignored.
+
+Using this application, one can find their friends by email, add them and start messaging straight away. Initially the application has a set of emoticons that can be used by anybody, and a slot of special 'negative' emoticons that are locked.
+
+Each person has 'karma' points towards you. These karma points can be spent to send not polite or rude emoticons.
+
+As a consequence of an ignored message, this message gets deleted for both parties and an appropriate alert is received on both ends.
+
+This application is inspired by facebook messenger and Skype, as a methodology for communication.
+
+The target demographic for this application are users who want to try out and play with something different and not necessarily want to use it as their primary chat application. Google play store has many similar applications that aim to prank a friend or simulate a broken screen.
+
+The difference with this application is the immediate impact that the social interaction with the other end might have on the conversation. One can express the point that they don't enjoy being ignored by sending humorous or rude emoticons.
+
+The application will be created using a server-side scripting language and a front-end javascript library. I have decided to make it device independent because that way more people can experience it.
+
+As a future extension of this application, demographic tagging can be used to identify the key devices used when interacting and developing a platform-specific app for that platform.

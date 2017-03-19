@@ -15,3 +15,6 @@ Print production work
 
 14.03.2017 8:00-11:00
 Write-up on user stories
+
+18.03.2017 13:10 - 15:00
+Write-up on user stories

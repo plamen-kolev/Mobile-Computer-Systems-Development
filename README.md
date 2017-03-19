@@ -18,3 +18,12 @@ Write-up on user stories
 
 18.03.2017 13:10 - 15:00
 Write-up on user stories
+
+18.03.2017
+16:00 - 17:00
+Started writing buisness case
+
+19.03.2017  11:00 - 11:30
+finished buisness case
+12:00 - 16:00
+Moodboard

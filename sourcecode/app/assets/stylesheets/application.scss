@@ -17,6 +17,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.new_connection{
+  display:inline-block;
+}
+
 .message{
     display:inline-block;
     max-width: 70%;

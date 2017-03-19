@@ -1,16 +1,4 @@
 <div class="col-md-12 container">
-    <% @people.each do | person | %>
-        <div>
-            <%= person.email %>
 
-            <% if person.is_friend(current_user) %>
-                <%= link_to 'chat', conversation_path(person) %>
-            <% else %>
-                <%= simple_form_for @connection do |f| %>
-                <%= f.hidden_field :followee_id, value: person.id %>
-                <%= f.button :submit %>
-                <% end %>
-            <% end %>
-        </div>
-    <% end %>
+blank
 </div>

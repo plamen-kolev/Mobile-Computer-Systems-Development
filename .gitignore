@@ -21,3 +21,4 @@
 .byebug_history
 tmp/
 vendor/
+.idea

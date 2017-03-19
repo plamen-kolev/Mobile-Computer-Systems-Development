@@ -13,8 +13,9 @@
 ActiveRecord::Schema.define(version: 20170213205500) do
 
   create_table "connections", force: :cascade do |t|
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "confirmed",   default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "follower_id"
     t.integer  "followee_id"
   end

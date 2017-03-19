@@ -1,4 +1,7 @@
 class ConversationsController < ApplicationController
+
+  before_action :authenticate_user! # , :except => [:show, :index]
+
   def show
 
     @c = Conversation.find_or_create_by(id: params[:id])

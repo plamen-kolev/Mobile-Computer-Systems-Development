@@ -9237,3 +9237,1497 @@ Processing by ConnectionsController#index as HTML
 Completed 200 OK in 69ms (Views: 50.7ms | ActiveRecord: 1.8ms)
 
 
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:44:15 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (10.4ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 56ms (Views: 40.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:45:09 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (6.9ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 63ms (Views: 57.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:45:23 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (7.4ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 67ms (Views: 61.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:47:46 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (21.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 98ms (Views: 90.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:48:06 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (12.1ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 55ms (Views: 49.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:49:10 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (10.8ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 59ms (Views: 53.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:49:12 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (9.7ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 47ms (Views: 42.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:49:34 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (12.2ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 56ms (Views: 50.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:49:58 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (11.5ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1208ms (Views: 1197.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:50:00 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (6.7ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 43ms (Views: 38.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:50:01 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (6.8ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 71ms (Views: 66.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:50:04 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (8.6ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 47ms (Views: 40.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:50:09 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (57.1ms)
+  Rendered layouts/_header.html.erb (2.1ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 396ms (Views: 369.9ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:50:10 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (16.7ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 76ms (Views: 70.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:50:19 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (11.6ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 67ms (Views: 61.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:50:38 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (12.2ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 1073ms (Views: 1066.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:50:44 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (9.6ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 66ms (Views: 58.6ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:51:31 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (10.0ms)
+  Rendered layouts/_header.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 61ms (Views: 55.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:51:43 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (7.8ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 62ms (Views: 55.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:52:14 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (7.2ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 61ms (Views: 57.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:52:32 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (7.2ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 1164ms (Views: 1160.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:53:02 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (20.5ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 126ms (Views: 86.7ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:53:05 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (6.7ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 40ms (Views: 34.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:53:08 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.8ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (5.6ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 40ms (Views: 34.1ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/connections" for 127.0.0.1 at 2017-03-19 21:53:09 +0000
+Processing by ConnectionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"EbcdIkPhDGMSf8jVJyvP9uJ7n4IBMb+yw34ux48sJR9g9MfbToi3XvyROYaYofp/n6r9EyGvXx+yXsTnb5cZFg==", "connections_confirm"=>{"id"=>"1"}, "commit"=>"Confirm"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/connections_controller.rb:5:in `create'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (22.7ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (35.7ms)
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:54:46 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (15.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 77ms (Views: 55.4ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 21:54:49 +0000
+  
+ActionController::RoutingError (No route matches [POST] "/connections/confirm"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered collection of /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [27 times] (4.8ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.5ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (22.8ms)
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 21:55:05 +0000
+  
+ActionController::RoutingError (No route matches [POST] "/connections/confirm"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered collection of /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [27 times] (6.6ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (24.2ms)
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 21:55:07 +0000
+  
+ActionController::RoutingError (No route matches [POST] "/connections/confirm"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered collection of /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [27 times] (5.4ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (24.2ms)
+Started GET "/connections/confirm" for 127.0.0.1 at 2017-03-19 21:55:08 +0000
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for ConnectionsController):
+  
+actionpack (5.0.1) lib/abstract_controller/base.rb:121:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.3ms)
+Started GET "/connections/confirm" for 127.0.0.1 at 2017-03-19 21:55:50 +0000
+Processing by ConnectionsController#confirm as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 26ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionController::UnknownFormat (ConnectionsController#confirm is missing a template for this request format and variant.
+
+request.formats: ["text/html"]
+request.variant: []
+
+NOTE! For XHR/Ajax or API requests, this action would normally respond with 204 No Content: an empty white screen. Since you're loading it in a web browser, we assume that you expected to actually render a template, not nothing, so we're showing an error to be extra-clear. If you expect 204 No Content, carry on. That's what you'll get from an XHR or API request. Give it a shot.):
+  
+actionpack (5.0.1) lib/action_controller/metal/implicit_render.rb:56:in `default_render'
+actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `tap'
+actionpack (5.0.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:188:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+activesupport (5.0.1) lib/active_support/callbacks.rb:126:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:506:in `block (2 levels) in compile'
+activesupport (5.0.1) lib/active_support/callbacks.rb:455:in `call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.1) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.2ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.6ms)
+Started GET "/connections/confirm" for 127.0.0.1 at 2017-03-19 21:56:34 +0000
+Processing by ConnectionsController#confirm as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: `redirect_to :back` is deprecated and will be removed from Rails 5.1. Please use `redirect_back(fallback_location: fallback_location)` where `fallback_location` represents the location to use if the request has no HTTP referer information. (called from confirm at /home/hallagat/Projects/Mobile-Computer-Systems-Development/sourcecode/app/controllers/connections_controller.rb:25)
+Redirected to 
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionController::RedirectBackError (No HTTP_REFERER was set in the request to this action, so redirect_to :back could not be called successfully. If this is a test, make sure to specify request.env["HTTP_REFERER"].):
+  
+app/controllers/connections_controller.rb:25:in `confirm'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.5ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.2ms)
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:56:36 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (13.3ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 64ms (Views: 52.9ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 21:56:37 +0000
+  
+ActionController::RoutingError (No route matches [POST] "/connections/confirm"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered collection of /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [27 times] (5.8ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (23.0ms)
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 21:56:47 +0000
+  
+ActionController::RoutingError (No route matches [POST] "/connections/confirm"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered collection of /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [27 times] (5.8ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.8ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (22.0ms)
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 21:56:51 +0000
+  
+ActionController::RoutingError (No route matches [POST] "/connections/confirm"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered collection of /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [27 times] (7.0ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (27.1ms)
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 21:56:53 +0000
+  
+ActionController::RoutingError (No route matches [POST] "/connections/confirm"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered collection of /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [27 times] (6.3ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (24.2ms)
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 21:58:42 +0000
+Processing by ConnectionsController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G7NpVhAoFr31gcQzeopjUaunfee777xsM6Ptq7yUkktq8LOvHUGtgBtvNWDFAFbY1nYfdptxXMFCgweLXC+uQg==", "connections_confirm"=>{"id"=>"1"}, "commit"=>"Confirm"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+No template found for ConnectionsController#confirm, rendering head :no_content
+Completed 204 No Content in 28ms (ActiveRecord: 0.7ms)
+
+
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 21:58:47 +0000
+Processing by ConnectionsController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"G7NpVhAoFr31gcQzeopjUaunfee777xsM6Ptq7yUkktq8LOvHUGtgBtvNWDFAFbY1nYfdptxXMFCgweLXC+uQg==", "connections_confirm"=>{"id"=>"2"}, "commit"=>"Confirm"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+No template found for ConnectionsController#confirm, rendering head :no_content
+Completed 204 No Content in 20ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:59:03 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (14.5ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 74ms (Views: 54.4ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 21:59:04 +0000
+Processing by ConnectionsController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6rc5zDe+1eE3NG45OUhdVBU9SIernOcaFLpPrQDwlMWb9OM1Otdu3Nnan2qGwmjdaOwqFosCB7dlmqWN4EuozA==", "connections_confirm"=>{"id"=>"1"}, "commit"=>"Confirm"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: `redirect_to :back` is deprecated and will be removed from Rails 5.1. Please use `redirect_back(fallback_location: fallback_location)` where `fallback_location` represents the location to use if the request has no HTTP referer information. (called from confirm at /home/hallagat/Projects/Mobile-Computer-Systems-Development/sourcecode/app/controllers/connections_controller.rb:25)
+Redirected to http://localhost:3000/connections
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:59:04 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 55ms (Views: 50.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 21:59:05 +0000
+Processing by ConnectionsController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"S0oTW861vJl6arxGy//oCuoYUMvq9DT5guIVcOiVCmY6Ccmiw9wHpJSETRV0dd2Dl8kyWspq1FTzwv9QCC42bw==", "connections_confirm"=>{"id"=>"2"}, "commit"=>"Confirm"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: `redirect_to :back` is deprecated and will be removed from Rails 5.1. Please use `redirect_back(fallback_location: fallback_location)` where `fallback_location` represents the location to use if the request has no HTTP referer information. (called from confirm at /home/hallagat/Projects/Mobile-Computer-Systems-Development/sourcecode/app/controllers/connections_controller.rb:25)
+Redirected to http://localhost:3000/connections
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:59:05 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (7.7ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 49ms (Views: 43.1ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 21:59:30 +0000
+  
+SyntaxError (/home/hallagat/Projects/Mobile-Computer-Systems-Development/sourcecode/app/controllers/connections_controller.rb:24: syntax error, unexpected ']', expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END):
+  
+app/controllers/connections_controller.rb:24: syntax error, unexpected ']', expecting tSTRING_CONTENT or tSTRING_DBEG or tSTRING_DVAR or tSTRING_END
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.3ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.5ms)
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 21:59:35 +0000
+Processing by ConnectionsController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8+r5rgOOwq4i7cGUlvQZbGsQi4HGv/qxiOy0de2p3U2CqSNXDud5k8wDMMcpfizlFsHpEOYhGhz5zF5VDRLhRA==", "connections_confirm"=>{"id"=>"1"}, "commit"=>"Confirm"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: `redirect_to :back` is deprecated and will be removed from Rails 5.1. Please use `redirect_back(fallback_location: fallback_location)` where `fallback_location` represents the location to use if the request has no HTTP referer information. (called from confirm at /home/hallagat/Projects/Mobile-Computer-Systems-Development/sourcecode/app/controllers/connections_controller.rb:25)
+Redirected to http://localhost:3000/connections
+Completed 302 Found in 21ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:59:35 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (27.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 113ms (Views: 91.2ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 21:59:37 +0000
+Processing by ConnectionsController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3TfcbbGUCBVVYNFiOBv5FqND3yRXEhG8RsdEqNLKhQKsdAaUvP2zKLuOIDGHkcyf3pK9tXeM8RE3566IMnG5Cw==", "connections_confirm"=>{"id"=>"1"}, "commit"=>"Confirm"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: `redirect_to :back` is deprecated and will be removed from Rails 5.1. Please use `redirect_back(fallback_location: fallback_location)` where `fallback_location` represents the location to use if the request has no HTTP referer information. (called from confirm at /home/hallagat/Projects/Mobile-Computer-Systems-Development/sourcecode/app/controllers/connections_controller.rb:25)
+Redirected to http://localhost:3000/connections
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 21:59:37 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (11.4ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 55ms (Views: 49.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 22:02:43 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (2.0ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 60ms (Views: 50.2ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 22:02:48 +0000
+Processing by ConnectionsController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DFNucRvvB8VyIQ98EqIwklJxigLsNDmDi9R4fRYG/4B9ELSIFoa8+JzP/i+tKAUbL6Dok8yq2S769JJd9r3DiQ==", "connections_confirm"=>{"id"=>"3"}, "commit"=>"Confirm"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: `redirect_to :back` is deprecated and will be removed from Rails 5.1. Please use `redirect_back(fallback_location: fallback_location)` where `fallback_location` represents the location to use if the request has no HTTP referer information. (called from confirm at /home/hallagat/Projects/Mobile-Computer-Systems-Development/sourcecode/app/controllers/connections_controller.rb:25)
+Redirected to http://localhost:3000/connections
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 22:02:48 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 49ms (Views: 43.4ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 22:03:15 +0000
+Processing by ConnectionsController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ViyDdXZ1g/GROWn2TFGFPSfo/6WSWbXyPaeHqysQJg0nb1mMexw4zH/XmKXz27C0WjmdNLLHVV9Mh22Ly6saBA==", "connections_confirm"=>{"id"=>"3"}, "commit"=>"Confirm"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: `redirect_to :back` is deprecated and will be removed from Rails 5.1. Please use `redirect_back(fallback_location: fallback_location)` where `fallback_location` represents the location to use if the request has no HTTP referer information. (called from confirm at /home/hallagat/Projects/Mobile-Computer-Systems-Development/sourcecode/app/controllers/connections_controller.rb:25)
+Redirected to http://localhost:3000/connections
+Completed 302 Found in 12ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 22:03:15 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (19.2ms)
+  Rendered layouts/_header.html.erb (2.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 90ms (Views: 78.3ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 22:03:20 +0000
+Processing by ConnectionsController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VYfRIW4Kst/tyO3Dqcj55YUn1EgugeJJg7RRUtuCzL4kxAvYY2MJ4gMmHJAWQsxs+Pa22Q4fAuTylLtyOznwtw==", "connections_confirm"=>{"id"=>"2"}, "commit"=>"Confirm"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+DEPRECATION WARNING: `redirect_to :back` is deprecated and will be removed from Rails 5.1. Please use `redirect_back(fallback_location: fallback_location)` where `fallback_location` represents the location to use if the request has no HTTP referer information. (called from confirm at /home/hallagat/Projects/Mobile-Computer-Systems-Development/sourcecode/app/controllers/connections_controller.rb:25)
+Redirected to http://localhost:3000/connections
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 22:03:20 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (15.2ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 72ms (Views: 63.7ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 22:04:36 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (12.8ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 67ms (Views: 46.9ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 22:04:37 +0000
+Processing by ConnectionsController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"28GvWEwNnf2MsYVoul/qINs2aX/w4v7qgK9kEVCStxaqgnWhQWQmwGJfdDsF1d+ppucL7tB8Hkfxj44xsCmLHw==", "connections_confirm"=>{"id"=>"3"}, "commit"=>"Confirm"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ?[0m  [["follower_id", 3], ["followee_id", 1]]
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms)
+
+
+  
+NoMethodError (undefined method `confirmed=' for #<Connection::ActiveRecord_Relation:0x007f7150fec540>):
+  
+app/controllers/connections_controller.rb:25:in `confirm'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.4ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.7ms)
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 22:06:33 +0000
+Processing by ConnectionsController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"28GvWEwNnf2MsYVoul/qINs2aX/w4v7qgK9kEVCStxaqgnWhQWQmwGJfdDsF1d+ppucL7tB8Hkfxj44xsCmLHw==", "connections_confirm"=>{"id"=>"3"}, "commit"=>"Confirm"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ?[0m  [["follower_id", 3], ["followee_id", 1]]
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 1.3ms)
+
+
+  
+NoMethodError (undefined method `confirm' for #<Connection::ActiveRecord_Relation:0x007f71581d28f8>):
+  
+app/controllers/connections_controller.rb:25:in `confirm'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.4ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.2ms)
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 22:06:43 +0000
+Processing by ConnectionsController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"28GvWEwNnf2MsYVoul/qINs2aX/w4v7qgK9kEVCStxaqgnWhQWQmwGJfdDsF1d+ppucL7tB8Hkfxj44xsCmLHw==", "connections_confirm"=>{"id"=>"3"}, "commit"=>"Confirm"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.0ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ?[0m  [["follower_id", 3], ["followee_id", 1]]
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.2ms)
+
+
+  
+NoMethodError (undefined method `confirm' for #<Connection::ActiveRecord_Relation:0x007f71542a0568>):
+  
+app/controllers/connections_controller.rb:25:in `confirm'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.1ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (16.0ms)
+Started GET "/connections/confirm" for 127.0.0.1 at 2017-03-19 22:06:44 +0000
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for ConnectionsController):
+  
+actionpack (5.0.1) lib/abstract_controller/base.rb:121:in `process'
+actionview (5.0.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+warden (1.2.7) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.7) lib/warden/manager.rb:35:in `catch'
+warden (1.2.7) lib/warden/manager.rb:35:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+rack (2.0.1) lib/rack/session/abstract/id.rb:222:in `context'
+rack (2.0.1) lib/rack/session/abstract/id.rb:216:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/method_override.rb:22:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.7.0) lib/puma/configuration.rb:226:in `call'
+puma (3.7.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.7.0) lib/puma/server.rb:415:in `process_client'
+puma (3.7.0) lib/puma/server.rb:275:in `block in run'
+puma (3.7.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/unknown_action.html.erb within rescues/layout (0.3ms)
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 22:06:47 +0000
+Processing by ConnectionsController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"28GvWEwNnf2MsYVoul/qINs2aX/w4v7qgK9kEVCStxaqgnWhQWQmwGJfdDsF1d+ppucL7tB8Hkfxj44xsCmLHw==", "connections_confirm"=>{"id"=>"3"}, "commit"=>"Confirm"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ?[0m  [["follower_id", 3], ["followee_id", 1]]
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.7ms)
+
+
+  
+NoMethodError (undefined method `confirm' for #<Connection::ActiveRecord_Relation:0x007f7150c95f18>):
+  
+app/controllers/connections_controller.rb:25:in `confirm'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.9ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.5ms)
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 22:07:01 +0000
+Processing by ConnectionsController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"28GvWEwNnf2MsYVoul/qINs2aX/w4v7qgK9kEVCStxaqgnWhQWQmwGJfdDsF1d+ppucL7tB8Hkfxj44xsCmLHw==", "connections_confirm"=>{"id"=>"3"}, "commit"=>"Confirm"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 1.3ms)
+
+
+  
+NoMethodError (undefined method `confirm=' for #<Connection:0x007f715179da28>
+Did you mean?  confirm
+               confirmed=
+               confirmed):
+  
+app/models/connection.rb:5:in `confirm'
+app/controllers/connections_controller.rb:25:in `confirm'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.4ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.7ms)
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 22:07:04 +0000
+Processing by ConnectionsController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"28GvWEwNnf2MsYVoul/qINs2aX/w4v7qgK9kEVCStxaqgnWhQWQmwGJfdDsF1d+ppucL7tB8Hkfxj44xsCmLHw==", "connections_confirm"=>{"id"=>"3"}, "commit"=>"Confirm"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.1ms)
+
+
+  
+NoMethodError (undefined method `confirm=' for #<Connection:0x007f715131a1e0>
+Did you mean?  confirm
+               confirmed=
+               confirmed):
+  
+app/models/connection.rb:5:in `confirm'
+app/controllers/connections_controller.rb:25:in `confirm'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.1ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.7ms)
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 22:07:22 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (15.3ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 90ms (Views: 60.7ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 22:07:23 +0000
+Processing by ConnectionsController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"YV5owLRCl5fRymQRTVNlZyrbw0AkAZdB/S0265pGYfkQHbI5uSssqj8klULy2VDuVwqh0QSfd+yMDdzLev1d8A==", "connections_confirm"=>{"id"=>"3"}, "commit"=>"Confirm"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mConnection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "connections" WHERE "connections"."follower_id" = ? AND ("connections"."id" != ?) AND "connections"."followee_id" = ? LIMIT ?[0m  [["follower_id", 3], ["id", 1], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "connections" SET "confirmed" = ?, "updated_at" = ? WHERE "connections"."id" = ?[0m  [["confirmed", true], ["updated_at", 2017-03-19 22:07:23 UTC], ["id", 1]]
+  [1m[35m (7.6ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: `redirect_to :back` is deprecated and will be removed from Rails 5.1. Please use `redirect_back(fallback_location: fallback_location)` where `fallback_location` represents the location to use if the request has no HTTP referer information. (called from confirm at /home/hallagat/Projects/Mobile-Computer-Systems-Development/sourcecode/app/controllers/connections_controller.rb:26)
+Redirected to http://localhost:3000/connections
+Completed 302 Found in 21ms (ActiveRecord: 9.0ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 22:07:23 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 3], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 3], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 58ms (Views: 53.4ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/connections/confirm" for 127.0.0.1 at 2017-03-19 22:07:25 +0000
+Processing by ConnectionsController#confirm as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2aCTDJIZroBFqmjnz1tS/hQj3PuIOhq0ATegM628+Sqo40n1n3AVvatEmbRw0Wd3afK+aqik+hlwF0oTTQfFIw==", "connections_confirm"=>{"id"=>"2"}, "commit"=>"Confirm"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mConnection Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "connections" WHERE "connections"."follower_id" = ? AND ("connections"."id" != ?) AND "connections"."followee_id" = ? LIMIT ?[0m  [["follower_id", 2], ["id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "connections" SET "confirmed" = ?, "updated_at" = ? WHERE "connections"."id" = ?[0m  [["confirmed", true], ["updated_at", 2017-03-19 22:07:25 UTC], ["id", 2]]
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+DEPRECATION WARNING: `redirect_to :back` is deprecated and will be removed from Rails 5.1. Please use `redirect_back(fallback_location: fallback_location)` where `fallback_location` represents the location to use if the request has no HTTP referer information. (called from confirm at /home/hallagat/Projects/Mobile-Computer-Systems-Development/sourcecode/app/controllers/connections_controller.rb:26)
+Redirected to http://localhost:3000/connections
+Completed 302 Found in 17ms (ActiveRecord: 9.5ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 22:07:25 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 3], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 3], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 4], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" INNER JOIN "connections" ON "users"."id" = "connections"."followee_id" WHERE "connections"."follower_id" = ? AND "users"."id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 5], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (18.4ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 68ms (Views: 62.6ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-19 22:09:22 +0000
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["confirmed", true], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["confirmed", true], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["confirmed", true], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", true], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["confirmed", true], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", true], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? AND "connections"."confirmed" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["confirmed", false], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (7.9ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 61ms (Views: 42.6ms | ActiveRecord: 2.1ms)
+
+

@@ -1,8 +1,16 @@
 <div class="col-md-12 container">
 
-  <p>Pending requests:</p>
-  <% @pending.each do |p| %>
-      <p><%= p.follower.email %></p>
+
+  <p class="label label-warning">Pending requests:</p>
+  <% @pending.each do |person| %>
+    <div>
+        <%= person.follower.email %>
+
+        <%= simple_form_for :connections_confirm, url: connection_confirm_path do |f| %>
+          <%= f.hidden_field :id, value: person.follower_id %>
+          <%= f.button :submit, 'Confirm' %>
+        <% end %>
+    </div>
   <% end %>
   <hr/>
 

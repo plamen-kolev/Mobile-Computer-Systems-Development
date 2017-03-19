@@ -14,6 +14,6 @@ class User < ApplicationRecord
 
   def is_friend(object)
     return false if ! object
-    return (object.followers.include?(self) && (Connection.where(follower_id: self.id, followee_id: object.id, confirmed: true).first or  Connection.where(followee_id: self.id, follower_id: object.id, confirmed: true).first) )
+    return (Connection.where(follower_id: self.id, followee_id: object.id, confirmed: true).first or  Connection.where(followee_id: self.id, follower_id: object.id, confirmed: true).first)
   end  
 end

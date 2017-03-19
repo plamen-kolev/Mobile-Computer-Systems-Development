@@ -15,9 +15,15 @@ class ConnectionsController < ApplicationController
       blacklisted_ids.push(p.follower_id)
     end
 
-    puts blacklisted_ids
     @people = User.all.reject { |u| blacklisted_ids.include?(u.id) }
     @connection = Connection.new
+  end
+
+  def confirm
+    follower_id = params[:connections_confirm][:id].to_i
+    c = Connection.where(follower_id: follower_id, followee_id: current_user.id).first
+    c.confirm()
+    redirect_to :back
   end
 
 end

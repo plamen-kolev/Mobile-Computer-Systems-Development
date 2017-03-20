@@ -25,5 +25,19 @@ Started writing buisness case
 
 19.03.2017  11:00 - 11:30
 finished buisness case
-12:00 - 16:00
+12:00 - 17:00
 Moodboard
+
+17:00 - 22:00
+Working on the backend, created pending friendships, removed add friend if pending or self
+
+20.03.2017 06:30 - 13:00
+Learn angularjs2
+
+13:00
+Gave up implementing it in angular and research into backend sollutions
+
+14:00
+Use mailboxer ruby gem for messaging and web sockets for notification
+
+

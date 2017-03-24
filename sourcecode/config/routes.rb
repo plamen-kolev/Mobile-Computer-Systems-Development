@@ -4,8 +4,11 @@ Rails.application.routes.draw do
 
   resources :connections
 
-  get '/conversations/:id', to: 'conversations#show', as: 'conversation'
-  get '/conversations/:id/json', to: 'conversations#show_json', as: 'conversation_json'
+  resources :conversations do
+    resources :messages
+  end
+  # get '/conversations/:id', to: 'conversations#show', as: 'conversation'
+  # get '/conversations/:id/json', to: 'conversations#show_json', as: 'conversation_json'
 
   root 'pages#index'
 end

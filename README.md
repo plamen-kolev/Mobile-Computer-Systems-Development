@@ -40,4 +40,17 @@ Gave up implementing it in angular and research into backend sollutions
 14:00
 Use mailboxer ruby gem for messaging and web sockets for notification
 
+23.03.2017
+16:00 - 17:00
+Finished the users stories and business case write-up
 
+17:30-18:20
+Exported photoshop files into pdfs. Got ready the materials for the deadline submission
+
+24.03.2017
+17:30 - 20:00
+Integration of the mailerbox module for messaging between two people.
+Going through it's api and following a youtube tutorial to learn the basics
+
+20:00 - 20:30
+The basic integration is done and it is time to build more "fancy features"

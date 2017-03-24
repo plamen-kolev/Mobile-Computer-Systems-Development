@@ -7,7 +7,6 @@ class ConnectionsController < ApplicationController
 
   def index
     @pending = Connection.where(followee_id: current_user, confirmed: false)
-
     # exclude self and pending
     # sending fr request does not make sense
     blacklisted_ids = [current_user.id]

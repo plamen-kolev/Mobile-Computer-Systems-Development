@@ -17,10 +17,16 @@
   <% @people.each do | person | %>
       <div>
         <%= person.email %>
-
-        <% if person.is_friend(current_user) %>
-            <%= link_to 'chat', conversation_path(person) %>
-        <% elsif person.friendship_pending(current_user) %>
+        <% connection = person.connection(current_user) %>
+        <%# if friendship accepted check if this is a new conversation%>
+        <% if connection and connection.confirmed %>
+            
+            <% if connection.conversation_id %>
+                <%= link_to 'chat', conversation_path(person) %>
+            <% else %>
+                <%= link_to 'chat', new_conversation_path(:connection => connection.id) %>
+            <% end %>
+        <% elsif connection and not connection.confirmed %>
             pending
         <% else %>
             <%= simple_form_for @connection do |f| %>

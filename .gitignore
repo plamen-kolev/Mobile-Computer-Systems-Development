@@ -25,3 +25,4 @@ vendor/
 .vscode
 log/*
 sourcecode/config/initializers/environment.rb
+sourcecode/log/development.log

@@ -9,44 +9,48 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    @conversation = current_user.mailbox.conversations.find(params[:id])
+    connection = Connection.where(channel: params[:channel]).first
+    if ! (connection.follower_id == current_user.id or connection.followee_id == current_user.id)
+      raise "You are not associated with this conversation"
+    end
+    @channel = connection.channel
   end
 
   def new
     connection = Connection.find(params[:connection])
-    recipient = nil
-    if current_user.id == connection.followee_id
-      recipient = User.find(connection.follower_id)
-    else
-      recipient = User.find(connection.followee_id)
-    end
-    recipe = current_user.send_message(recipient, 'new conversation started', 'chat')
-    connection.conversation_id = recipe.conversation.id
-    connection.save
-    redirect_to conversation_path(recipe.conversation.id)
+    ip_messaging_client = Twilio::REST::IpMessagingClient.new(ENV['API_KEY_SID'], ENV['API_KEY_SECRET'])
+
+    # Create the channel
+    service = ip_messaging_client.services.get(ENV['IPM_SERVICE_SID'])
+
+    channel = service.channels.create()
+
+    connection.channel = channel.sid
+    connection.save()
+    redirect_to root_path
+
   end
-  # def show
 
-  #   @c = Conversation.find_or_create_by(id: params[:id])
-  #   puts @c
+  def update_last_read()
+    params.permit(:channel, :message_index)
+    sid = params[:channel]
+    mindex = params[:message_index]
 
-  #   @messages = Message.where(
-  #     "conversation_id=? AND user_id = ? OR user_id = ?", @c.id, current_user.id, @c.second_companion_id
-  #   )
-  #   .order('created_at ASC')
-  #   .paginate(:page => params[:page], :per_page => 10)
-    
-  # end
+    raise "Value error" if not sid
+    raise "Value error " if not mindex
 
-  # def show_json
-  #   @c = Conversation.find_or_create_by(id: params[:id])
+    c = Connection.where(channel: sid).first
+    raise "Unable to find entity" if not c
 
-  #   @messages = Message.where(
-  #     "conversation_id=? AND user_id = ? OR user_id = ?", @c.id, current_user.id, @c.second_companion_id
-  #   )
-  #   .order('created_at ASC')
-  #   .paginate(:page => params[:page], :per_page => 10)
+    cuser = current_user
+    if c.follower_id == current_user.id
+      c.follower_lastread_index = mindex
+      c.follower_lastread_ts = Time.now.utc.iso8601
+    else
+      c.followee_lastread_index = mindex
+      c.followee_lastread_ts = Time.now.utc.iso8601
+    end
+    c.save()
+  end
 
-  #   render json: @messages
-  # end
 end

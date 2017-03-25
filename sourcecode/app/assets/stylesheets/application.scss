@@ -16,6 +16,12 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+	
+#messages {
+    overflow: scroll; 
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
 
 .new_connection, .connections_confirm{
   display:inline-block;
@@ -23,13 +29,38 @@
 
 .message{
     display:inline-block;
-    max-width: 70%;
-}
-
-.justify-right{
-    text-align: right;
+    max-width: 100%;
 }
 
 .center{
     text-align: center;
+}
+
+[class*="message-bubble"]{
+    margin:2px;
+    clear:both;
+
+}
+
+[class*="message-bubble"] span[class="message"]{
+    padding: 5px 10px 5px 10px;
+    background-color: #f8f8f8;
+    border-radius: 14px;
+}
+
+.message-bubble-me span[class="message"]{
+    background: #96ceff;    
+}
+
+.message-bubble-you span[class="message"]{
+    background: #C9E39C;    
+}
+
+.message-bubble-me{
+    float:right;
+    text-align:right;
+}
+
+#tools textarea{
+    margin-top:10px;
 }

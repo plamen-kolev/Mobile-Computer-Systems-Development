@@ -3,12 +3,11 @@ Rails.application.routes.draw do
   match '/connections/confirm', to: 'connections#confirm', as: 'connection_confirm', :via => :post
 
   resources :connections
+  resources :conversations, param: :channel
 
-  resources :conversations do
-    resources :messages
-  end
-  # get '/conversations/:id', to: 'conversations#show', as: 'conversation'
-  # get '/conversations/:id/json', to: 'conversations#show_json', as: 'conversation_json'
+  post 'token' => "tokens#create"
+  get 'token' => "tokens#create"
+  post 'update_last_read' => 'conversations#update_last_read'
 
   root 'pages#index'
 end

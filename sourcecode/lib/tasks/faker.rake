@@ -10,9 +10,5 @@ namespace :faker do
       User.create(:email => "user#{3+i}@host", :password => 'password', :password_confirmation => 'password')
     end
 
-
-    (0..80).each do |i|
-      action = Message.create(user_id: rand(1..2), conversation_id:2, body: Faker::Hipster.paragraph)
-    end
   end
 end

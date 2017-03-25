@@ -1,21 +1,179 @@
-<div class="col-md-12 container">
-    <%= link_to 'load more', '', id: 'load_more_messages_button',class: 'btn btn-primary center', role: "button" %>
-    
-    <div id="conversation_container">
-        <% @conversation.receipts_for(current_user).each do | msg | %>
-            <div>
-                <div class=" alert  message <% if msg.receiver_id == current_user.id %>alert-info pull-right justify-right<% else %>alert-success pull-left justify-left<% end %>">
-                    <p><%= msg.message.body %></p>
-                    <span><%= msg.created_at %></span>
-                </div>
-            </div>
-        <% end %>
+<section>
+    <div class="col-md-12" id="messages"></div>
+    <div id="tools" class="col-md-12">
+        <div class="col-md-10">
+            <textarea id="chat-input" placeholder="Speak now !" class="form-control" autofocus rows="3"></textarea>
+        </div>
+        <div class="col-md-2">
+            <button id="send_button">Send</button>
+        </div>
     </div>
-</div>
+</section>
 
+<% content_for :top_scripts do %>
+    <script src="http:///media.twiliocdn.com/sdk/js/chat/v0.12/twilio-chat.js"></script>
+<% end %>
 
 <% content_for :scripts do %>
-    <script type="text/javascript">
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        // set size of messages box to the screen size
+        var messages_height = $(window).height() - $(".navbar").height() - $("#tools").height() - 40 + 'px';
+        $("#messages").css('height', messages_height);
+        $(function() {
+            // Get handle to the chat div
+            var $chatWindow = $('#messages');
 
-    </script>
+            // Our interface to the Chat service
+            var chatClient;
+
+            // A handle to the "general" chat channel - the one and only channel we
+            // will have in this sample app
+            var generalChannel;
+
+            // The server will assign the client a random username - store that value
+            // here
+            var username;
+
+            // Helper function to print info messages to the chat window
+            function print(infoMessage, asHtml) {
+                var $msg = $('<div class="info">');
+                if (asHtml) {
+                    $msg.html(infoMessage);
+                } else {
+                    $msg.text(infoMessage);
+                }
+                $chatWindow.append($msg);
+            }
+
+            // Helper function to print chat message to the chat window
+            function printMessage(fromUser, message) {
+                insert_message(message, fromUser, $chatWindow);
+            }
+
+            // Alert the user they have been assigned a random username
+
+            // Get an access token for the current user, passing a username (identity)
+            // and a device ID - for browser-based apps, we'll always just use the
+            // value "browser"
+            $.getJSON('/token', {
+                device: 'browser'
+            }, function(data) {
+                // Alert the user they have been assigned a random username
+                username = data.identity;
+                print('username: '
+                    + '<span class="me"><%= current_user.email %></span>', true);
+
+                // Initialize the Chat client
+                chatClient = new Twilio.Chat.Client(data.token);
+                chatClient.getUserChannels().then(joinChannel);
+            });
+
+            function joinChannel() {
+                // Get the general chat channel, which is where all the messages are
+                // sent in this simple application
+                print('Attempting to join chat channel <%= @channel %> ...');
+                var promise = chatClient.getChannelBySid('<%= @channel %>');
+                promise.then(function(channel) {
+                    generalChannel = channel;
+                    console.log('Found general channel:');
+                    console.log(generalChannel);
+                    setupChannel();
+                }).catch(function() {});
+            }
+
+            // Set up channel after it has been found
+        function setupChannel() {
+            // Join the general channel
+            generalChannel.join().then(function(channel) {
+                channel.getMessages(1000).then(function(messages) {
+                    //determine the newest message index
+                    
+                    var totalMessages = messages.items.length;
+                    for (i=0; i<totalMessages; i++) {
+                        var message = messages.items[i];
+                        insert_message(message, message.author, $chatWindow);
+                    }
+                    update_read_line(messages, generalChannel);
+
+                });
+            });
+
+            // Listen for new messages sent to the channel
+            generalChannel.on('messageAdded', function(message) {
+                printMessage(message.author, message.body);
+
+                generalChannel.getMessages(1000).then(function(messages){
+                    update_read_line(messages, generalChannel);
+                });
+            });
+        }
+
+        // Send a new message to the general channel
+        var $input = $('#chat-input');
+        $input.on('keydown', function(e) {
+            if (e.keyCode == 13) {
+                generalChannel.sendMessage($input.val())
+                $input.val('');
+            }
+        });
+
+        $("#send_button").click(function(){
+            generalChannel.sendMessage($input.val())
+            $input.val('');
+        });
+    });
+
+    function insert_message(message, fromUser, window){
+        body = message.body;
+        if (typeof message === 'string'){
+            body = message;
+        }
+        var float = "";
+        var colour = "message-bubble-you";
+        var author = "You: ";
+        var current_user = "<%= current_user.email %>";
+        if (fromUser === current_user){
+            float = "";
+            colour = "message-bubble-me";
+            author = "Me: ";
+        }
+        
+        window.append(
+        "<div class='message-container col-md-12 " + colour +"'>" +
+            "<div>" +
+                "<span class='message'>" + author + body + "</span>" +
+            "</div>" +
+        "</div>"
+        );
+        $("#messages").scrollTop($('#messages')[0].scrollHeight);
+        
+    }
+
+    function update_read_line(messages, channel){
+        var newestMessageIndex = messages.items.length ? 
+        messages.items.length : 0;
+        console.log(messages);
+        //check if we we need to set the consumption horizon
+        
+        if (channel.lastConsumedMessageIndex !== newestMessageIndex) {
+            channel.updateLastConsumedMessageIndex(newestMessageIndex);
+            update_last_read(channel, newestMessageIndex);
+        }
+        console.log("Last consumed message: " + channel.lastConsumedMessageIndex);
+    }
+
+    function update_last_read(channel, newestMessageIndex){
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:3000/update_last_read",
+                data: {
+                    "channel" : channel.sid,
+                    "message_index" : newestMessageIndex
+                },
+                dataType: "json"
+            });
+    }
+    });
+</script>
 <% end %>

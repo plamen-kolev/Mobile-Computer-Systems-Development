@@ -21,8 +21,8 @@
         <%# if friendship accepted check if this is a new conversation%>
         <% if connection and connection.confirmed %>
             
-            <% if connection.conversation_id %>
-                <%= link_to 'chat', conversation_path(person) %>
+            <% if connection.channel %>
+                <%= link_to 'chat', conversation_path(connection.channel) %>
             <% else %>
                 <%= link_to 'chat', new_conversation_path(:connection => connection.id) %>
             <% end %>

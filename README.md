@@ -54,3 +54,22 @@ Going through it's api and following a youtube tutorial to learn the basics
 
 20:00 - 20:30
 The basic integration is done and it is time to build more "fancy features"
+
+25.03.2017
+06:30 - 8:30
+Mailboxer does not provide realtime chat features, decided to go with integrating an api solution.
+Twillio has a beta programmable chat, spent 2 hours integrating it into the app.
+Will spend more to yank mailboxer completely.
+Have to implement the logic for creating a conversation
+Also making the scope of the conversation private
+
+9:30 - 11:00
+Integrated messaging scopes, still getting javascript errors during onload events
+Upnext, working on creating the message read properties. Currently finishing the tests with multiple users communicating with each other
+
+15:00 - 18:00
+Working on creating a way to indicate a reading point for each user, every message up to that will be considered as "message ignored"
+Building a javascript call to keep track of channel read status and adding a backend method for updating the up-to messages index.
+
+18:30 - 19:30
+Worked on styling the chatbox so it does not look horrible

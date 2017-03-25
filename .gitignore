@@ -24,3 +24,4 @@ vendor/
 .idea
 .vscode
 log/*
+sourcecode/config/initializers/environment.rb

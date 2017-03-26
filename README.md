@@ -73,3 +73,6 @@ Building a javascript call to keep track of channel read status and adding a bac
 
 18:30 - 19:30
 Worked on styling the chatbox so it does not look horrible
+
+21:00 - 22:19
+Playing with css styling

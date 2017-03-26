@@ -9,11 +9,11 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    connection = Connection.where(channel: params[:channel]).first
-    if ! (connection.follower_id == current_user.id or connection.followee_id == current_user.id)
+    @connection = Connection.where(channel: params[:channel]).first
+    if ! (@connection.follower_id == current_user.id or @connection.followee_id == current_user.id)
       raise "You are not associated with this conversation"
     end
-    @channel = connection.channel
+    @channel = @connection.channel
   end
 
   def new

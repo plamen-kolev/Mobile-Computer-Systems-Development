@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170325155709) do
+ActiveRecord::Schema.define(version: 20170326140539) do
 
   create_table "connections", force: :cascade do |t|
     t.boolean  "confirmed",               default: false
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20170325155709) do
     t.integer  "follower_lastread_index"
     t.datetime "followee_lastread_ts"
     t.datetime "follower_lastread_ts"
+    t.integer  "follower_karma"
+    t.integer  "followee_karma"
   end
 
   create_table "users", force: :cascade do |t|

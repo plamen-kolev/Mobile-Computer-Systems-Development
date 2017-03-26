@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'token' => "tokens#create"
   get 'token' => "tokens#create"
   post 'update_last_read' => 'conversations#update_last_read'
+  post 'emoticons' => 'conversations#get_emoticons#'
 
   root 'pages#index'
 end

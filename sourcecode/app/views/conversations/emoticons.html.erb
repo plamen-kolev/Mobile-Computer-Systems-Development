@@ -1,0 +1,6 @@
+
+<div class="emoticon_container">
+    <% @images.each do |image| %>
+        <%= image_tag image.gsub("app/assets/images/", ""), size: "30x30" %>
+    <% end %>
+</div>

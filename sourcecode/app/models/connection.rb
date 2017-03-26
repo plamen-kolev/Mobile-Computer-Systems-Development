@@ -18,4 +18,16 @@ class Connection < ApplicationRecord
       return User.find(self.follower_id)
     end
   end
+
+  def get_karma(current_user)
+    
+    curr_user_id = current_user.id
+    if self.follower_id == curr_user_id
+      
+      return self.follower_karma
+    else
+      
+      return self.followee_karma
+    end
+  end
 end

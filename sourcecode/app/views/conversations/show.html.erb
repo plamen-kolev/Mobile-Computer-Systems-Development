@@ -1,28 +1,104 @@
 <section>
     <div class="col-md-12 container">
-        <p id="partner_name"><%= @connection.get_other(current_user).email %></h1>
+        <p class="tool_container" id="partner_name"><%= @connection.get_other(current_user).email %></p>
     
     </div>
 
     <div class="col-md-12 container" id="messages"></div>
 
-    <div id="tools" class="input-group col-md-12 container">
-        <textarea placeholder="Say it !" id="chat-input" class="form-control custom-control" rows="3" style="resize:none"></textarea>     
-        <span id="send_button" class="input-group-addon btn btn-primary">Send</span>
+    <div id="tools" class="col-md-12 container">
+        <div id="emoticon_container" class="tool_container col-md-12">
+            <%= image_tag "emoticons/1f600.svg",  size: "35x35", id: "good-emoticons"  %>
+            <%= image_tag "emoticons/1f616.svg",  size: "35x35", id: "rude-emoticons"  %>
+            <span>Karma: <%= @connection.get_karma(current_user) %></span> 
+        </div>
+
+        <div class="col-md-12 container">
+            <input class="btn btn-primary" type="submit"value="Send" style="float: right" id="send_button" />
+            <div placeholder="Say it !" style="overflow: hidden; padding-right: .5em;">
+                <textarea id="chat-input" class="form-control custom-control" type="text" style="width: 100%;" ></textarea>
+            </div>​
+        </div>
+     
+       
     </div>
 
 </section>
 
 <% content_for :top_scripts do %>
     <script src="http:///media.twiliocdn.com/sdk/js/chat/v0.12/twilio-chat.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether-drop/1.4.2/js/drop.min.js"></script>
+
+<% end %>
+
+<% content_for :links do %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether-drop/1.4.2/css/drop-theme-arrows.min.css"/>
 <% end %>
 
 <% content_for :scripts do %>
+
 <script>
     document.addEventListener("DOMContentLoaded", function(event) { 
+        var content = "";
+        <% @good_emoticons.each do |image| %>
+            <% @image_url = image.gsub('app/assets/images/', '') %>
+            <% @image_id = image.gsub(/[\/.-]/, '_') %>
+            content += '<%= image_tag @image_url, size: '30x30', id: @image_id %>'
+        <% end %>
+
+        var rude_content = ""
+        <% @rude_emoticons.each do |image| %>
+            <% @image_url = image.gsub('app/assets/images/', '') %>
+            <% @image_id = image.gsub(/[\/.-]/, '_') %>
+            rude_content += '<%= image_tag @image_url, size: '30x30', id: @image_id %>'
+        <% end %>
+
+        drop = new Drop({
+            target: document.querySelector('#good-emoticons'),
+            content:"<div class='emoticon_container'>" + content + "</div>",
+            position: 'bottom left',
+            openOn: 'click'
+        });
+
+        drop = new Drop({
+            target: document.querySelector('#rude-emoticons'),
+            content:"<div class='emoticon_container'>" + rude_content + "</div>",
+            position: 'bottom left',
+            openOn: 'click'
+        });
+
+        var good_initialised = false;
+        $("#good-emoticons").click(function(){
+            if (!good_initialised){
+                <% @good_emoticons.each do |image| %>
+                    <% @image_id = image.gsub(/[\/.-]/, '_') %>
+                    $("#<%= @image_id%>").click(function(){
+                        $('#chat-input').val($('#chat-input').val() + $("#" + this.id).prop('outerHTML'));
+                    });
+                <% end %>
+            }
+            good_initialised = true;
+        })
+
+        var rude_init = false;
+        $("#rude-emoticons").click(function(){
+            if (!rude_init){
+                <% @rude_emoticons.each do |image| %>
+                    <% @image_id = image.gsub(/[\/.-]/, '_') %>
+                    $("#<%= @image_id%>").click(function(){
+                        $('#chat-input').val($('#chat-input').val() + $("#" + this.id).prop('outerHTML'));
+                    });
+                <% end %>
+            }
+            rude_init = true;
+        })
+
         // set size of messages box to the screen size
         var messages_height = $(window).height() - $(".navbar").height() - $("#tools").height() - $("#partner_name").height() - 40 + 'px';
         $("#messages").css('height', messages_height);
+        $(".emoticon_container").css('height', messages_height);
+
         $(function() {
             // Get handle to the chat div
             var $chatWindow = $('#messages');

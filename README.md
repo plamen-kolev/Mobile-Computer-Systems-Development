@@ -76,3 +76,13 @@ Worked on styling the chatbox so it does not look horrible
 
 21:00 - 22:19
 Playing with css styling
+
+26.03.2017
+07:30 - 09:30
+Played with the styling of the send button.
+Integrated drop.js into the emoji buttons to open the emoji panels.
+Backend and frontend emogi display
+
+12:00 - 15:00
+Added callbacks when emojis are clicked to register send events, made it possible to send emjoi messages
+Added the karma system, but nothing happens yet

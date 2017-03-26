@@ -13,6 +13,8 @@ class ConversationsController < ApplicationController
     if ! (@connection.follower_id == current_user.id or @connection.followee_id == current_user.id)
       raise "You are not associated with this conversation"
     end
+    @rude_emoticons = Dir.glob("app/assets/images/rude_emoticons/*.svg")
+    @good_emoticons = Dir.glob("app/assets/images/emoticons/*.svg")
     @channel = @connection.channel
   end
 
@@ -29,6 +31,18 @@ class ConversationsController < ApplicationController
     connection.save()
     redirect_to root_path
 
+  end
+
+  def get_emoticons()
+    params.permit(:emoticons)
+    emoticon_type = params[:emoticons]
+
+    empath = "emoticons"
+    if emoticon_type == "bad"
+      empath = "rude_emoticons"
+    end
+    @images = Dir.glob("app/assets/images/#{empath}/*.svg")
+    render template: "conversations/emoticons", :layout => false
   end
 
   def update_last_read()

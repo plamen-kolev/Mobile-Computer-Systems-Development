@@ -19,6 +19,25 @@ class Connection < ApplicationRecord
     end
   end
 
+  def self.get_by_user(user, channel)
+    current_user = user.id
+    return self.where(follower_id: current_user, channel: channel).or(self.where(followee_id: current_user, channel: channel)).first
+  end
+
+  def subtract_karma(current_user, karma)
+    current_user_id = current_user.id
+    current_karma = 0
+    if self.follower_id == current_user_id
+      self.follower_karma -= karma.to_i
+      current_karma = self.follower_karma
+    else
+      self.followee_karma -= karma.to_i
+      current_karma = self.followee_karma
+    end
+    self.save()
+    return current_karma.to_i
+  end
+
   def get_karma(current_user)
     
     curr_user_id = current_user.id

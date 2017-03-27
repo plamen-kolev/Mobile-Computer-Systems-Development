@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   post 'token' => "tokens#create"
   get 'token' => "tokens#create"
   post 'update_last_read' => 'conversations#update_last_read'
-  post 'emoticons' => 'conversations#get_emoticons#'
+
+  post "send_negative_emoticon" => 'conversations#send_negative_emoticon'
+  
+  get 'render_rude_emoticons/:channel' => 'conversations#render_rude_emoticons'
+  get 'render_good_emoticons/' => 'conversations#render_good_emoticons'
 
   root 'pages#index'
 end

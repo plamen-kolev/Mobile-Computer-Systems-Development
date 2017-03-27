@@ -86,3 +86,11 @@ Backend and frontend emogi display
 12:00 - 15:00
 Added callbacks when emojis are clicked to register send events, made it possible to send emjoi messages
 Added the karma system, but nothing happens yet
+
+27.03.2017
+7:00-9:00
+Removed dropjs as it was causing dom issues.
+Replaced it with own module to toggle chat emoticons.
+Also moved the horrible mess of javascript I wrote to reusable modular chunks and functions.
+
+Moved most of the rendering logic to backend rails calls, js does a post request

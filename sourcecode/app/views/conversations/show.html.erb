@@ -10,7 +10,13 @@
         <div id="emoticon_container" class="tool_container col-md-12">
             <%= image_tag "emoticons/1f600.svg",  size: "35x35", id: "good-emoticons"  %>
             <%= image_tag "emoticons/1f616.svg",  size: "35x35", id: "rude-emoticons"  %>
-            <span>Karma: <%= @connection.get_karma(current_user) %></span> 
+            <span>Karma: <span id="karma_val"><%= @connection.get_karma(current_user) %></span></span> 
+        </div>
+        
+        <div class="drop-content" id="good-emoticons-container">
+        </div>
+
+        <div class="drop-content" id="rude-emoticons-container">
         </div>
 
         <div class="col-md-12 container">
@@ -27,77 +33,34 @@
 
 <% content_for :top_scripts do %>
     <script src="http:///media.twiliocdn.com/sdk/js/chat/v0.12/twilio-chat.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether-drop/1.4.2/js/drop.min.js"></script>
 
 <% end %>
 
 <% content_for :links do %>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tether-drop/1.4.2/css/drop-theme-arrows.min.css"/>
 <% end %>
 
 <% content_for :scripts do %>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function(event) { 
-        var content = "";
-        <% @good_emoticons.each do |image| %>
-            <% @image_url = image.gsub('app/assets/images/', '') %>
-            <% @image_id = image.gsub(/[\/.-]/, '_') %>
-            content += '<%= image_tag @image_url, size: '30x30', id: @image_id %>'
-        <% end %>
+    $(document).ready(function() {
 
-        var rude_content = ""
-        <% @rude_emoticons.each do |image| %>
-            <% @image_url = image.gsub('app/assets/images/', '') %>
-            <% @image_id = image.gsub(/[\/.-]/, '_') %>
-            rude_content += '<%= image_tag @image_url, size: '30x30', id: @image_id %>'
-        <% end %>
-
-        drop = new Drop({
-            target: document.querySelector('#good-emoticons'),
-            content:"<div class='emoticon_container'>" + content + "</div>",
-            position: 'bottom left',
-            openOn: 'click'
+        $.ajax("/render_good_emoticons", {
+            success: function(data) {
+                render_emoticons(data, '#good-emoticons')
+            },
+            error: function() {
+                console.log("error");
+            }
         });
 
-        drop = new Drop({
-            target: document.querySelector('#rude-emoticons'),
-            content:"<div class='emoticon_container'>" + rude_content + "</div>",
-            position: 'bottom left',
-            openOn: 'click'
+        $.ajax("/render_rude_emoticons/<%= @connection.channel %>", {
+            success: function(data) {
+                render_emoticons(data, '#rude-emoticons')
+            },
+            error: function() {
+                console.log("error");
+            }
         });
-
-        var good_initialised = false;
-        $("#good-emoticons").click(function(){
-            if (!good_initialised){
-                <% @good_emoticons.each do |image| %>
-                    <% @image_id = image.gsub(/[\/.-]/, '_') %>
-                    $("#<%= @image_id%>").click(function(){
-                        $('#chat-input').val($('#chat-input').val() + $("#" + this.id).prop('outerHTML'));
-                    });
-                <% end %>
-            }
-            good_initialised = true;
-        })
-
-        var rude_init = false;
-        $("#rude-emoticons").click(function(){
-            if (!rude_init){
-                <% @rude_emoticons.each do |image| %>
-                    <% @image_id = image.gsub(/[\/.-]/, '_') %>
-                    $("#<%= @image_id%>").click(function(){
-                        $('#chat-input').val($('#chat-input').val() + $("#" + this.id).prop('outerHTML'));
-                    });
-                <% end %>
-            }
-            rude_init = true;
-        })
-
-        // set size of messages box to the screen size
-        var messages_height = $(window).height() - $(".navbar").height() - $("#tools").height() - $("#partner_name").height() - 40 + 'px';
-        $("#messages").css('height', messages_height);
-        $(".emoticon_container").css('height', messages_height);
 
         $(function() {
             // Get handle to the chat div
@@ -153,8 +116,6 @@
                 var promise = chatClient.getChannelBySid('<%= @channel %>');
                 promise.then(function(channel) {
                     generalChannel = channel;
-                    console.log('Found general channel:');
-                    console.log(generalChannel);
                     setupChannel();
                 }).catch(function() {});
             }
@@ -163,7 +124,7 @@
         function setupChannel() {
             // Join the general channel
             generalChannel.join().then(function(channel) {
-                channel.getMessages(1000).then(function(messages) {
+                channel.getMessages(1).then(function(messages) {
                     //determine the newest message index
                     
                     var totalMessages = messages.items.length;
@@ -230,14 +191,14 @@
     function update_read_line(messages, channel){
         var newestMessageIndex = messages.items.length ? 
         messages.items.length : 0;
-        console.log(messages);
+        <%#console.log(messages);%>
         //check if we we need to set the consumption horizon
         
         if (channel.lastConsumedMessageIndex !== newestMessageIndex) {
             channel.updateLastConsumedMessageIndex(newestMessageIndex);
             update_last_read(channel, newestMessageIndex);
         }
-        console.log("Last consumed message: " + channel.lastConsumedMessageIndex);
+        <%#console.log("Last consumed message: " + channel.lastConsumedMessageIndex);%>
     }
 
     function update_last_read(channel, newestMessageIndex){

@@ -118,13 +118,12 @@
     max-width: 89%;
     padding:2px;
     width:252px;
-    height:300px;
+    max-height:300px;
     overflow-y: scroll;
     -webkit-box-shadow: -5px 15px 21px -13px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: -5px 15px 21px -13px rgba(0, 0, 0, 0.75);
     box-shadow: -5px 15px 21px -13px rgba(0, 0, 0, 0.75);
         border: 2px solid #96ceff;
-    margin-bottom: 32px;
     margin-right: 0px;
   
 }
@@ -145,4 +144,20 @@
 #send_button{
     height: 53px;
     background: #4793d5;
+}
+
+#good-emoticons-container, #rude-emoticons-container{
+    position: absolute;
+    z-index: 2;
+    
+}
+
+#good-emoticons-container{
+    top: -284px;
+    display: none;
+}
+
+#rude-emoticons-container{
+    top: -145px;
+    display: none;
 }

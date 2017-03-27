@@ -14,5 +14,7 @@ Rails.application.routes.draw do
   get 'render_rude_emoticons/:channel' => 'conversations#render_rude_emoticons'
   get 'render_good_emoticons/' => 'conversations#render_good_emoticons'
 
+  post "delete_message" => "conversations#delete_message"
+
   root 'pages#index'
 end

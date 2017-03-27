@@ -40,9 +40,16 @@
 <% end %>
 
 <% content_for :scripts do %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.5.4/jquery.timeago.min.js"></script>
 
 <script>
+    
     $(document).ready(function() {
+
+        // set size of messages box to the screen size
+        var messages_height = $(window).height() - $(".navbar").height() - $("#tools").height() - $("#partner_name").height() - 40 + 'px';
+        $("#messages").css('height', messages_height);
+        $(".emoticon_container").css('height', messages_height);
 
         $.ajax("/render_good_emoticons", {
             success: function(data) {
@@ -65,6 +72,7 @@
         $(function() {
             // Get handle to the chat div
             var $chatWindow = $('#messages');
+            var session_messages = [];
 
             // Our interface to the Chat service
             var chatClient;
@@ -88,11 +96,6 @@
                 $chatWindow.append($msg);
             }
 
-            // Helper function to print chat message to the chat window
-            function printMessage(fromUser, message) {
-                insert_message(message, fromUser, $chatWindow);
-            }
-
             // Alert the user they have been assigned a random username
 
             // Get an access token for the current user, passing a username (identity)
@@ -106,7 +109,7 @@
 
                 // Initialize the Chat client
                 chatClient = new Twilio.Chat.Client(data.token);
-                chatClient.getUserChannels().then(joinChannel);
+                chatClient.getUserChannels().then(joinChannel(session_messages));
             });
 
             function joinChannel() {
@@ -116,12 +119,12 @@
                 var promise = chatClient.getChannelBySid('<%= @channel %>');
                 promise.then(function(channel) {
                     generalChannel = channel;
-                    setupChannel();
+                    setupChannel(session_messages);
                 }).catch(function() {});
             }
 
             // Set up channel after it has been found
-        function setupChannel() {
+        function setupChannel(session_messages) {
             // Join the general channel
             generalChannel.join().then(function(channel) {
                 channel.getMessages(1).then(function(messages) {
@@ -130,19 +133,22 @@
                     var totalMessages = messages.items.length;
                     for (i=0; i<totalMessages; i++) {
                         var message = messages.items[i];
-                        insert_message(message, message.author, $chatWindow);
+                        insert_message(messages, $chatWindow);
                     }
-                    update_read_line(messages, generalChannel);
+                    last_message_sid = messages.items[messages.items.length - 1].sid;
+                    session_messages = messages.items;
+                    update_read_line(messages, generalChannel, session_messages);
 
                 });
             });
 
             // Listen for new messages sent to the channel
             generalChannel.on('messageAdded', function(message) {
-                printMessage(message.author, message.body);
+                
 
-                generalChannel.getMessages(1000).then(function(messages){
-                    update_read_line(messages, generalChannel);
+                generalChannel.getMessages(1).then(function(messages){
+                    insert_message(messages, $chatWindow );
+                    update_read_line(messages, generalChannel, session_messages);
                 });
             });
         }
@@ -162,25 +168,28 @@
         });
     });
 
-    function insert_message(message, fromUser, window){
+    function insert_message(messages, window){
+        message = messages.items[messages.items.length - 1]
         body = message.body;
-        if (typeof message === 'string'){
-            body = message;
-        }
+        author_string = message.author;
+        sid_string = message.sid
+        var timestamp = message.timestamp;
         var float = "";
         var colour = "message-bubble-you";
-        var author = "You: ";
+        var author = author_string + ": <br/>";
         var current_user = "<%= current_user.email %>";
-        if (fromUser === current_user){
+        if (message.author === current_user){
             float = "";
             colour = "message-bubble-me";
-            author = "Me: ";
+            <%#author = "Me: ";%>
         }
         
+        // if local message is string, set current timestamp
+
         window.append(
         "<div class='message-container col-md-12 " + colour +"'>" +
             "<div>" +
-                "<span class='message'>" + author + body + "</span>" +
+                "<span class='message'>" + author + "<span id='message_body_"+sid_string+"'>" + body + "</span><br/><span class='msg_timestamp'>" + jQuery.timeago(timestamp) + "</span></span>" +
             "</div>" +
         "</div>"
         );
@@ -188,30 +197,75 @@
         
     }
 
-    function update_read_line(messages, channel){
-        var newestMessageIndex = messages.items.length ? 
-        messages.items.length : 0;
-        <%#console.log(messages);%>
-        //check if we we need to set the consumption horizon
-        
-        if (channel.lastConsumedMessageIndex !== newestMessageIndex) {
-            channel.updateLastConsumedMessageIndex(newestMessageIndex);
-            update_last_read(channel, newestMessageIndex);
+    function ignoring_you(session_messages){
+        // if no messages, assume not ignoring
+        if (!session_messages.length){
+            return true;
         }
-        <%#console.log("Last consumed message: " + channel.lastConsumedMessageIndex);%>
+        the_message = null;
+        for(var i=0;i < session_messages.length; i++){
+            if (session_messages[i].sid == last_message_sid){
+                the_message = session_messages[i];
+                for(var j=i+1; j < session_messages.length; j++){
+                    if(session_messages[j].author === "<%= current_user.email %>" && session_messages[j].body != "IGNORED !"){
+                        console.log("found a response, will modify msg !");
+                        return false;
+                    } else {
+                        console.log("Found ignored msg, skipping");
+                    }
+                }
+            }
+        }
+        $("#message_body_"+the_message.sid).html("IGNORED !");
+        return true
     }
 
-    function update_last_read(channel, newestMessageIndex){
-            $.ajax({
-                type: "POST",
-                url: "http://localhost:3000/update_last_read",
-                data: {
-                    "channel" : channel.sid,
-                    "message_index" : newestMessageIndex
-                },
-                dataType: "json"
-            });
+    function update_read_line(messages, channel, session_messages){
+        var last_message = messages.items[messages.items.length - 1];
+        if (last_message.sid !== "<%= @connection.get_last_read(current_user) %>"){
+            last_message_sid = last_message.sid;
+            _update_last_read(channel, last_message.sid);
+            session_messages.push(last_message);
+            
+            check_for_deletion = setTimeout(function(){
+                // if last seen message is me, do not delete
+                // if last seen message is the correspondent, mark that message for deletion
+                
+                console.log(session_messages);
+                console.log("Last seen message is: " + last_message_sid);
+
+                if (ignoring_you(session_messages)){
+                    $.ajax({
+                        type: "POST",
+                        url: "http://localhost:3000/delete_message",
+                        data: {
+                            "channel" : channel.sid,
+                            "sid" : last_message_sid
+                        },
+                        dataType: "json"
+                    });
+                }
+                clearTimeout(check_for_deletion);
+            }, 10000);
+            // after updating the read line, check if person responded within timeout
+            
+        } else { }
+    }
+
+    function _update_last_read(channel, message_sid){
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:3000/update_last_read",
+            data: {
+                "channel" : channel.sid,
+                "message_sid" : message_sid
+            },
+            dataType: "json"
+        });
     }
     });
+   
+   // func to delete a message if the message has been ignored
+
 </script>
 <% end %>

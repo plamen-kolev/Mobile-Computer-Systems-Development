@@ -16,11 +16,6 @@
 //= require_tree .
 //= require bootstrap-sprockets
 
-        // set size of messages box to the screen size
-        var messages_height = $(window).height() - $(".navbar").height() - $("#tools").height() - $("#partner_name").height() - 40 + 'px';
-        $("#messages").css('height', messages_height);
-        $(".emoticon_container").css('height', messages_height);
-
 function send_negative_emoticon(image, channel){
     $.ajax({
         type: "POST",

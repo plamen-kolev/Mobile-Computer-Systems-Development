@@ -94,3 +94,13 @@ Replaced it with own module to toggle chat emoticons.
 Also moved the horrible mess of javascript I wrote to reusable modular chunks and functions.
 
 Moved most of the rendering logic to backend rails calls, js does a post request
+
+10:00 - 12:00
+
+The ignore feature has been added now,
+Added api call that deletes a message on the back end, it also gets called
+
+Next up - update rude emoticons when karma is gained or used
+Fix bug with inserting emoticons
+Notify upon karma gain
+Implement search functionality

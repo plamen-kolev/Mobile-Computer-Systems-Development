@@ -21,10 +21,12 @@ ActiveRecord::Schema.define(version: 20170326140539) do
     t.string   "channel"
     t.integer  "followee_lastread_index"
     t.integer  "follower_lastread_index"
+    t.string   "followee_lastread_sid"
+    t.string   "follower_lastread_sid"
     t.datetime "followee_lastread_ts"
     t.datetime "follower_lastread_ts"
-    t.integer  "follower_karma"
-    t.integer  "followee_karma"
+    t.integer  "follower_karma",          default: 0
+    t.integer  "followee_karma",          default: 0
   end
 
   create_table "users", force: :cascade do |t|

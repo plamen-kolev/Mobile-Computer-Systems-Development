@@ -41,7 +41,17 @@ class ConversationsController < ApplicationController
       render_emoticons_to_html(@emoticons, true, params[:channel])
   end
 
-  def send_negative_emoticon()
+  def delete_message
+    params.require(:sid)
+    params.require(:channel)
+    ip_messaging_client = Twilio::REST::IpMessagingClient.new(ENV['API_KEY_SID'], ENV['API_KEY_SECRET'])
+    service = ip_messaging_client.services.get(ENV['IPM_SERVICE_SID'])
+    channel = service.channels.get(params[:channel])
+    message = channel.messages.get(params[:sid])
+    message.update(body: 'IGNORED !')
+  end
+
+  def send_negative_emoticon
     params.require(:emoticon_id)
     params.require(:channel)
     emoticon_id = params[:emoticon_id].to_i
@@ -53,23 +63,23 @@ class ConversationsController < ApplicationController
     render :json => msg
   end
 
-  def update_last_read()
-    params.permit(:channel, :message_index)
+  def update_last_read
+    params.permit(:channel, :message_sid)
     sid = params[:channel]
-    mindex = params[:message_index]
+    msid = params[:message_sid]
 
     raise "Value error" if not sid
-    raise "Value error " if not mindex
+    raise "Value error " if not msid
 
     c = Connection.where(channel: sid).first
     raise "Unable to find entity" if not c
 
     cuser = current_user
     if c.follower_id == current_user.id
-      c.follower_lastread_index = mindex
+      c.follower_lastread_sid = msid
       c.follower_lastread_ts = Time.now.utc.iso8601
     else
-      c.followee_lastread_index = mindex
+      c.followee_lastread_sid = msid
       c.followee_lastread_ts = Time.now.utc.iso8601
     end
     c.save()

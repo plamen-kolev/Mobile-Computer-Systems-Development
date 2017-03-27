@@ -10,6 +10,16 @@ class Connection < ApplicationRecord
     return User.find(self.follower_id)
   end
 
+  def get_last_read(current_user)
+    curr_user_id = current_user.id
+    if self.follower_id == curr_user_id
+      return self.follower_lastread_sid
+    else
+      return self.followee_lastread_sid
+    end
+
+  end
+
   def get_other(current_user)
     curr_user_id = current_user.id
     if self.follower_id == curr_user_id

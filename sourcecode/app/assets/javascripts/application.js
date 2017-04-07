@@ -49,23 +49,3 @@ function render_emoticons(html, element_target){
     // add event listeners
     
 }
-
-var setup_onclick_events = false
-$('#emoticon_container > img').click(function(){
-    if (!setup_onclick_events){
-        $(".emoticon_container img").each(function(){
-            // add onclick event, enables taking out karma and sending emote to input box
-            $(this).on("click", function(){
-                // check if parent container is a rude emoticon, if so, trigger karma reduction
-                var is_rude_emoticon = ($(this).parent().parent().is('#rude-emoticons-container'));
-                
-                $('#chat-input').val($('#chat-input').val() + $("#" + this.id).prop('outerHTML'));
-                if (is_rude_emoticon){
-                    send_negative_emoticon(this.id, "<%= @connection.channel %>")
-                }
-            });
-        });
-        
-    }
-    setup_onclick_events = true;
-});

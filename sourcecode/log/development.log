@@ -40542,3 +40542,2189 @@ No template found for ConversationsController#delete_message, rendering head :no
 Completed 204 No Content in 893ms (ActiveRecord: 1.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:17:28 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (6.0ms)
+  Rendered layouts/_header.html.erb (10.5ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 2316ms (Views: 2292.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:18:01 +0100
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (2.0ms)
+  Rendered layouts/_header.html.erb (5.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 73887ms (Views: 272.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/connections" for ::1 at 2017-03-28 21:20:59 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ConnectionsController#index as HTML
+Completed 401 Unauthorized in 24ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-28 21:21:00 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/hallagat/.gem/ruby/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/hallagat/.gem/ruby/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (1.1ms)
+  Rendered /home/hallagat/.gem/ruby/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application (19.8ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 3055ms (Views: 3044.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/connections" for ::1 at 2017-03-28 21:21:07 +0100
+Processing by ConnectionsController#index as HTML
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-28 21:21:07 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/hallagat/.gem/ruby/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/hallagat/.gem/ruby/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (2.1ms)
+  Rendered /home/hallagat/.gem/ruby/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application (20.2ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 120ms (Views: 114.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2017-03-28 21:21:15 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dHCh3Iy2OWBGJ/MOLQKH2zK+e6DvLbdBhbrGPL8yWMX1QJehmLJyBLQMzCD5mAHF5rQVwG53lj63WuJzDETdSA==", "user"=>{"email"=>"local@host", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "local@host"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-03-28 20:21:16 UTC], ["last_sign_in_at", 2017-03-27 10:08:13 UTC], ["current_sign_in_ip", "::1"], ["sign_in_count", 66], ["updated_at", 2017-03-28 20:21:16 UTC], ["id", 1]]
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/connections
+Completed 302 Found in 199ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/connections" for ::1 at 2017-03-28 21:21:16 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.7ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (103.7ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 298ms (Views: 248.1ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-28 21:21:21 +0100
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (2.1ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 136ms (Views: 129.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2017-03-28 21:23:09 +0100
+  
+NameError (undefined local variable or method `map' for #<ActionDispatch::Routing::Mapper:0x007f6073687ec0>
+Did you mean?  map_match
+               map_method
+               tap):
+  
+config/routes.rb:20:in `block in <top (required)>'
+config/routes.rb:1:in `<top (required)>'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.4ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (28.2ms)
+Started GET "/" for ::1 at 2017-03-28 21:23:53 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (14.1ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 185ms (Views: 135.1ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/" for ::1 at 2017-03-28 21:23:55 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (15.0ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 100ms (Views: 90.3ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/connections" for ::1 at 2017-03-28 21:23:58 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.8ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (4.0ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (52.3ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 166ms (Views: 130.2ms | ActiveRecord: 14.8ms)
+
+
+Started GET "/conversations/CHecc8a2257d104181983e98d611d4fb3d" for ::1 at 2017-03-28 21:24:04 +0100
+Processing by ConversationsController#show as HTML
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.7ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering conversations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered conversations/show.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 125ms (Views: 88.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/render_good_emoticons" for ::1 at 2017-03-28 21:24:04 +0100
+Processing by ConversationsController#render_good_emoticons as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/render_rude_emoticons/CHecc8a2257d104181983e98d611d4fb3d" for ::1 at 2017-03-28 21:24:04 +0100
+Started GET "/token?device=browser" for ::1 at 2017-03-28 21:24:04 +0100
+Processing by ConversationsController#render_rude_emoticons as */*
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (7.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering html template
+  Rendered html template (0.2ms)
+Completed 200 OK in 55ms (Views: 13.7ms | ActiveRecord: 8.1ms)
+
+
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 146ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Processing by TokensController#create as JSON
+  Parameters: {"device"=>"browser"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/conversations/CHecc8a2257d104181983e98d611d4fb3d" for ::1 at 2017-03-28 21:26:11 +0100
+Processing by ConversationsController#show as HTML
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.8ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering conversations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered conversations/show.html.erb within layouts/application (18.2ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 154ms (Views: 125.5ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/render_good_emoticons" for ::1 at 2017-03-28 21:26:12 +0100
+Processing by ConversationsController#render_good_emoticons as */*
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/render_rude_emoticons/CHecc8a2257d104181983e98d611d4fb3d" for ::1 at 2017-03-28 21:26:12 +0100
+  Rendering html template
+Processing by ConversationsController#render_rude_emoticons as */*
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  Rendered html template (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/token?device=browser" for ::1 at 2017-03-28 21:26:12 +0100
+Completed 200 OK in 84ms (Views: 10.4ms | ActiveRecord: 0.8ms)
+
+
+  [1m[36mConnection Load (0.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering html template
+Processing by TokensController#create as JSON
+  Rendered html template (0.1ms)
+  Parameters: {"device"=>"browser"}
+Completed 200 OK in 38ms (Views: 5.1ms | ActiveRecord: 0.8ms)
+
+
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/conversations/CHecc8a2257d104181983e98d611d4fb3d" for ::1 at 2017-03-28 21:26:18 +0100
+Processing by ConversationsController#show as HTML
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering conversations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered conversations/show.html.erb within layouts/application (9.8ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 175ms (Views: 158.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/render_good_emoticons" for ::1 at 2017-03-28 21:26:21 +0100
+Processing by ConversationsController#render_good_emoticons as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering html template
+Started GET "/render_rude_emoticons/CHecc8a2257d104181983e98d611d4fb3d" for ::1 at 2017-03-28 21:26:21 +0100
+Processing by ConversationsController#render_rude_emoticons as */*
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  Rendered html template (0.1ms)
+Started GET "/token?device=browser" for ::1 at 2017-03-28 21:26:21 +0100
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 54ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+
+
+Processing by TokensController#create as JSON
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Parameters: {"device"=>"browser"}
+  Rendering html template
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered html template (0.1ms)
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+Completed 200 OK in 48ms (Views: 8.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/conversations/CHecc8a2257d104181983e98d611d4fb3d" for ::1 at 2017-03-28 21:31:56 +0100
+Processing by ConversationsController#show as HTML
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.0ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering conversations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered conversations/show.html.erb within layouts/application (14.2ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 266ms (Views: 239.2ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/render_good_emoticons" for ::1 at 2017-03-28 21:31:58 +0100
+Processing by ConversationsController#render_good_emoticons as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering html template
+Started GET "/token?device=browser" for ::1 at 2017-03-28 21:31:58 +0100
+Processing by TokensController#create as JSON
+Started GET "/render_rude_emoticons/CHecc8a2257d104181983e98d611d4fb3d" for ::1 at 2017-03-28 21:31:58 +0100
+  Parameters: {"device"=>"browser"}
+  Rendered html template (0.1ms)
+Processing by ConversationsController#render_rude_emoticons as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+
+
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+Completed 200 OK in 72ms (Views: 19.9ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering html template
+  Rendered html template (0.1ms)
+Completed 200 OK in 33ms (Views: 0.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/conversations/CHecc8a2257d104181983e98d611d4fb3d" for ::1 at 2017-03-28 21:32:36 +0100
+Processing by ConversationsController#show as HTML
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.0ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.6ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering conversations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered conversations/show.html.erb within layouts/application (8.0ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 369ms (Views: 344.1ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/render_good_emoticons" for ::1 at 2017-03-28 21:32:37 +0100
+Processing by ConversationsController#render_good_emoticons as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/render_rude_emoticons/CHecc8a2257d104181983e98d611d4fb3d" for ::1 at 2017-03-28 21:32:37 +0100
+  Rendering html template
+Started GET "/token?device=browser" for ::1 at 2017-03-28 21:32:37 +0100
+Processing by ConversationsController#render_rude_emoticons as */*
+  Rendered html template (0.1ms)
+Processing by TokensController#create as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+Completed 200 OK in 62ms (Views: 10.6ms | ActiveRecord: 0.3ms)
+
+
+  Parameters: {"device"=>"browser"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.7ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+
+
+  Rendering html template
+  Rendered html template (0.1ms)
+Completed 200 OK in 36ms (Views: 2.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2017-03-28 21:33:13 +0100
+Processing by ConnectionsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-28 21:33:13 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/hallagat/.gem/ruby/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/hallagat/.gem/ruby/gems/devise-4.2.1/app/views/devise/shared/_links.html.erb (1.3ms)
+  Rendered /home/hallagat/.gem/ruby/gems/devise-4.2.1/app/views/devise/sessions/new.html.erb within layouts/application (7.3ms)
+  Rendered layouts/_header.html.erb (1.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 104ms (Views: 101.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-28 21:39:46 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (56.2ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (1.9ms)
+Completed 200 OK in 190ms (Views: 184.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-28 21:40:08 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (6.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (58.2ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 197ms (Views: 191.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-28 21:40:13 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (26.1ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 150ms (Views: 137.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-28 21:40:14 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (46.1ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 161ms (Views: 154.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-28 21:40:26 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (18.9ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 122ms (Views: 120.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-28 21:41:18 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (5.2ms)
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/hallagat/Projects/Mobile-Computer-Systems-Development/sourcecode/app/views/devise/sessions/new.html.erb:12: syntax error, unexpected tSTRING_BEG, expecting ')'
+...ton :submit, "Log in", :class "hello" );@output_buffer.safe_...
+...                               ^):
+  
+app/views/devise/sessions/new.html.erb:12: syntax error, unexpected tSTRING_BEG, expecting ')'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (8.3ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.8ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (32.4ms)
+Started GET "/users/sign_in" for ::1 at 2017-03-28 21:41:24 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (7.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (61.8ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 227ms (Views: 221.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2017-03-28 21:41:27 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.8ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (27.9ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 122ms (Views: 120.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-28 21:42:54 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (34.9ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 204ms (Views: 200.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/connections" for ::1 at 2017-03-28 21:43:01 +0100
+Processing by ConnectionsController#index as HTML
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/connections" for ::1 at 2017-03-28 21:43:03 +0100
+Processing by ConnectionsController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/connections" for ::1 at 2017-03-28 21:43:05 +0100
+Processing by ConnectionsController#index as HTML
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 192.168.1.101 at 2017-03-28 21:43:50 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ConnectionsController#index as HTML
+Completed 401 Unauthorized in 15ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.101 at 2017-03-28 21:43:50 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (38.2ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 535ms (Views: 511.6ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:45:53 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (62.0ms)
+Completed 500 Internal Server Error in 91ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 1, expected 0)):
+     5:     <div class="form-inputs">
+     6:       <%= f.input :email, required: false, autofocus: true %>
+     7:       <%= f.input :password, required: false %>
+     8:       <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? "asd" %>
+     9:     </div>
+    10: 
+    11:     <div class="form-actions">
+  
+app/views/devise/sessions/new.html.erb:8:in `block in _app_views_devise_sessions_new_html_erb___639398914020162100_69813688979700'
+app/views/devise/sessions/new.html.erb:4:in `_app_views_devise_sessions_new_html_erb___639398914020162100_69813688979700'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.1ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (26.6ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:46:04 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/sessions/new.html.erb within layouts/application (3.0ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/hallagat/Projects/Mobile-Computer-Systems-Development/sourcecode/app/views/devise/sessions/new.html.erb:8: syntax error, unexpected tSTRING_BEG, expecting ')'
+...append=( f.input :remember_me "asd", as: :boolean if devise_...
+...                               ^
+/home/hallagat/Projects/Mobile-Computer-Systems-Development/sourcecode/app/views/devise/sessions/new.html.erb:8: syntax error, unexpected ',', expecting ')'
+...d=( f.input :remember_me "asd", as: :boolean if devise_mappi...
+...                               ^):
+  
+app/views/devise/sessions/new.html.erb:8: syntax error, unexpected tSTRING_BEG, expecting ')'
+app/views/devise/sessions/new.html.erb:8: syntax error, unexpected ',', expecting ')'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.7ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.1ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:46:10 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (9.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (72.6ms)
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 218ms (Views: 212.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:46:27 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (6.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (65.1ms)
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 209ms (Views: 203.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.101 at 2017-03-28 21:47:12 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (40.2ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 153ms (Views: 147.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:48:04 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (8.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (55.1ms)
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.8ms)
+Completed 200 OK in 2092ms (Views: 2086.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:48:23 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (7.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (61.1ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 2355ms (Views: 2348.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:48:54 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (15.4ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 2043ms (Views: 2040.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:49:33 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (13.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (62.8ms)
+  Rendered layouts/_header.html.erb (2.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1935ms (Views: 1928.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.101 at 2017-03-28 21:49:42 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (12.1ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 91ms (Views: 89.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:50:11 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (29.9ms)
+Completed 500 Internal Server Error in 47ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/home/hallagat/Projects/Mobile-Computer-Systems-Development/sourcecode/app/views/devise/shared/_links.html.erb:2: syntax error, unexpected tLABEL, expecting ')'
+...sion_path(resource_name) class: "btn btn-info" );@output_buf...
+...                               ^):
+  
+app/views/devise/shared/_links.html.erb:2: syntax error, unexpected tLABEL, expecting ')'
+app/views/devise/sessions/new.html.erb:16:in `_app_views_devise_sessions_new_html_erb___639398914020162100_69813714140620'
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.2ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.7ms)
+  Rendering /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /home/hallagat/.gem/ruby/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (31.4ms)
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:50:18 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (4.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (58.4ms)
+  Rendered layouts/_header.html.erb (3.2ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 212ms (Views: 206.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:50:36 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (8.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (68.1ms)
+  Rendered layouts/_header.html.erb (3.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 228ms (Views: 222.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:50:45 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (8.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (77.5ms)
+  Rendered layouts/_header.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 242ms (Views: 235.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:51:01 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (33.7ms)
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (1.5ms)
+Completed 200 OK in 198ms (Views: 189.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:51:26 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (4.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (43.0ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 221ms (Views: 216.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.101 at 2017-03-28 21:51:33 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (4.2ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (43.0ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 126ms (Views: 122.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:52:26 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (23.3ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (2.1ms)
+Completed 200 OK in 163ms (Views: 160.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.101 at 2017-03-28 21:52:31 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (16.7ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 101ms (Views: 97.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:53:02 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (3.9ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (59.7ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 209ms (Views: 203.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.101 at 2017-03-28 21:53:06 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (16.7ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 99ms (Views: 93.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 192.168.1.101 at 2017-03-28 21:53:26 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0KJv2JnRFeJab+sXFY3dqnt1o4GhxWG7t2QsA7EPnRii6gAxpayes+3N9g81YzswU07W8ViPZYV+J+PMwEJG0w==", "user"=>{"email"=>"local@host", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "local@host"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-03-28 20:53:26 UTC], ["last_sign_in_at", 2017-03-28 20:21:16 UTC], ["current_sign_in_ip", "192.168.1.101"], ["last_sign_in_ip", "::1"], ["sign_in_count", 67], ["updated_at", 2017-03-28 20:53:26 UTC], ["id", 1]]
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://192.168.1.102:3000/
+Completed 200 OK in 171ms (ActiveRecord: 5.8ms)
+
+
+Started POST "/users/sign_in" for 192.168.1.101 at 2017-03-28 21:53:29 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0KJv2JnRFeJab+sXFY3dqnt1o4GhxWG7t2QsA7EPnRii6gAxpayes+3N9g81YzswU07W8ViPZYV+J+PMwEJG0w==", "user"=>{"email"=>"local@host", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://192.168.1.102:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 200 OK in 11ms (ActiveRecord: 2.4ms)
+
+
+Started POST "/users/sign_in" for 192.168.1.101 at 2017-03-28 21:53:39 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0KJv2JnRFeJab+sXFY3dqnt1o4GhxWG7t2QsA7EPnRii6gAxpayes+3N9g81YzswU07W8ViPZYV+J+PMwEJG0w==", "user"=>{"email"=>"local@host", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://192.168.1.102:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 200 OK in 9ms (ActiveRecord: 0.9ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:53:50 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J1azsSYAlAn+MMgPgZCGWvOKAiKygnuUqctEkVOJbA9uuS3R/GFYU9VuQger0dCiuPUHLnGpWRDIQqyHCy29dQ==", "user"=>{"email"=>"local@host", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "local@host"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-03-28 20:53:50 UTC], ["last_sign_in_at", 2017-03-28 20:53:26 UTC], ["current_sign_in_ip", "127.0.0.1"], ["last_sign_in_ip", "192.168.1.101"], ["sign_in_count", 68], ["updated_at", 2017-03-28 20:53:50 UTC], ["id", 1]]
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 200 OK in 164ms (ActiveRecord: 6.7ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:53:56 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J1azsSYAlAn+MMgPgZCGWvOKAiKygnuUqctEkVOJbA9uuS3R/GFYU9VuQger0dCiuPUHLnGpWRDIQqyHCy29dQ==", "user"=>{"email"=>"local@host.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 200 OK in 6ms (ActiveRecord: 0.3ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:54:16 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J1azsSYAlAn+MMgPgZCGWvOKAiKygnuUqctEkVOJbA9uuS3R/GFYU9VuQger0dCiuPUHLnGpWRDIQqyHCy29dQ==", "user"=>{"email"=>"local@host", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 200 OK in 768ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:54:19 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (1.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.6ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (85.2ms)
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 1064ms (Views: 993.6ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-28 21:54:23 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.0ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.0ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (43.5ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 236ms (Views: 189.8ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:54:26 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.6ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (29.7ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 215ms (Views: 191.3ms | ActiveRecord: 5.4ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:54:30 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J1azsSYAlAn+MMgPgZCGWvOKAiKygnuUqctEkVOJbA9uuS3R/GFYU9VuQger0dCiuPUHLnGpWRDIQqyHCy29dQ==", "user"=>{"email"=>"local@host", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 200 OK in 19ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:54:43 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.8ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.6ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.0ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (50.2ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 178ms (Views: 150.4ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:54:43 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (1.0ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.7ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (24.7ms)
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 154ms (Views: 141.3ms | ActiveRecord: 5.6ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-03-28 21:54:49 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mZBM241/SJvnMDmnlKACcFECiBXWSVASDsyzKYYE1dn1m9er/xCZKpCe+TBvtAhZMhz/NJJwC+TUrcM0u8uG6Q=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 200 OK in 15ms (ActiveRecord: 5.7ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-03-28 21:54:55 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mZBM241/SJvnMDmnlKACcFECiBXWSVASDsyzKYYE1dn1m9er/xCZKpCe+TBvtAhZMhz/NJJwC+TUrcM0u8uG6Q=="}
+Redirected to http://localhost:3000/
+Filter chain halted as :verify_signed_out_user rendered or redirected
+Completed 200 OK in 4ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:55:02 +0100
+Processing by ConnectionsController#index as HTML
+Completed 401 Unauthorized in 30ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:55:02 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.1ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (21.3ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 123ms (Views: 117.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:55:08 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cBWvdzSqgDlTN9rwAk5Lkt/zPMgf2xQawA3kbfu+lHz97EtktWHl11NQ4RuU0h22lnSr1FAVL2aHEWYRY0VhSg==", "user"=>{"email"=>"local@host", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "local@host"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "last_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-03-28 20:55:08 UTC], ["last_sign_in_at", 2017-03-28 20:53:50 UTC], ["last_sign_in_ip", "127.0.0.1"], ["sign_in_count", 69], ["updated_at", 2017-03-28 20:55:08 UTC], ["id", 1]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 200 OK in 180ms (ActiveRecord: 7.1ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:55:49 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cBWvdzSqgDlTN9rwAk5Lkt/zPMgf2xQawA3kbfu+lHz97EtktWHl11NQ4RuU0h22lnSr1FAVL2aHEWYRY0VhSg==", "user"=>{"email"=>"local@host", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 200 OK in 13ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:55:57 +0100
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 128ms (Views: 126.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-28 21:56:04 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (15.8ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 117ms (Views: 94.5ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-28 21:56:37 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (1.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (51.8ms)
+  Rendered layouts/_header.html.erb (2.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 199ms (Views: 169.2ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:56:41 +0100
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 85ms (Views: 80.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-28 21:56:48 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.6ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (25.0ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 174ms (Views: 162.8ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:56:51 +0100
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.3ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 74ms (Views: 69.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/conversations/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 21:56:59 +0100
+Processing by ConversationsController#show as HTML
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.7ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.7ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering conversations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered conversations/show.html.erb within layouts/application (11.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 147ms (Views: 107.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/conversations/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 21:57:10 +0100
+Processing by ConversationsController#show as HTML
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.0ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering conversations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered conversations/show.html.erb within layouts/application (22.3ms)
+  Rendered layouts/_header.html.erb (3.0ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 179ms (Views: 149.2ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/render_good_emoticons" for 127.0.0.1 at 2017-03-28 21:57:12 +0100
+Started GET "/render_rude_emoticons/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 21:57:12 +0100
+Processing by ConversationsController#render_good_emoticons as */*
+Processing by ConversationsController#render_rude_emoticons as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/token?device=browser" for 127.0.0.1 at 2017-03-28 21:57:12 +0100
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering html template
+  Rendered html template (0.1ms)
+Completed 200 OK in 49ms (Views: 9.2ms | ActiveRecord: 0.6ms)
+
+
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 153ms (Views: 0.9ms | ActiveRecord: 0.4ms)
+
+
+Processing by TokensController#create as JSON
+  Parameters: {"device"=>"browser"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:57:18 +0100
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (2.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 153ms (Views: 134.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-28 21:57:24 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (16.8ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 130ms (Views: 109.1ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-28 21:57:35 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (75.1ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (1.4ms)
+Completed 200 OK in 807ms (Views: 737.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:57:38 +0100
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 105ms (Views: 100.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:57:53 +0100
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (6.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 168ms (Views: 159.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:57:56 +0100
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 89ms (Views: 86.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-28 21:57:57 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.8ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.6ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.0ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (40.7ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 133ms (Views: 108.6ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:57:59 +0100
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.2ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 159ms (Views: 153.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-28 21:58:00 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.8ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.8ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.0ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.8ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.6ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (49.5ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 163ms (Views: 136.1ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/conversations/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 21:58:04 +0100
+Processing by ConversationsController#show as HTML
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.0ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering conversations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered conversations/show.html.erb within layouts/application (15.2ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 141ms (Views: 98.0ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/render_good_emoticons" for 127.0.0.1 at 2017-03-28 21:58:04 +0100
+Processing by ConversationsController#render_good_emoticons as */*
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/render_rude_emoticons/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 21:58:05 +0100
+Processing by ConversationsController#render_rude_emoticons as */*
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/token?device=browser" for 127.0.0.1 at 2017-03-28 21:58:05 +0100
+  [1m[36mConnection Load (0.6ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering html template
+  Rendered html template (0.1ms)
+Completed 200 OK in 65ms (Views: 12.6ms | ActiveRecord: 1.2ms)
+
+
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 170ms (Views: 1.4ms | ActiveRecord: 1.1ms)
+
+
+Processing by TokensController#create as JSON
+  Parameters: {"device"=>"browser"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:58:07 +0100
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 110ms (Views: 107.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-28 21:58:13 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.8ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.7ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.0ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (51.9ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 176ms (Views: 145.7ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/conversations/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 21:58:15 +0100
+Processing by ConversationsController#show as HTML
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.8ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering conversations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered conversations/show.html.erb within layouts/application (21.6ms)
+Started GET "/render_good_emoticons" for 127.0.0.1 at 2017-03-28 21:58:16 +0100
+Processing by ConversationsController#render_good_emoticons as */*
+Started GET "/render_rude_emoticons/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 21:58:16 +0100
+Started GET "/token?device=browser" for 127.0.0.1 at 2017-03-28 21:58:16 +0100
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Processing by ConversationsController#render_rude_emoticons as */*
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  Rendering html template
+Processing by TokensController#create as JSON
+  Parameters: {"device"=>"browser"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered html template (0.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+Completed 200 OK in 93ms (Views: 36.2ms | ActiveRecord: 0.4ms)
+
+
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.6ms)
+
+
+  Rendering html template
+  Rendered html template (0.1ms)
+Completed 200 OK in 48ms (Views: 12.8ms | ActiveRecord: 1.5ms)
+
+
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 291ms (Views: 259.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/render_good_emoticons" for 127.0.0.1 at 2017-03-28 21:58:16 +0100
+Processing by ConversationsController#render_good_emoticons as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/render_rude_emoticons/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 21:58:16 +0100
+  Rendering html template
+Started GET "/token?device=browser" for 127.0.0.1 at 2017-03-28 21:58:16 +0100
+  Rendered html template (0.1ms)
+Processing by ConversationsController#render_rude_emoticons as */*
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+Completed 200 OK in 50ms (Views: 12.0ms | ActiveRecord: 0.4ms)
+
+
+Processing by TokensController#create as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Parameters: {"device"=>"browser"}
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering html template
+Completed 200 OK in 25ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+  Rendered html template (0.1ms)
+Completed 200 OK in 34ms (Views: 4.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/conversations/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 21:58:31 +0100
+Processing by ConversationsController#show as HTML
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.0ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering conversations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered conversations/show.html.erb within layouts/application (26.7ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 217ms (Views: 187.2ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/render_good_emoticons" for 127.0.0.1 at 2017-03-28 21:58:32 +0100
+Processing by ConversationsController#render_good_emoticons as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/render_rude_emoticons/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 21:58:32 +0100
+  Rendering html template
+Started GET "/token?device=browser" for 127.0.0.1 at 2017-03-28 21:58:32 +0100
+Processing by ConversationsController#render_rude_emoticons as */*
+  Rendered html template (0.1ms)
+Processing by TokensController#create as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+Completed 200 OK in 65ms (Views: 11.8ms | ActiveRecord: 0.3ms)
+
+
+  Parameters: {"device"=>"browser"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 34ms (Views: 2.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:58:35 +0100
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (7.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 105ms (Views: 94.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-28 21:58:38 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.6ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.7ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (21.2ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 161ms (Views: 113.9ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:58:47 +0100
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 116ms (Views: 98.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-28 21:58:56 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (11.3ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 105ms (Views: 95.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/connections" for 127.0.0.1 at 2017-03-28 21:59:14 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.6ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.0ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (2.0ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (63.0ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 220ms (Views: 187.2ms | ActiveRecord: 9.4ms)
+
+
+Started POST "/users/sign_in" for 192.168.1.101 at 2017-03-28 21:59:20 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0KJv2JnRFeJab+sXFY3dqnt1o4GhxWG7t2QsA7EPnRii6gAxpayes+3N9g81YzswU07W8ViPZYV+J+PMwEJG0w==", "user"=>{"email"=>"local@host", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://192.168.1.102:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 200 OK in 376ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.101 at 2017-03-28 21:59:25 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://192.168.1.102:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 10ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 192.168.1.101 at 2017-03-28 21:59:25 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (1.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 66ms (Views: 64.1ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/users/sign_out" for 192.168.1.101 at 2017-03-28 21:59:30 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7tUFaQ/7uBPQhcbLNr66V3ecBNadko+KAOpPO7tDFF1QTGctDAP35vDCL7YJwYja5OzBM9oSnsX9PxK+7gHzDg=="}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://192.168.1.102:3000/
+Completed 302 Found in 20ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 192.168.1.101 at 2017-03-28 21:59:30 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.5ms)
+  Rendered layouts/_header.html.erb (3.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 61ms (Views: 59.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 192.168.1.101 at 2017-03-28 21:59:33 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (1.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (21.7ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 92ms (Views: 84.8ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2017-03-28 21:59:43 +0100
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"in0HROdfZmq2DBjGT34XaBDEITyg6H8B7H7/j8V2SZSrH1ZULgsZrkAntbjrJ3Ul0PHm5uGWb/aFihcwUYPcoQ=="}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 21:59:43 +0100
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.6ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 108ms (Views: 106.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:59:46 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (14.0ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 79ms (Views: 77.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2017-03-28 21:59:57 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (4.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (58.0ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 2118ms (Views: 2112.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 192.168.1.101 at 2017-03-28 22:00:15 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8GmAt7sRcKOCy5xpeKLRoMtBL+e+LFosbV80XToTrDFepUQVwJHDkTc6PulNHvs7hHefTsEHWbbVi1KKu1cq1g==", "user"=>{"email"=>"local@host", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "local@host"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_created_at", 2017-03-28 21:00:15 UTC], ["updated_at", 2017-03-28 21:00:15 UTC], ["id", 1]]
+  [1m[35m (4.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = ?, "current_sign_in_at" = ?, "last_sign_in_at" = ?, "current_sign_in_ip" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["sign_in_count", 70], ["current_sign_in_at", 2017-03-28 21:00:15 UTC], ["last_sign_in_at", 2017-03-28 20:55:08 UTC], ["current_sign_in_ip", "192.168.1.101"], ["updated_at", 2017-03-28 21:00:15 UTC], ["id", 1]]
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://192.168.1.102:3000/
+Completed 302 Found in 187ms (ActiveRecord: 9.2ms)
+
+
+Started GET "/" for 192.168.1.101 at 2017-03-28 22:00:15 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (5.2ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 1473ms (Views: 1470.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2017-03-28 22:00:30 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"BqvT4yaLbEdIm7w/gjehgOqmUKXKjoLYSxJXZvUAwj8tJUKFERq7sM4tFHntTfb6YDHZwID2L878bEA7yc6CFA==", "user"=>{"email"=>"user2@host", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "user2@host"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", 2017-03-28 21:00:30 UTC], ["last_sign_in_at", 2017-03-27 10:08:29 UTC], ["sign_in_count", 8], ["updated_at", 2017-03-28 21:00:30 UTC], ["id", 2]]
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 207ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-03-28 22:00:30 +0100
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.1ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 2 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["followee_id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 3], ["follower_id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 2], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (14.8ms)
+  Rendered layouts/_header.html.erb (3.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 171ms (Views: 142.2ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/connections" for 192.168.1.101 at 2017-03-28 22:00:38 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ConnectionsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.6ms)[0m  [1m[34mSELECT "connections".* FROM "connections" WHERE "connections"."followee_id" = 1 AND "connections"."confirmed" = ?[0m  [["confirmed", false]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Rendering connections/index.html.erb within layouts/application
+  [1m[36mConnection Load (0.6ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 2], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 3], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 4], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 4], ["follower_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."follower_id" = ? AND "connections"."followee_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 5], ["followee_id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."followee_id" = ? AND "connections"."follower_id" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["followee_id", 5], ["follower_id", 1], ["LIMIT", 1]]
+  Rendered connections/index.html.erb within layouts/application (17.5ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 113ms (Views: 92.6ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/conversations/CHecc8a2257d104181983e98d611d4fb3d" for 192.168.1.101 at 2017-03-28 22:00:41 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ConversationsController#show as HTML
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering conversations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered conversations/show.html.erb within layouts/application (7.0ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 88ms (Views: 74.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/render_good_emoticons" for 192.168.1.101 at 2017-03-28 22:00:41 +0100
+Started GET "/render_rude_emoticons/CHecc8a2257d104181983e98d611d4fb3d" for 192.168.1.101 at 2017-03-28 22:00:41 +0100
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ConversationsController#render_good_emoticons as */*
+Processing by ConversationsController#render_rude_emoticons as */*
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  Rendering html template
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered html template (0.1ms)
+Started GET "/token?device=browser" for 192.168.1.101 at 2017-03-28 22:00:41 +0100
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 1], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+Completed 200 OK in 32ms (Views: 5.9ms | ActiveRecord: 0.5ms)
+
+
+Cannot render console from 192.168.1.101! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 18ms (Views: 4.1ms | ActiveRecord: 0.8ms)
+
+
+Processing by TokensController#create as JSON
+  Parameters: {"device"=>"browser"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/conversations/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 22:00:43 +0100
+Processing by ConversationsController#show as HTML
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering conversations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered conversations/show.html.erb within layouts/application (10.6ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 117ms (Views: 105.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/render_good_emoticons" for 127.0.0.1 at 2017-03-28 22:00:43 +0100
+Processing by ConversationsController#render_good_emoticons as */*
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/render_rude_emoticons/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 22:00:43 +0100
+  Rendering html template
+Processing by ConversationsController#render_rude_emoticons as */*
+  Rendered html template (0.1ms)
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+Started GET "/token?device=browser" for 127.0.0.1 at 2017-03-28 22:00:43 +0100
+Completed 200 OK in 66ms (Views: 6.6ms | ActiveRecord: 1.2ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Processing by TokensController#create as JSON
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Parameters: {"device"=>"browser"}
+  Rendering html template
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered html template (0.1ms)
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 0.9ms)
+
+
+Completed 200 OK in 57ms (Views: 13.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/conversations/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 22:00:54 +0100
+Processing by ConversationsController#show as HTML
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering conversations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered conversations/show.html.erb within layouts/application (11.7ms)
+  Rendered layouts/_header.html.erb (2.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 148ms (Views: 138.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/render_good_emoticons" for 127.0.0.1 at 2017-03-28 22:00:55 +0100
+Started GET "/render_rude_emoticons/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 22:00:55 +0100
+Processing by ConversationsController#render_good_emoticons as */*
+Started GET "/token?device=browser" for 127.0.0.1 at 2017-03-28 22:00:55 +0100
+Processing by ConversationsController#render_rude_emoticons as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Processing by TokensController#create as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  Parameters: {"device"=>"browser"}
+  Rendering html template
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered html template (0.1ms)
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+Completed 200 OK in 65ms (Views: 11.9ms | ActiveRecord: 0.3ms)
+
+
+  Rendering html template
+  Rendered html template (0.1ms)
+Completed 200 OK in 36ms (Views: 5.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/update_last_read" for 127.0.0.1 at 2017-03-28 22:00:58 +0100
+Processing by ConversationsController#update_last_read as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d", "message_sid"=>"IMb54201cd8312487dbf2ececc02efb45f"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mConnection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "connections" WHERE "connections"."follower_id" = ? AND ("connections"."id" != ?) AND "connections"."followee_id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 1], ["followee_id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[33mUPDATE "connections" SET "followee_lastread_sid" = ?, "followee_lastread_ts" = ?, "updated_at" = ? WHERE "connections"."id" = ?[0m  [["followee_lastread_sid", "IMb54201cd8312487dbf2ececc02efb45f"], ["followee_lastread_ts", 2017-03-28 21:00:58 UTC], ["updated_at", 2017-03-28 21:00:58 UTC], ["id", 1]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+No template found for ConversationsController#update_last_read, rendering head :no_content
+Completed 204 No Content in 86ms (ActiveRecord: 7.9ms)
+
+
+Started POST "/update_last_read" for 127.0.0.1 at 2017-03-28 22:01:03 +0100
+Processing by ConversationsController#update_last_read as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d", "message_sid"=>"IMbdd49a3eb7804e8fb6ac3e2b909adb75"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.8ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mConnection Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "connections" WHERE "connections"."follower_id" = ? AND ("connections"."id" != ?) AND "connections"."followee_id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 1], ["followee_id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[33mUPDATE "connections" SET "followee_lastread_sid" = ?, "followee_lastread_ts" = ?, "updated_at" = ? WHERE "connections"."id" = ?[0m  [["followee_lastread_sid", "IMbdd49a3eb7804e8fb6ac3e2b909adb75"], ["followee_lastread_ts", 2017-03-28 21:01:03 UTC], ["updated_at", 2017-03-28 21:01:03 UTC], ["id", 1]]
+  [1m[35m (10.4ms)[0m  [1m[36mcommit transaction[0m
+No template found for ConversationsController#update_last_read, rendering head :no_content
+Completed 204 No Content in 123ms (ActiveRecord: 14.7ms)
+
+
+Started POST "/delete_message" for 127.0.0.1 at 2017-03-28 22:01:08 +0100
+Processing by ConversationsController#delete_message as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d", "sid"=>"IMbdd49a3eb7804e8fb6ac3e2b909adb75"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Started POST "/update_last_read" for 127.0.0.1 at 2017-03-28 22:01:08 +0100
+Processing by ConversationsController#update_last_read as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d", "message_sid"=>"IM7f1263ff97d54fff9b8ca188e33c54a2"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mConnection Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "connections" WHERE "connections"."follower_id" = ? AND ("connections"."id" != ?) AND "connections"."followee_id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 1], ["followee_id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[33mUPDATE "connections" SET "followee_lastread_sid" = ?, "followee_lastread_ts" = ?, "updated_at" = ? WHERE "connections"."id" = ?[0m  [["followee_lastread_sid", "IM7f1263ff97d54fff9b8ca188e33c54a2"], ["followee_lastread_ts", 2017-03-28 21:01:08 UTC], ["updated_at", 2017-03-28 21:01:08 UTC], ["id", 1]]
+  [1m[35m (9.3ms)[0m  [1m[36mcommit transaction[0m
+No template found for ConversationsController#update_last_read, rendering head :no_content
+Completed 204 No Content in 148ms (ActiveRecord: 14.0ms)
+
+
+No template found for ConversationsController#delete_message, rendering head :no_content
+Completed 204 No Content in 2242ms (ActiveRecord: 1.9ms)
+
+
+Started POST "/update_last_read" for 127.0.0.1 at 2017-03-28 22:01:12 +0100
+Processing by ConversationsController#update_last_read as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d", "message_sid"=>"IMf45806199b9b4fdc8f0878c8ecfe07f4"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mConnection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "connections" WHERE "connections"."follower_id" = ? AND ("connections"."id" != ?) AND "connections"."followee_id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 1], ["followee_id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[33mUPDATE "connections" SET "followee_lastread_sid" = ?, "followee_lastread_ts" = ?, "updated_at" = ? WHERE "connections"."id" = ?[0m  [["followee_lastread_sid", "IMf45806199b9b4fdc8f0878c8ecfe07f4"], ["followee_lastread_ts", 2017-03-28 21:01:12 UTC], ["updated_at", 2017-03-28 21:01:12 UTC], ["id", 1]]
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+No template found for ConversationsController#update_last_read, rendering head :no_content
+Completed 204 No Content in 62ms (ActiveRecord: 7.9ms)
+
+
+Started POST "/delete_message" for 127.0.0.1 at 2017-03-28 22:01:18 +0100
+Processing by ConversationsController#delete_message as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d", "sid"=>"IMf45806199b9b4fdc8f0878c8ecfe07f4"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+No template found for ConversationsController#delete_message, rendering head :no_content
+Completed 204 No Content in 2374ms (ActiveRecord: 1.0ms)
+
+
+Started POST "/update_last_read" for 127.0.0.1 at 2017-03-28 22:01:29 +0100
+Processing by ConversationsController#update_last_read as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d", "message_sid"=>"IM63237b41bdc3466799f12939e3f067d5"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.2ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mConnection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "connections" WHERE "connections"."follower_id" = ? AND ("connections"."id" != ?) AND "connections"."followee_id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 1], ["followee_id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (3.3ms)[0m  [1m[33mUPDATE "connections" SET "followee_lastread_sid" = ?, "followee_lastread_ts" = ?, "updated_at" = ? WHERE "connections"."id" = ?[0m  [["followee_lastread_sid", "IM63237b41bdc3466799f12939e3f067d5"], ["followee_lastread_ts", 2017-03-28 21:01:29 UTC], ["updated_at", 2017-03-28 21:01:29 UTC], ["id", 1]]
+  [1m[35m (9.8ms)[0m  [1m[36mcommit transaction[0m
+No template found for ConversationsController#update_last_read, rendering head :no_content
+Completed 204 No Content in 63ms (ActiveRecord: 13.8ms)
+
+
+Started POST "/update_last_read" for 127.0.0.1 at 2017-03-28 22:01:36 +0100
+Processing by ConversationsController#update_last_read as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d", "message_sid"=>"IMc7657ac6b2b54efcbd0d965811227e25"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mConnection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "connections" WHERE "connections"."follower_id" = ? AND ("connections"."id" != ?) AND "connections"."followee_id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 1], ["followee_id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.9ms)[0m  [1m[33mUPDATE "connections" SET "followee_lastread_sid" = ?, "followee_lastread_ts" = ?, "updated_at" = ? WHERE "connections"."id" = ?[0m  [["followee_lastread_sid", "IMc7657ac6b2b54efcbd0d965811227e25"], ["followee_lastread_ts", 2017-03-28 21:01:36 UTC], ["updated_at", 2017-03-28 21:01:36 UTC], ["id", 1]]
+  [1m[35m (7.5ms)[0m  [1m[36mcommit transaction[0m
+No template found for ConversationsController#update_last_read, rendering head :no_content
+Completed 204 No Content in 68ms (ActiveRecord: 10.6ms)
+
+
+Started POST "/delete_message" for 127.0.0.1 at 2017-03-28 22:01:39 +0100
+Processing by ConversationsController#delete_message as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d", "sid"=>"IMc7657ac6b2b54efcbd0d965811227e25"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+No template found for ConversationsController#delete_message, rendering head :no_content
+Completed 204 No Content in 2211ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/conversations/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 22:07:40 +0100
+Processing by ConversationsController#show as HTML
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.0ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.5ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering conversations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered conversations/show.html.erb within layouts/application (15.6ms)
+  Rendered layouts/_header.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 163ms (Views: 149.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/render_good_emoticons" for 127.0.0.1 at 2017-03-28 22:07:41 +0100
+Processing by ConversationsController#render_good_emoticons as */*
+Started GET "/render_rude_emoticons/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 22:07:41 +0100
+Started GET "/token?device=browser" for 127.0.0.1 at 2017-03-28 22:07:41 +0100
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Processing by ConversationsController#render_rude_emoticons as */*
+Processing by TokensController#create as JSON
+  Rendering html template
+  Rendered html template (0.0ms)
+  Parameters: {"device"=>"browser"}
+Completed 200 OK in 49ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+
+
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering html template
+  Rendered html template (0.0ms)
+Completed 200 OK in 28ms (Views: 0.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/update_last_read" for 127.0.0.1 at 2017-03-28 22:07:53 +0100
+Processing by ConversationsController#update_last_read as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d", "message_sid"=>"IM945e3d7ddff140538eb20d2defff5e99"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mConnection Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "connections" WHERE "connections"."follower_id" = ? AND ("connections"."id" != ?) AND "connections"."followee_id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 1], ["followee_id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "connections" SET "followee_lastread_sid" = ?, "followee_lastread_ts" = ?, "updated_at" = ? WHERE "connections"."id" = ?[0m  [["followee_lastread_sid", "IM945e3d7ddff140538eb20d2defff5e99"], ["followee_lastread_ts", 2017-03-28 21:07:53 UTC], ["updated_at", 2017-03-28 21:07:53 UTC], ["id", 1]]
+  [1m[35m (10.1ms)[0m  [1m[36mcommit transaction[0m
+No template found for ConversationsController#update_last_read, rendering head :no_content
+Completed 204 No Content in 87ms (ActiveRecord: 15.6ms)
+
+
+Started POST "/update_last_read" for 127.0.0.1 at 2017-03-28 22:08:03 +0100
+Processing by ConversationsController#update_last_read as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d", "message_sid"=>"IM9e60749ac56e46a5ad5bcafba4058e93"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.9ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mConnection Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "connections" WHERE "connections"."follower_id" = ? AND ("connections"."id" != ?) AND "connections"."followee_id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 1], ["followee_id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (3.7ms)[0m  [1m[33mUPDATE "connections" SET "followee_lastread_sid" = ?, "followee_lastread_ts" = ?, "updated_at" = ? WHERE "connections"."id" = ?[0m  [["followee_lastread_sid", "IM9e60749ac56e46a5ad5bcafba4058e93"], ["followee_lastread_ts", 2017-03-28 21:08:03 UTC], ["updated_at", 2017-03-28 21:08:03 UTC], ["id", 1]]
+  [1m[35m (7.8ms)[0m  [1m[36mcommit transaction[0m
+No template found for ConversationsController#update_last_read, rendering head :no_content
+Completed 204 No Content in 95ms (ActiveRecord: 14.4ms)
+
+
+Started GET "/conversations/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 22:08:36 +0100
+Processing by ConversationsController#show as HTML
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering conversations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered conversations/show.html.erb within layouts/application (14.9ms)
+  Rendered layouts/_header.html.erb (1.0ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 165ms (Views: 148.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/render_good_emoticons" for 127.0.0.1 at 2017-03-28 22:08:37 +0100
+Processing by ConversationsController#render_good_emoticons as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/render_rude_emoticons/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 22:08:37 +0100
+  Rendering html template
+Started GET "/token?device=browser" for 127.0.0.1 at 2017-03-28 22:08:37 +0100
+Processing by TokensController#create as JSON
+  Parameters: {"device"=>"browser"}
+  Rendered html template (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Completed 200 OK in 40ms (Views: 14.3ms | ActiveRecord: 0.3ms)
+
+
+Processing by ConversationsController#render_rude_emoticons as */*
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering html template
+  Rendered html template (0.3ms)
+Completed 200 OK in 52ms (Views: 3.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/update_last_read" for 127.0.0.1 at 2017-03-28 22:08:41 +0100
+Processing by ConversationsController#update_last_read as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d", "message_sid"=>"IMd3d05848139546ef878b271e92599138"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mConnection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "connections" WHERE "connections"."follower_id" = ? AND ("connections"."id" != ?) AND "connections"."followee_id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 1], ["followee_id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE "connections" SET "followee_lastread_sid" = ?, "followee_lastread_ts" = ?, "updated_at" = ? WHERE "connections"."id" = ?[0m  [["followee_lastread_sid", "IMd3d05848139546ef878b271e92599138"], ["followee_lastread_ts", 2017-03-28 21:08:41 UTC], ["updated_at", 2017-03-28 21:08:41 UTC], ["id", 1]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+No template found for ConversationsController#update_last_read, rendering head :no_content
+Completed 204 No Content in 63ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/conversations/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 22:10:14 +0100
+Processing by ConversationsController#show as HTML
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering conversations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered conversations/show.html.erb within layouts/application (15.1ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (1.7ms)
+Completed 200 OK in 197ms (Views: 181.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/render_good_emoticons" for 127.0.0.1 at 2017-03-28 22:10:15 +0100
+Processing by ConversationsController#render_good_emoticons as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Started GET "/render_rude_emoticons/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 22:10:15 +0100
+  Rendering html template
+Processing by ConversationsController#render_rude_emoticons as */*
+Started GET "/token?device=browser" for 127.0.0.1 at 2017-03-28 22:10:15 +0100
+  Rendered html template (0.1ms)
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 60ms (Views: 18.2ms | ActiveRecord: 0.3ms)
+
+
+Processing by TokensController#create as JSON
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Parameters: {"device"=>"browser"}
+  Rendering html template
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered html template (0.0ms)
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+Completed 200 OK in 33ms (Views: 5.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/update_last_read" for 127.0.0.1 at 2017-03-28 22:10:21 +0100
+Processing by ConversationsController#update_last_read as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d", "message_sid"=>"IMb2b3ea2c385e4421a9d3baa7643223c8"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.8ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mConnection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "connections" WHERE "connections"."follower_id" = ? AND ("connections"."id" != ?) AND "connections"."followee_id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 1], ["followee_id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[33mUPDATE "connections" SET "followee_lastread_sid" = ?, "followee_lastread_ts" = ?, "updated_at" = ? WHERE "connections"."id" = ?[0m  [["followee_lastread_sid", "IMb2b3ea2c385e4421a9d3baa7643223c8"], ["followee_lastread_ts", 2017-03-28 21:10:21 UTC], ["updated_at", 2017-03-28 21:10:21 UTC], ["id", 1]]
+  [1m[35m (19.4ms)[0m  [1m[36mcommit transaction[0m
+No template found for ConversationsController#update_last_read, rendering head :no_content
+Completed 204 No Content in 93ms (ActiveRecord: 21.8ms)
+
+
+Started POST "/update_last_read" for 127.0.0.1 at 2017-03-28 22:10:24 +0100
+Processing by ConversationsController#update_last_read as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d", "message_sid"=>"IM2ba795f53ede49a9a18d4f05227cd407"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.8ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mConnection Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "connections" WHERE "connections"."follower_id" = ? AND ("connections"."id" != ?) AND "connections"."followee_id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 1], ["followee_id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[33mUPDATE "connections" SET "followee_lastread_sid" = ?, "followee_lastread_ts" = ?, "updated_at" = ? WHERE "connections"."id" = ?[0m  [["followee_lastread_sid", "IM2ba795f53ede49a9a18d4f05227cd407"], ["followee_lastread_ts", 2017-03-28 21:10:25 UTC], ["updated_at", 2017-03-28 21:10:25 UTC], ["id", 1]]
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+No template found for ConversationsController#update_last_read, rendering head :no_content
+Completed 204 No Content in 89ms (ActiveRecord: 10.0ms)
+
+
+Started POST "/update_last_read" for 127.0.0.1 at 2017-03-28 22:12:53 +0100
+Processing by ConversationsController#update_last_read as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d", "message_sid"=>"IMb491d8b95f33493cb59c6fbf97e6f80a"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mConnection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "connections" WHERE "connections"."follower_id" = ? AND ("connections"."id" != ?) AND "connections"."followee_id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 1], ["followee_id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "connections" SET "followee_lastread_sid" = ?, "followee_lastread_ts" = ?, "updated_at" = ? WHERE "connections"."id" = ?[0m  [["followee_lastread_sid", "IMb491d8b95f33493cb59c6fbf97e6f80a"], ["followee_lastread_ts", 2017-03-28 21:12:53 UTC], ["updated_at", 2017-03-28 21:12:53 UTC], ["id", 1]]
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+No template found for ConversationsController#update_last_read, rendering head :no_content
+Completed 204 No Content in 74ms (ActiveRecord: 6.3ms)
+
+
+Started GET "/conversations/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 22:15:15 +0100
+Processing by ConversationsController#show as HTML
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (1.1ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[36mConnection Load (2.0ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  Rendering conversations/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered conversations/show.html.erb within layouts/application (21.1ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.7ms)
+Completed 200 OK in 229ms (Views: 196.4ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/render_good_emoticons" for 127.0.0.1 at 2017-03-28 22:15:16 +0100
+Started GET "/render_rude_emoticons/CHecc8a2257d104181983e98d611d4fb3d" for 127.0.0.1 at 2017-03-28 22:15:16 +0100
+Processing by ConversationsController#render_good_emoticons as */*
+Processing by ConversationsController#render_rude_emoticons as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d"}
+Started GET "/token?device=browser" for 127.0.0.1 at 2017-03-28 22:15:16 +0100
+Processing by TokensController#create as JSON
+  Parameters: {"device"=>"browser"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering html template
+  [1m[36mConnection Load (0.4ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE ("connections"."follower_id" = ? AND "connections"."channel" = ? OR "connections"."followee_id" = ? AND "connections"."channel" = ?) ORDER BY "connections"."id" ASC LIMIT ?[0m  [["follower_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["followee_id", 2], ["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 0.8ms)
+
+
+  Rendered html template (0.1ms)
+  Rendering html template
+Completed 200 OK in 79ms (Views: 44.1ms | ActiveRecord: 0.2ms)
+
+
+  Rendered html template (0.1ms)
+Completed 200 OK in 45ms (Views: 6.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/update_last_read" for 127.0.0.1 at 2017-03-28 22:15:43 +0100
+Processing by ConversationsController#update_last_read as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d", "message_sid"=>"IM122ea676222d4a2faf6bdd7ed6b8d97f"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mConnection Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "connections" WHERE "connections"."follower_id" = ? AND ("connections"."id" != ?) AND "connections"."followee_id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 1], ["followee_id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "connections" SET "followee_lastread_sid" = ?, "followee_lastread_ts" = ?, "updated_at" = ? WHERE "connections"."id" = ?[0m  [["followee_lastread_sid", "IM122ea676222d4a2faf6bdd7ed6b8d97f"], ["followee_lastread_ts", 2017-03-28 21:15:43 UTC], ["updated_at", 2017-03-28 21:15:43 UTC], ["id", 1]]
+  [1m[35m (10.5ms)[0m  [1m[36mcommit transaction[0m
+No template found for ConversationsController#update_last_read, rendering head :no_content
+Completed 204 No Content in 86ms (ActiveRecord: 12.0ms)
+
+
+Started POST "/update_last_read" for 127.0.0.1 at 2017-03-28 22:15:44 +0100
+Processing by ConversationsController#update_last_read as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d", "message_sid"=>"IM122ea676222d4a2faf6bdd7ed6b8d97f"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mConnection Load (0.3ms)[0m  [1m[34mSELECT  "connections".* FROM "connections" WHERE "connections"."channel" = ? ORDER BY "connections"."id" ASC LIMIT ?[0m  [["channel", "CHecc8a2257d104181983e98d611d4fb3d"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mConnection Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "connections" WHERE "connections"."follower_id" = ? AND ("connections"."id" != ?) AND "connections"."followee_id" = ? LIMIT ?[0m  [["follower_id", 1], ["id", 1], ["followee_id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "connections" SET "followee_lastread_ts" = ?, "updated_at" = ? WHERE "connections"."id" = ?[0m  [["followee_lastread_ts", 2017-03-28 21:15:44 UTC], ["updated_at", 2017-03-28 21:15:44 UTC], ["id", 1]]
+  [1m[35m (3.4ms)[0m  [1m[36mcommit transaction[0m
+No template found for ConversationsController#update_last_read, rendering head :no_content
+Completed 204 No Content in 80ms (ActiveRecord: 5.0ms)
+
+
+Started POST "/delete_message" for 127.0.0.1 at 2017-03-28 22:16:31 +0100
+Processing by ConversationsController#delete_message as JSON
+  Parameters: {"channel"=>"CHecc8a2257d104181983e98d611d4fb3d", "sid"=>"IM122ea676222d4a2faf6bdd7ed6b8d97f"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+No template found for ConversationsController#delete_message, rendering head :no_content
+Completed 204 No Content in 1317ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2017-03-29 12:38:07 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ConnectionsController#index as HTML
+Completed 401 Unauthorized in 17ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2017-03-29 12:38:08 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (5.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (100.2ms)
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 1162ms (Views: 1149.4ms | ActiveRecord: 0.4ms)
+
+

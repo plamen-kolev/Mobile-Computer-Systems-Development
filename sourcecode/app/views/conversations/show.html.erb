@@ -32,19 +32,40 @@
 </section>
 
 <% content_for :top_scripts do %>
-    <script src="http:///media.twiliocdn.com/sdk/js/chat/v0.12/twilio-chat.js"></script>
-
 <% end %>
 
 <% content_for :links do %>
 <% end %>
 
 <% content_for :scripts do %>
+<script src="http:///media.twiliocdn.com/sdk/js/chat/v0.12/twilio-chat.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.5.4/jquery.timeago.min.js"></script>
 
 <script>
     
     $(document).ready(function() {
+
+        var setup_onclick_events = false
+        $('#emoticon_container > img').click(function(){
+            console.log("hello world");
+            if (!setup_onclick_events){
+                $(".emoticon_container img").each(function(){
+                    // add onclick event, enables taking out karma and sending emote to input box
+                    $(this).on("click", function(){
+                        // check if parent container is a rude emoticon, if so, trigger karma reduction
+                        var is_rude_emoticon = ($(this).parent().parent().is('#rude-emoticons-container'));
+                        
+                        $('#chat-input').val($('#chat-input').val() + $("#" + this.id).prop('outerHTML'));
+                        if (is_rude_emoticon){
+                            send_negative_emoticon(this.id, "<%= @connection.channel %>")
+                        }
+                    });
+                });
+                
+            }
+            setup_onclick_events = true;
+        });
+
 
         // set size of messages box to the screen size
         var messages_height = $(window).height() - $(".navbar").height() - $("#tools").height() - $("#partner_name").height() - 40 + 'px';
@@ -226,12 +247,14 @@
             last_message_sid = last_message.sid;
             _update_last_read(channel, last_message.sid);
             session_messages.push(last_message);
+            total_messages = session_messages.length;
             
             check_for_deletion = setTimeout(function(){
+                
+                console.log("Expecting " + total_messages + " got " + session_messages.length + " so far");
                 // if last seen message is me, do not delete
                 // if last seen message is the correspondent, mark that message for deletion
                 
-                console.log(session_messages);
                 console.log("Last seen message is: " + last_message_sid);
 
                 if (ignoring_you(session_messages)){
@@ -246,7 +269,7 @@
                     });
                 }
                 clearTimeout(check_for_deletion);
-            }, 10000);
+            }, 20000, total_messages);
             // after updating the read line, check if person responded within timeout
             
         } else { }

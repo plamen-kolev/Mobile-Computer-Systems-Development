@@ -104,3 +104,5 @@ Next up - update rude emoticons when karma is gained or used
 Fix bug with inserting emoticons
 Notify upon karma gain
 Implement search functionality
+
+Experimenting with nodejs angular and sockets io - 10:00 - 13:00

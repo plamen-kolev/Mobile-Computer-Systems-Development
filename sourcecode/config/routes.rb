@@ -16,5 +16,6 @@ Rails.application.routes.draw do
 
   post "delete_message" => "conversations#delete_message"
 
-  root 'pages#index'
+  # root 'pages#index'
+  root to: 'connections#index'
 end

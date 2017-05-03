@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   root 'pages#index'
   devise_for :users
@@ -8,7 +7,9 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # scope "/:locale" do
   scope "/api" do
-    get 'connections' => 'connections#index'
+    resources :connections
+    get 'users/', to: 'connections#users', as: 'users'
+    post 'connections/confirm', to: 'connections#confirm', as: 'confirm'
     post 'auth' => 'user_token#create'
     # get 'categories/', to: 'api#categories', as: 'categories'
     # get 'categories/:category_id/products', to: 'api#category_products', as: 'category_products'

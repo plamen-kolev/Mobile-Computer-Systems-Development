@@ -1,8 +1,10 @@
 class ApplicationController < ActionController::Base
   include Knock::Authenticable
-  undef_method :current_user
+  # undef_method :current_user
 
   protect_from_forgery with: :exception
+  # protect_from_forgery unless: -> { request.format.json? }
+  skip_before_filter :verify_authenticity_token
   before_action :set_current_locale
 
   private

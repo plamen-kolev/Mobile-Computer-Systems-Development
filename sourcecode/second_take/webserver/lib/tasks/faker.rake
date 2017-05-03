@@ -6,7 +6,7 @@ namespace :faker do
 
     # create user
     User.create(email: 'local@host.com', name: 'Plamen', password: "password")
-    User.create(email: 'local2@host.com', name: 'Plamen', password: "password")
+    User.create(email: 'local2@host.com', name: 'John', password: "password")
 
   end
 

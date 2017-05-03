@@ -14,3 +14,38 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require bootstrap-sprockets
+
+function send_negative_emoticon(image, channel){
+    $.ajax({
+        type: "POST",
+        url: "http://localhost:3000/send_negative_emoticon",
+        data: {
+            "emoticon_id" : image,
+            "channel" : channel
+        },
+        dataType: "json",
+        success: function(data) {
+            $('#karma_val').text(data.karma);
+        }
+    });
+    $('#chat-input').val($('#chat-input').val() + $("#" + this.id).prop('outerHTML'));
+}
+
+function render_emoticons(html, element_target){
+    
+    // show and hide emoticons when toggling the button
+    $(element_target + '-container').html(html);
+    $(element_target).click(function(){
+        if (element_target === "#good-emoticons"){
+                $('#rude-emoticons-container').hide();
+        } else {
+            $('#good-emoticons-container').hide();
+        }
+
+        $(element_target + '-container').toggle();
+    })
+
+    // add event listeners
+    
+}

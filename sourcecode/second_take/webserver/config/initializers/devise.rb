@@ -6,13 +6,16 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'fa898921c7c4e0965dd2abb435a4fd51535ac9fb971efce855ea97e7bbb5937aa2e6af33ec2f34a530b83a15cd82ca00c87dd25d04e9f37bd69b569614938d4d'
+  # config.secret_key = 'a37359f95a2cafe0b38f6813a856174481175500cf69dec738d5d144c4993898534c8cdc531d49f81da13a1a473891efad3f33cc080903140e25ae44938df618'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  puts ENV['devise_key']
+
+  config.secret_key = ENV['devise_key']
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -64,9 +67,7 @@ Devise.setup do |config|
   # given strategies, for example, `config.http_authenticatable = [:database]` will
   # enable it only for database authentication. The supported strategies are:
   # :database      = Support basic authentication with authentication key + password
-  if Rails.env.development?
-    config.http_authenticatable = true
-  end
+  # config.http_authenticatable = false
 
   # If 401 status code should be returned for AJAX requests. True by default.
   # config.http_authenticatable_on_xhr = true
@@ -110,9 +111,12 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '8e90e0607bf47578fa0fdfdb7048965d3c2e5bab28e5df008d00b1b2eb626aa9ac8aaaff050eb4c62bc74be9b3e09edacf4efdecbd0e4d99b0da1b3388ca9ba0'
+  # config.pepper = 'c3c216343025bbf78ee71fd0b2031b367be1f02757a9988cc420cffd1b5ea3eea5db3cca10cb51864030fc8ea6309ce0836348b7b8b0aecaa01906ea5d3ed842'
 
-  # Send a notification email when the user's password is changed
+  # Send a notification to the original email when the user's email is changed.
+  # config.send_email_changed_notification = false
+
+  # Send a notification email when the user's password is changed.
   # config.send_password_change_notification = false
 
   # ==> Configuration for :confirmable

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  slug: MyString
+  weight: 1.5
+  price: MyString
+  float: MyString
+  product_id: 1
+
+two:
+  title: MyString
+  slug: MyString
+  weight: 1.5
+  price: MyString
+  float: MyString
+  product_id: 1

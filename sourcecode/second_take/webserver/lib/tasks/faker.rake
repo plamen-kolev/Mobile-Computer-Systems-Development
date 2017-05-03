@@ -1,14 +1,13 @@
 namespace :faker do
   desc "TODO"
   task init: :environment do
-    Rake::Task['db:purge'].invoke
-    Rake::Task['db:migrate'].invoke
-    User.create(:email => "local@host", :password => 'password', :password_confirmation => 'password')
-    User.create(:email => "user2@host", :password => 'password', :password_confirmation => 'password')
+   Rake::Task['db:purge'].invoke
+   Rake::Task['db:migrate'].invoke
 
-    (0..2).each do |i|
-      User.create(:email => "user#{3+i}@host", :password => 'password', :password_confirmation => 'password')
-    end
+    # create user
+    User.create(email: 'local@host.com', name: 'Plamen', password: "password")
+    User.create(email: 'local2@host.com', name: 'Plamen', password: "password")
 
   end
+
 end

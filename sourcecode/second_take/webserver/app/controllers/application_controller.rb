@@ -3,7 +3,15 @@ class ApplicationController < ActionController::Base
   undef_method :current_user
 
   protect_from_forgery with: :exception
-  if Rails.env.development?
-    skip_before_action :verify_authenticity_token
-  end
+  before_action :set_current_locale
+
+  private
+    def set_current_locale
+      current_locale = 'en' # default one
+      current_locale = params[:locale] if params[:locale]  # or add here some checking
+
+      I18n.locale = current_locale # if it doesn't work, add .to_sym
+    end
+
+
 end

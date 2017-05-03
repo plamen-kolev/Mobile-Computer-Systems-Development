@@ -10,27 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170326140539) do
-
-  create_table "connections", force: :cascade do |t|
-    t.boolean  "confirmed",               default: false
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-    t.integer  "follower_id"
-    t.integer  "followee_id"
-    t.string   "channel"
-    t.integer  "followee_lastread_index"
-    t.integer  "follower_lastread_index"
-    t.string   "followee_lastread_sid"
-    t.string   "follower_lastread_sid"
-    t.datetime "followee_lastread_ts"
-    t.datetime "follower_lastread_ts"
-    t.integer  "follower_karma",          default: 0
-    t.integer  "followee_karma",          default: 0
-  end
+ActiveRecord::Schema.define(version: 20170212210207) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
+    t.string   "name",                   default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"

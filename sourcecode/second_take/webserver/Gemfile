@@ -1,28 +1,30 @@
 source 'https://rubygems.org'
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
+# for heroku
+ruby "~> 2.3.1"
 
-# custom gems
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
-gem 'faker', '~> 1.7', '>= 1.7.3'
-# gem 'simple_form', '~> 3.4'
-# gem 'will_paginate', '~> 3.1.0'
-# gem 'twilio-ruby'
+gem "font-awesome-rails"
+
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'globalize', git: 'https://github.com/globalize/globalize'
+# gem 'activemodel-serializers-xml'
+gem 'rails_admin', '~> 1.1', '>= 1.1.1'
+gem 'mini_portile2', '~> 2.1'
+
+# image processing
+gem "paperclip", "~> 5.0.0"
 
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 gem 'devise', '~> 4.2', '>= 4.2.1'
 gem 'knock', '~> 2.1', '>= 2.1.1'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'rack-cors', :require => 'rack/cors'
 
-# end custom gems
-
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.1'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+gem 'stripe', '~> 2.8'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -51,11 +53,21 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'sqlite3'
+end
+
+gem 'faker', '~> 1.7', '>= 1.7.3'
+
+group :production do
+  gem 'pg', '~> 0.20.0'
+# for heroku
+  gem 'heroku', '~> 3.99', '>= 3.99.1'
+
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console'
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

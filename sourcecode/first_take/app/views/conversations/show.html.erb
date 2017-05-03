@@ -1,0 +1,294 @@
+<section>
+    <div class="col-md-12 container">
+        <p class="tool_container" id="partner_name"><%= @connection.get_other(current_user).email %></p>
+    
+    </div>
+
+    <div class="col-md-12 container" id="messages"></div>
+
+    <div id="tools" class="col-md-12 container">
+        <div id="emoticon_container" class="tool_container col-md-12">
+            <%= image_tag "emoticons/1f600.svg",  size: "35x35", id: "good-emoticons"  %>
+            <%= image_tag "emoticons/1f616.svg",  size: "35x35", id: "rude-emoticons"  %>
+            <span>Karma: <span id="karma_val"><%= @connection.get_karma(current_user) %></span></span> 
+        </div>
+        
+        <div class="drop-content" id="good-emoticons-container">
+        </div>
+
+        <div class="drop-content" id="rude-emoticons-container">
+        </div>
+
+        <div class="col-md-12 container">
+            <input class="btn btn-primary" type="submit"value="Send" style="float: right" id="send_button" />
+            <div placeholder="Say it !" style="overflow: hidden; padding-right: .5em;">
+                <textarea id="chat-input" class="form-control custom-control" type="text" style="width: 100%;" ></textarea>
+            </div>​
+        </div>
+     
+       
+    </div>
+
+</section>
+
+<% content_for :top_scripts do %>
+<% end %>
+
+<% content_for :links do %>
+<% end %>
+
+<% content_for :scripts do %>
+<script src="http:///media.twiliocdn.com/sdk/js/chat/v0.12/twilio-chat.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.5.4/jquery.timeago.min.js"></script>
+
+<script>
+    
+    $(document).ready(function() {
+
+        var setup_onclick_events = false
+        $('#emoticon_container > img').click(function(){
+            console.log("hello world");
+            if (!setup_onclick_events){
+                $(".emoticon_container img").each(function(){
+                    // add onclick event, enables taking out karma and sending emote to input box
+                    $(this).on("click", function(){
+                        // check if parent container is a rude emoticon, if so, trigger karma reduction
+                        var is_rude_emoticon = ($(this).parent().parent().is('#rude-emoticons-container'));
+                        
+                        $('#chat-input').val($('#chat-input').val() + $("#" + this.id).prop('outerHTML'));
+                        if (is_rude_emoticon){
+                            send_negative_emoticon(this.id, "<%= @connection.channel %>")
+                        }
+                    });
+                });
+                
+            }
+            setup_onclick_events = true;
+        });
+
+
+        // set size of messages box to the screen size
+        var messages_height = $(window).height() - $(".navbar").height() - $("#tools").height() - $("#partner_name").height() - 40 + 'px';
+        $("#messages").css('height', messages_height);
+        $(".emoticon_container").css('height', messages_height);
+
+        $.ajax("/render_good_emoticons", {
+            success: function(data) {
+                render_emoticons(data, '#good-emoticons')
+            },
+            error: function() {
+                console.log("error");
+            }
+        });
+
+        $.ajax("/render_rude_emoticons/<%= @connection.channel %>", {
+            success: function(data) {
+                render_emoticons(data, '#rude-emoticons')
+            },
+            error: function() {
+                console.log("error");
+            }
+        });
+
+        $(function() {
+            // Get handle to the chat div
+            var $chatWindow = $('#messages');
+            var session_messages = [];
+
+            // Our interface to the Chat service
+            var chatClient;
+
+            // A handle to the "general" chat channel - the one and only channel we
+            // will have in this sample app
+            var generalChannel;
+
+            // The server will assign the client a random username - store that value
+            // here
+            var username;
+
+            // Helper function to print info messages to the chat window
+            function print(infoMessage, asHtml) {
+                var $msg = $('<div class="info">');
+                if (asHtml) {
+                    $msg.html(infoMessage);
+                } else {
+                    $msg.text(infoMessage);
+                }
+                $chatWindow.append($msg);
+            }
+
+            // Alert the user they have been assigned a random username
+
+            // Get an access token for the current user, passing a username (identity)
+            // and a device ID - for browser-based apps, we'll always just use the
+            // value "browser"
+            $.getJSON('/token', {
+                device: 'browser'
+            }, function(data) {
+                // Alert the user they have been assigned a random username
+                username = data.identity;
+
+                // Initialize the Chat client
+                chatClient = new Twilio.Chat.Client(data.token);
+                chatClient.getUserChannels().then(joinChannel(session_messages));
+            });
+
+            function joinChannel() {
+                // Get the general chat channel, which is where all the messages are
+                // sent in this simple application
+                print('Attempting to join chat channel <%= @channel %> ...');
+                var promise = chatClient.getChannelBySid('<%= @channel %>');
+                promise.then(function(channel) {
+                    generalChannel = channel;
+                    setupChannel(session_messages);
+                }).catch(function() {});
+            }
+
+            // Set up channel after it has been found
+        function setupChannel(session_messages) {
+            // Join the general channel
+            generalChannel.join().then(function(channel) {
+                channel.getMessages(1).then(function(messages) {
+                    //determine the newest message index
+                    
+                    var totalMessages = messages.items.length;
+                    for (i=0; i<totalMessages; i++) {
+                        var message = messages.items[i];
+                        insert_message(messages, $chatWindow);
+                    }
+                    last_message_sid = messages.items[messages.items.length - 1].sid;
+                    session_messages = messages.items;
+                    update_read_line(messages, generalChannel, session_messages);
+
+                });
+            });
+
+            // Listen for new messages sent to the channel
+            generalChannel.on('messageAdded', function(message) {
+                
+
+                generalChannel.getMessages(1).then(function(messages){
+                    insert_message(messages, $chatWindow );
+                    update_read_line(messages, generalChannel, session_messages);
+                });
+            });
+        }
+
+        // Send a new message to the general channel
+        var $input = $('#chat-input');
+        $input.on('keydown', function(e) {
+            if (e.keyCode == 13) {
+                generalChannel.sendMessage($input.val())
+                $input.val('');
+            }
+        });
+
+        $("#send_button").click(function(){
+            generalChannel.sendMessage($input.val())
+            $input.val('');
+        });
+    });
+
+    function insert_message(messages, window){
+        message = messages.items[messages.items.length - 1]
+        body = message.body;
+        author_string = message.author;
+        sid_string = message.sid
+        var timestamp = message.timestamp;
+        var float = "";
+        var colour = "message-bubble-you";
+        var author = author_string + ": <br/>";
+        var current_user = "<%= current_user.email %>";
+        if (message.author === current_user){
+            float = "";
+            colour = "message-bubble-me";
+            <%#author = "Me: ";%>
+        }
+        
+        // if local message is string, set current timestamp
+
+        window.append(
+        "<div class='message-container col-md-12 " + colour +"'>" +
+            "<div>" +
+                "<span class='message'>" + author + "<span id='message_body_"+sid_string+"'>" + body + "</span><br/><span class='msg_timestamp'>" + jQuery.timeago(timestamp) + "</span></span>" +
+            "</div>" +
+        "</div>"
+        );
+        $("#messages").scrollTop($('#messages')[0].scrollHeight);
+        
+    }
+
+    function ignoring_you(session_messages){
+        // if no messages, assume not ignoring
+        if (!session_messages.length){
+            return true;
+        }
+        the_message = null;
+        for(var i=0;i < session_messages.length; i++){
+            if (session_messages[i].sid == last_message_sid){
+                the_message = session_messages[i];
+                for(var j=i+1; j < session_messages.length; j++){
+                    if(session_messages[j].author === "<%= current_user.email %>" && session_messages[j].body != "IGNORED !"){
+                        console.log("found a response, will modify msg !");
+                        return false;
+                    } else {
+                        console.log("Found ignored msg, skipping");
+                    }
+                }
+            }
+        }
+        $("#message_body_"+the_message.sid).html("IGNORED !");
+        return true
+    }
+
+    function update_read_line(messages, channel, session_messages){
+        var last_message = messages.items[messages.items.length - 1];
+        if (last_message.sid !== "<%= @connection.get_last_read(current_user) %>"){
+            last_message_sid = last_message.sid;
+            _update_last_read(channel, last_message.sid);
+            session_messages.push(last_message);
+            total_messages = session_messages.length;
+            
+            check_for_deletion = setTimeout(function(){
+                
+                console.log("Expecting " + total_messages + " got " + session_messages.length + " so far");
+                // if last seen message is me, do not delete
+                // if last seen message is the correspondent, mark that message for deletion
+                
+                console.log("Last seen message is: " + last_message_sid);
+
+                if (ignoring_you(session_messages)){
+                    $.ajax({
+                        type: "POST",
+                        url: "http://localhost:3000/delete_message",
+                        data: {
+                            "channel" : channel.sid,
+                            "sid" : last_message_sid
+                        },
+                        dataType: "json"
+                    });
+                }
+                clearTimeout(check_for_deletion);
+            }, 20000, total_messages);
+            // after updating the read line, check if person responded within timeout
+            
+        } else { }
+    }
+
+    function _update_last_read(channel, message_sid){
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:3000/update_last_read",
+            data: {
+                "channel" : channel.sid,
+                "message_sid" : message_sid
+            },
+            dataType: "json"
+        });
+    }
+    });
+   
+   // func to delete a message if the message has been ignored
+
+</script>
+<% end %>

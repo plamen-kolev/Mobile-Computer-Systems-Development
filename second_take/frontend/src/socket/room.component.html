@@ -1,0 +1,50 @@
+<div class="col-md-12 container">
+
+
+  <section>
+      <div class="col-md-12 container">
+          <p class="tool_container" id="partner_name"><%= @connection.get_other(current_user).email %></p>
+
+      </div>
+
+      <div class="col-md-12 container" id="messages">
+
+          <div *ngFor="let message of messages" class="message-container col-md-12" [className]="asd">
+            <div>
+              <span class="message">{{message.sender}} <br>
+                <span id="">{{message.body}}</span><br>
+                <span class="msg_timestamp">{{message.date}}</span>
+              </span>
+            </div>
+          </div>
+
+
+
+      </div>
+
+      <div id="tools" class="col-md-12 container">
+          <div id="emoticon_container" class="tool_container col-md-12">
+              <!-- <%= image_tag "emoticons/1f600.svg",  size: "35x35", id: "good-emoticons"  %>
+              <%= image_tag "emoticons/1f616.svg",  size: "35x35", id: "rude-emoticons"  %>
+              <span>Karma: <span id="karma_val"><%= @connection.get_karma(current_user) %></span></span> -->
+          </div>
+
+          <div class="drop-content" id="good-emoticons-container">
+          </div>
+
+          <div class="drop-content" id="rude-emoticons-container">
+          </div>
+
+          <div class="col-md-12 container">
+              <input (click)="sendMessage()" class="btn btn-primary" type="submit"value="Send" style="float: right" id="send_button" />
+              <div placeholder="Say it !" style="overflow: hidden; padding-right: .5em;">
+                  <textarea [(ngModel)]="body" name="body" id="chat-input" class="form-control custom-control" type="text" style="width: 100%;" ></textarea>
+              </div>
+          </div>
+
+
+      </div>
+
+  </section>
+
+</div>

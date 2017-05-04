@@ -106,3 +106,26 @@ Notify upon karma gain
 Implement search functionality
 
 Experimenting with nodejs angular and sockets io - 10:00 - 13:00
+
+
+ 
+ During the period 26 to 3 august, built a simple angular shopping website with the p  urpose of becoming better at front end javascript development. This was not only for   the coursework, but also for personal development
+ 
+13:00 - 15:00
+
+03 May. 2017
+
+Created small webserver in express that uses socket.io, which subscribes to messaging rooms and sends chatroom messages to clients
+
+18:00 - 19:00 
+Added front-end component to message passing. Now will integrate jwt token authentication to the back-end to ensure only athorised users can view messages. Using devise and jwt and knock
+
+Added auth service to angular, login screen and route guard to the chat section
+
+19:00 
+Started working on scavenging the old interface and migrating it to the new one - the style actually looked very reasonable
+
+19:49
+Due to issues with the old environment and twillio keys being deleted from old operating system, spend lots of time trying to troubleshoot the issue and inserting wrong api keys.
+
+Found the keys and moving forward with cloning the look and feel

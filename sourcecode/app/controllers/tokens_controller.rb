@@ -20,8 +20,13 @@ class TokensController < ApplicationController
 
     def create
         token = get_token
+
         grant = get_grant
         token.add_grant(grant)
+        puts "\n\n\n\n\n\n\n"
+        puts "hello"
+        puts ENV['IPM_SERVICE_SID']
+        puts token.to_jwt.inspect
         render json: {username: current_user.email, token: token.to_jwt}
     end
 end

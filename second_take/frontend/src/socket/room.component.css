@@ -12,6 +12,7 @@
     overflow: scroll;
     overflow-y: scroll;
     overflow-x: hidden;
+    max-height: 481px;
 }
 
 .new_connection, .connections_confirm{

@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # scope "/:locale" do
   scope "/api" do
-    resources :connections
-    get 'users/', to: 'connections#users', as: 'users'
+    resources :connections do
+      post 'send',  to: 'connections#send_message'
+    end
+    get 'users', to: 'connections#users', as: 'users'
     post 'connections/confirm', to: 'connections#confirm', as: 'confirm'
     post 'auth' => 'user_token#create'
     # get 'categories/', to: 'api#categories', as: 'categories'

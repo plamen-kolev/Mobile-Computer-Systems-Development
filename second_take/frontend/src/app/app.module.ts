@@ -10,6 +10,7 @@ import { IndexComponent } from './index.component';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { AuthService } from '../auth/auth.service';
 import { LoginComponent } from '../auth/login.component';
+import { AddFriendComponent } from '../socket/addfriend.component';
 
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
@@ -20,7 +21,8 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     AppComponent,
     RoomComponent,
     IndexComponent,
-    LoginComponent
+    LoginComponent,
+    AddFriendComponent
   ],
   imports: [
     BrowserModule,

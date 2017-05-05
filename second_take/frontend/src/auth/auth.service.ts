@@ -7,8 +7,6 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 
-
-
 @Injectable()
 export class AuthService {
 
@@ -22,7 +20,12 @@ export class AuthService {
     // this.password = 'password';
   }
 
+  get(url) {
+    return this.authHttp.get(url);
+  }
+
   logout(): void{
+    console.log("triggered logout");
     localStorage.removeItem('auth_user')
     localStorage.removeItem('token');
   }

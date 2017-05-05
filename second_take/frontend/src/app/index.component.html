@@ -1,2 +1,22 @@
-<a href="room/a">Go to room</a>
-{{auth_user}}
+<div class="">
+  <a href="room/a">Go to room</a>
+</div>
+
+<div class="">
+Auth user: {{auth_user}}
+</div>
+
+<div *ngFor="let channel of channels" class="">
+  <span *ngIf="channel.confirmed === true">
+    Chat with <a href="room/{{channel.recipient}}/{{channel.channel}}">{{channel.recipient}}</a>
+  </span>
+
+  <span *ngIf="channel.confirmed === false">
+    Friend request to {{channel.recipient}} pending
+  </span>
+
+</div>
+
+<div class="">
+  <a href="meet">Find friends</a>
+</div>

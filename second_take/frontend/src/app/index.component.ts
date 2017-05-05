@@ -15,10 +15,6 @@ export class IndexComponent implements OnInit{
 
   ngOnInit(){
     this.authHttp.get(localStorage.getItem('backend_url') + '/api/connections')
-      .subscribe(
-        data => this.channels = data,
-        err => console.log(err),
-      );
-    console.log(this.channels);
-  }
+      .subscribe((response) => this.channels = response.json());
+    }
 }

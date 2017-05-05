@@ -129,3 +129,28 @@ Started working on scavenging the old interface and migrating it to the new one 
 Due to issues with the old environment and twillio keys being deleted from old operating system, spend lots of time trying to troubleshoot the issue and inserting wrong api keys.
 
 Found the keys and moving forward with cloning the look and feel
+
+04 May 2017
+22:00 00:00
+
+Will integrate that with devise https://www.sitepoint.com/introduction-to-using-jwt-in-rails/
+
+The solution is very unstable, skipping
+
+Found advanced rest tool, made everything so simple.
+
+Now chat messages display properly in the chat box, next step is to create messages database entry and store messages persistently
+
+05 May 2017
+06:38 - 08:44 
+Now will be testing the api for doing post requests for messages, in the mean time will be doing validation for adding someone as a friend and being the correct user
+Created automated scripts that populate the database with fake friendships with fake messages
+
+08:44 - 09:28
+
+Will be integrating the new messaging api to the frontend, will be writing send message function.
+Trying to force chat box to be same height as user's screen
+
+Angular does not let me do things simply as jquery, after hours of struggling, hardcoding the chat window size
+
+

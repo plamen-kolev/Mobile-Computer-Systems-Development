@@ -1,0 +1,17 @@
+<div class="">
+  <div *ngIf="showDefault" class="drop-content emoticon-container" id="good-emoticons-container" style="display: block;">
+    <div class="emoticon_container">
+      <img *ngFor="let image of default" (click)="insert(image)" height="25px;" src="{{backend_url + '/' + image.url}}" alt=""/>
+    </div>
+  </div>
+
+  <div *ngIf="showRude" class="drop-content emoticon-container" id="bad-emoticons-container" style="display: block;">
+    <div class="emoticon_container">
+      <img *ngFor="let image of rude" (click)="insertRude(image)" height="25px;" src="{{backend_url + '/' + image.url}}" alt=""/>
+    </div>
+  </div>
+</div>
+<img (click)="toggleDefault()" [src]="backend_url + '/images/emoticons/default/1f600.svg'"  height="35px" id="good-emoticons" alt="good emoticons" />
+<img (click)="toggleRude()" [src]="backend_url + '/images/emoticons/default/1f616.svg'"  height="35px" id="bad-emoticons" alt="bad emoticons" />
+
+<span>Karma: <span id="karma_val">{{karma}}</span></span>

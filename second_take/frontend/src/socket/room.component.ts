@@ -23,20 +23,15 @@ export class RoomComponent implements OnInit {
   recipient: string;
   height: number;
   new_message: Message;
+  karma: number;
 
   constructor(private route: ActivatedRoute, private router: Router, private authService: AuthService){
     this.email = localStorage.getItem("auth_user");
     this.room = this.route.snapshot.params['room'];
-    console.log(this.email);
-    this.authService.get(localStorage.getItem('backend_url') + '/api/connections/' + this.room)
-      .subscribe((response) =>
-      this.recipient = response.json().recipient
-    );
-
+    this.body = "";
     // socket io connection
     this.socket = io(this.server);
     this.socket.emit('join', {email: this.email, room: this.room});
-    console.log(this.recipient);
   }
 
   ngOnInit(){
@@ -44,6 +39,14 @@ export class RoomComponent implements OnInit {
     if(! localStorage.getItem("auth_user")){
       this.router.navigate(['/login'])
     }
+
+    this.authService.get(localStorage.getItem('backend_url') + '/api/connections/' + this.room)
+      .subscribe((response) => {
+        this.recipient = response.json().recipient
+        this.karma = response.json().karma;
+        console.log(this.karma);
+      }
+    );
 
     // grab all current messages for that channel
     this.authService.get(localStorage.getItem('backend_url') + '/api/connections/' + this.room + '/messages')

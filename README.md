@@ -171,4 +171,14 @@ Working on notifying the user upon new message, this message is fetched via a we
 
 13:50
 
-Inserting emoticons and making it possible to send them
+Inserting emoticons, wrote a page that retuns packend information about emoticons and their associated weight. Rude emoticons have karma cost and weight, default emoticons have weight of 0
+
+14:33 - 15:33
+Begin inserting emoticons to the frontend via the backend api
+
+17:21 - 19:11
+
+Working on creating the karma system on the back end
+Karma display has been done.
+
+Spend long period of time on trying to embed images (emoticons) in input fields, stumbled upon https://github.com/froala/angular2-froala-wysiwyg, will be integrating that next. At this point, icons are viewable (a list of available icons), but they cannot be sent or embeded into the input box.

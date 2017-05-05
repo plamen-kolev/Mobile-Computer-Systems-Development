@@ -8,11 +8,20 @@ class Connection < ApplicationRecord
 
   def to_json(current_user)
     id = -1
-    if self.r_id == current_user.id; id = self.l_id else id = self.r_id end
-    {
+    karma = -1
+    if self.r_id == current_user.id
+       id = self.l_id
+       karma = self.r_karma
+    else
+      id = self.r_id
+      karma = self.l_karma
+    end
+
+    return {
       channel: self.channel,
       recipient: User.find(id).email,
-      confirmed: self.confirmed
+      confirmed: self.confirmed,
+      karma: karma
     }
   end
 
@@ -20,11 +29,20 @@ class Connection < ApplicationRecord
     connections = Connection.where(l_id: current_user.id).or(Connection.where(r_id: current_user.id))
     return connections.map{|c|
       id = -1
-      if c.r_id == current_user.id; id=c.l_id else id=c.r_id end
+
+      karma = -1
+      if c.r_id == current_user.id
+         id = c.l_id
+         karma = c.l_karma
+      else
+        id = c.r_id
+        karma = c.l_karma
+      end
       {
         channel: c.channel,
         recipient: User.find(id).email,
-        confirmed: c.confirmed
+        confirmed: c.confirmed,
+        karma: karma
       }
     }
   end

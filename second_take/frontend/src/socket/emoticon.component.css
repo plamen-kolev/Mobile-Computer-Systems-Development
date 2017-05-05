@@ -1,0 +1,26 @@
+.emoticon-container{
+  background: white;
+  max-width: 89%;
+  padding: 4px;
+  width: 252px;
+  max-height: 300px;
+  overflow-y: scroll;
+  box-shadow: -5px 15px 21px -13px rgba(0, 0, 0, 0.75);
+  border: 2px solid #96ceff;
+  margin-right: 0px;
+  position: absolute;
+  bottom: 61px;
+}
+
+#good-emoticons, #bad-emoticons{
+  cursor: pointer;
+}
+
+.emoticon_container img{
+  margin:2px 0px 0px 2px;
+  cursor:pointer;
+}
+
+.hidden{
+  display: none;
+}

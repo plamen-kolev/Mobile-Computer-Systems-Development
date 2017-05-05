@@ -6,7 +6,7 @@ import { AddFriendComponent } from '../socket/addfriend.component';
 
 export const routes: Routes = [
   { path: '', component: IndexComponent },
-  { path: 'room/:recipient/:room', component:  RoomComponent },
+  { path: 'room/:room', component:  RoomComponent },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: IndexComponent },
   { path: 'meet', component: AddFriendComponent }

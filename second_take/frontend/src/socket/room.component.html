@@ -1,3 +1,4 @@
+<img [src]="error.svg.jpg" alt="">
 <div class="col-md-12 container">
 
   <section>
@@ -5,9 +6,10 @@
           <p class="tool_container" id="partner_name">Talking with {{recipient}}</p>
       </div>
 
-      <div class="col-md-12 container" id="messages">
+      <div  #scroll style="overflow: scroll;" class="col-md-12 container" id="messages">
 
           <div *ngFor="let message of messages" [ngClass]="email === message.sender ? 'message-bubble-me' : 'message-bubble-you'" class="message-container col-md-12" >
+            {{scrollToBottom()}}
             <div>
               <span class="message">{{message.sender}} <br>
                 <span id="">{{message.body}}</span><br>

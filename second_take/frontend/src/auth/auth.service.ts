@@ -13,15 +13,26 @@ export class AuthService {
   server: string;
   email: string;
   password: string;
+  header: Headers = new Headers();
+
 
   constructor(private http: Http, private authHttp: AuthHttp) {
     this.server = 'http://localhost:3000/';
-    // this.email = 'local@host.com';
-    // this.password = 'password';
+    this.header.append('Content-Type', 'application/json');
   }
 
   get(url) {
     return this.authHttp.get(url);
+  }
+
+  post(url, data) {
+    var response = null;
+    return this.authHttp.post(url, JSON.stringify(data), { headers: this.header })
+      // .subscribe(
+      //   data => response = data.json(),
+      //   err => console.log(err),
+      //   // () => console.log('Request Complete')
+      // );
   }
 
   logout(): void{

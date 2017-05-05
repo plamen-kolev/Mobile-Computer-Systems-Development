@@ -7,7 +7,7 @@ namespace :faker do
     # create user
     u1 = User.create(email: 'local@host.com', name: 'Plamen', password: "password")
     u2 = User.create(email: 'local1@host.com', name: 'Plamen', password: "password")
-    for i in 2..10
+    for i in 2..5
       User.create(email: "local#{i}@host.com", name: 'John', password: "password")
     end
 
@@ -17,7 +17,7 @@ namespace :faker do
     c.save()
 
     # create fake friendships
-    for i in 1..10
+    for i in 1..20
       c = Connection.connect(User.all.sample(), User.all.sample())
       if rand(2) == 1 and c
         c.confirmed = true
@@ -28,7 +28,7 @@ namespace :faker do
     # create fake messages for each connection
     connections = Connection.where(confirmed: true)
     connections.each do | connection |
-      for i in 0..50
+      for i in 0..5
         # pick at random who sends and who receives, e.g. either pop or shift
         participants = [connection.r_id, connection.l_id]
         sender_id = -1

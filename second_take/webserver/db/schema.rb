@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(version: 20170504230215) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.integer  "sender_id"
-    t.integer  "recipient_id"
-    t.text     "body"
-    t.integer  "connection_id"
+    t.integer  "sender_id",     null: false
+    t.integer  "recipient_id",  null: false
+    t.text     "body",          null: false
+    t.integer  "connection_id", null: false
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

@@ -153,4 +153,22 @@ Trying to force chat box to be same height as user's screen
 
 Angular does not let me do things simply as jquery, after hours of struggling, hardcoding the chat window size
 
+09:40 - 10:33
 
+Will be working on send message feature - workflow:  frontend sends a message to express, express notifies the user to check for new message with the database
+Managed to force each message to be vieable only by the authenticated users that are in the message's chatroom
+
+Carrying on to frontend message api call
+
+11:17 - 12:00
+Implemented send message feature with response and persistence
+
+Removed sending a socket message if message comes from self - this improves performance by appending messages sent from self to the local message array
+
+12:01 - 13:00
+
+Working on notifying the user upon new message, this message is fetched via a web request - this is done for security reasons to prevent users from reading unauthenticated messages
+
+13:50
+
+Inserting emoticons and making it possible to send them

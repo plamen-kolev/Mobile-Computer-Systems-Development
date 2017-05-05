@@ -1,5 +1,6 @@
 class ConnectionsController < ApplicationController
   before_action :authenticate_user
+  before_action :get_connection, only: [:show, :send_message, :message, :show_messages]
 
   def users
     blacklisted_ids = [current_user.id]
@@ -10,30 +11,17 @@ class ConnectionsController < ApplicationController
   def confirm
     params.require(:user_id)
     confirmee = User.find(params[:user_id])
-    puts confirmee.email
-    puts current_user.email
     connection = Connection.where(r_id: current_user.id, confirmed: false, l_id: confirmee.id).first()
 
-    if not connection
-      render :text => "Not found", :status => 404
-      return
-    end
+    render :text => "Not found", :status => 404; return if not connection
+
     connection.confirmed = true
     connection.save()
   end
 
   def index
-    # render json: current_user
-    connections = Connection.where(l_id: current_user.id).or(Connection.where(r_id: current_user.id))
-    render json: connections.map{|c|
-      id = -1
-      if c.r_id == current_user.id; id=c.l_id else id=c.r_id end
-      {
-        channel: c.channel,
-        recipient: User.find(id).email,
-        confirmed: c.confirmed
-      }
-    }
+    # renders all accepted friends
+    render json: Connection::to_json(current_user)
   end
 
   def create
@@ -43,30 +31,55 @@ class ConnectionsController < ApplicationController
     r = User.find(params[:user_id])
 
     Connection.connect(l,r)
-    # Connection.create(channel: channel, confirmed: false, l_id:l.id, r_id: r.id)
+  end
+
+  def message
+    params.require(:message_id)
+    message = Message.where(connection_id: @connection.id, id: params[:message_id].to_i).first()
+
+    if message
+      render json: message.to_json
+    else
+      render json: {status: 404}, status: 404
+    end
   end
 
   # messeging features
   def send_message
-    params.require(:channel_id, :recipient, :body)
-    puts Connection::get(current_user).inspect
+    params.require(:body)
+    recipient_id = @connection.r_id == current_user.id ? @connection.l_id : @connection.r_id
+    m = message = Message.create(
+      sender_id: current_user.id,
+      recipient_id: recipient_id,
+      body: ActionController::Base.helpers.sanitize(params[:body]),
+      connection_id: @connection.id
+    )
+    render json: m.to_json if message
   end
 
   def show
-    c = Connection::where(channel: params[:id], confirmed: true).first()
+    render json: @connection.to_json(current_user)
+  end
 
-    puts c.inspect
-    if not c
-      render html: "Friendship not accepted yet", :status => 404
+  def show_messages
+    # exit if no friendship accepted
+    if not @connection
+      render json: {status: "not found"}, :status => 404
+      return
+    end
+    unless (@connection.r_id == current_user.id or @connection.l_id == current_user.id)
+      render json: {status: "Not found"}, :status => 404
       return
     end
 
-    unless (c.r_id == current_user.id or c.l_id == current_user.id)
-      render html: "Not found", :status => 404
-    end
-
-    messages = Message::messages(c)
+    messages = Message::messages(@connection)
     render json: messages
   end
+
+  private
+    def get_connection
+      params.require(:connection_id)
+      @connection = Connection::where(channel: params[:connection_id], confirmed: true, r_id: current_user).or(Connection::where(channel: params[:connection_id], confirmed: true, l_id: current_user)).first()
+    end
 
 end

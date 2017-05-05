@@ -8,7 +8,7 @@ Auth user: {{auth_user}}
 
 <div *ngFor="let channel of channels" class="">
   <span *ngIf="channel.confirmed === true">
-    Chat with <a href="room/{{channel.recipient}}/{{channel.channel}}">{{channel.recipient}}</a>
+    Chat with <a href="room/{{channel.channel}}">{{channel.recipient}}</a>
   </span>
 
   <span *ngIf="channel.confirmed === false">

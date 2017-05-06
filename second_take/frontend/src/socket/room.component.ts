@@ -88,8 +88,8 @@ export class RoomComponent implements OnInit {
       // then send it to javascipt server
 
       var message = {
-        // sender: this.email,
-        // recipient: this.recipient,
+        sender: this.email,
+        recipient: this.recipient,
         // body: this.body,
         id: response.json().id
       }

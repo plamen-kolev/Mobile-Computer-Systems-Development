@@ -1,6 +1,8 @@
+
 class ConnectionsController < ApplicationController
+
   before_action :authenticate_user
-  before_action :get_connection, only: [:show, :send_message, :message, :show_messages]
+  before_action :get_connection, only: [:show, :send_message, :message, :show_messages, :send_rude]
 
   def users
     blacklisted_ids = [current_user.id]
@@ -74,6 +76,40 @@ class ConnectionsController < ApplicationController
 
     messages = Message::messages(@connection)
     render json: messages
+  end
+
+  def send_rude
+    params.require(:emoticon)
+    emoticons = get_rude_emoticons()
+    # emoticon_cost = emoticons[emoticons.index params[:emoticon]].cost
+
+    cost = 0
+    emoticons.each do |e|
+      puts e
+      if e[:code] == params[:emoticon]
+        cost = e[:cost]
+      end
+    end
+
+    # find out who you are in the connection relationship
+    if @connection.l_id == current_user.id
+      if @connection.l_karma < cost
+        render json: {status: "Not enough karma"}, :status => 400
+      else
+        @connection.l_karma -= cost
+        @connection.save()
+        render json: {karma: @connection.l_karma, karma_before: @connection.l_karma + cost}
+      end
+    else
+      if @connection.r_karma < cost
+        render json: {status: "Not enough karma"}, :status => 400
+      else
+        @connection.r_karma -= cost
+        @connection.save()
+        render json: {karma: @connection.r_karma, karma_before: @connection.r_karma + cost}
+      end
+    end
+
   end
 
   private

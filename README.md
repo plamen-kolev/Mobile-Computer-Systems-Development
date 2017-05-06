@@ -182,3 +182,35 @@ Working on creating the karma system on the back end
 Karma display has been done.
 
 Spend long period of time on trying to embed images (emoticons) in input fields, stumbled upon https://github.com/froala/angular2-froala-wysiwyg, will be integrating that next. At this point, icons are viewable (a list of available icons), but they cannot be sent or embeded into the input box.
+
+20:00 - 20:42
+
+After struggling to integrate any wysiwyg editors that have any minimal intefaces, decided to use an emoji library and store emoji codes, then render emojis on the client side
+
+20:42 - 21:21
+Spend time decoding emoji unicode into image elements, but angular 2 treats them as inline strings. Meaning emojis cannot be rendered from api call directly onto the page
+
+Will be using rails module to serve pre-rendered emojis to the browser
+
+https://codereview.stackexchange.com/questions/20126/regex-to-get-all-image-links < used this for regexp
+
+12:51 - 14:13
+
+Working on the front end to reduce karma when rude emoticons are used, also to disable emoticons visually upon lack of karma
+
+Had fun parsing unicode, emoji code and image urls
+
+15:00 - 15:38
+Finished two way binding when karma updates, emojis now hide approperiately
+
+15:38 - 16:35
+Discovered that it is very difficult to serve emoticons, because prerendered body images do not display properly, trying to figure out if that is due to front end or back end issues
+
+Discovered that angular 2 does html escape by default, fixed it that by using their documentation and a lot of googling and stack overflow browsing.
+
+16:35
+Will dockerise the solution for practice, must also create 
+
+16.49
+
+Crating angular 2 environment variables for production and development setup

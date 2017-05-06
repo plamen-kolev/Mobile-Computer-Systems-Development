@@ -7,7 +7,7 @@ class Message < ApplicationRecord
     msgs = Message.where(connection_id: connection.id).order(created_at: :asc)
     return msgs.map{|m|
       {
-        body: m.body,
+        body: Twemoji.parse(m.body),
         room: connection.channel,
         sender: User.find(m.sender_id).email,
         recipient: User.find(m.recipient_id).email,
@@ -19,7 +19,7 @@ class Message < ApplicationRecord
 
   def to_json
     return {
-      body: self.body,
+      body: Twemoji.parse(self.body),
       room: Connection.where(id: self.connection_id).first().channel,
       sender: User.find(self.sender_id).email,
       recipient: User.find(self.recipient_id).email,

@@ -18,10 +18,10 @@ io.on('connection', function (socket) {
 
     socket.on('chat', function(data){
 
-      // console.log(clients);
-      // console.log("Recipient: " + clients[data.recipient]);
-      // console.log("Data: " + data.recipient);
-      // console.log("Will be emitting to client " + data.recipient + " with id " + clients[data.recipient] + " from user " + data.sender + " with id " + clients[data.sender] + " message: " + data.body);
+      console.log(clients);
+      console.log("Recipient: " + clients[data.recipient]);
+      console.log("Data: " + data.recipient);
+      console.log("Will be emitting to client " + data.recipient + " with id " + clients[data.recipient] + " from user " + data.sender + " with id " + clients[data.sender] + " message: " + data.body);
 
       // var msg_obj = {'id': data.id, 'sender': data.sender, 'recipient': data.recipient,'body': data.body, 'date': new Date() };
       var msg_obj = {'id': data.id };

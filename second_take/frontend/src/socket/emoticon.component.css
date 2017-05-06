@@ -24,3 +24,10 @@
 .hidden{
   display: none;
 }
+
+.default_enabled_emoticon{
+  display:inline-block;
+  border: solid 1px #eee;
+  padding:2px;
+  width: 35px;
+}

@@ -15,9 +15,11 @@ Rails.application.routes.draw do
     get 'connections/:connection_id/messages/:message_id', to: 'connections#message'
     post 'connections/:connection_id/messages/send',  to: 'connections#send_message'
     post 'connections/:connection_id/confirm', to: 'connections#confirm'
+    post 'connections/:connection_id/send_rude', to: 'connections#send_rude'
 
     # emoticon endpoints
     get 'emoticons/:type', to: 'content#emoticons'
+
 
     # end
 

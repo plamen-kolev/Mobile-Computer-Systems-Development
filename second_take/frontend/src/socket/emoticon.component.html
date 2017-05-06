@@ -1,13 +1,29 @@
 <div class="">
   <div *ngIf="showDefault" class="drop-content emoticon-container" id="good-emoticons-container" style="display: block;">
     <div class="emoticon_container">
-      <img *ngFor="let image of default" (click)="insert(image)" height="25px;" src="{{backend_url + '/' + image.url}}" alt=""/>
+      <!-- <img *ngFor="let image of default" (click)="insert(image)" height="25px;" src="{{backend_url + '/' + image.url}}" alt=""/> -->
+      <span class="default_enabled_emoticon" *ngFor="let emoji of default">
+        <img (click)="insert(emoji.code)" src="{{emoji.url}}" height="25px" alt="">
+        <span>0pt</span>
+      </span>
     </div>
   </div>
 
   <div *ngIf="showRude" class="drop-content emoticon-container" id="bad-emoticons-container" style="display: block;">
     <div class="emoticon_container">
-      <img *ngFor="let image of rude" (click)="insertRude(image)" height="25px;" src="{{backend_url + '/' + image.url}}" alt=""/>
+      <span *ngFor="let emoji of rude">
+
+        <span class="default_enabled_emoticon" *ngIf="karma > emoji.cost">
+          <img (click)="insertRude(emoji.code)" src="{{emoji.url}}" height="25px" alt=""/>
+          <span>{{emoji.cost}}pt</span>
+        </span>
+
+        <span class="default_enabled_emoticon" *ngIf="karma < emoji.cost">
+          <img style="cursor:auto;" src="{{backend_url}}/images/error.svg" height="25px" alt=""/>
+          <span>N/A</span>
+        </span>
+
+      </span>
     </div>
   </div>
 </div>

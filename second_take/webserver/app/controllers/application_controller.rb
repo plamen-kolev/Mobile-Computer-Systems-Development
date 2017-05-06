@@ -15,5 +15,20 @@ class ApplicationController < ActionController::Base
       I18n.locale = current_locale # if it doesn't work, add .to_sym
     end
 
-
+    def get_rude_emoticons
+      match_url_regexp = /<img\s+[^>]*?src=("|')([^"']+)\1/
+      allowed = %w{🙍 💔 🔥 😡 😈 💢 👊 👿 👹 💩 🖕 💉 💣 🔫 ☢ ☣ 💀 ⚰}
+      emojis = []
+      cost = 5
+      allowed.each do |emoji|
+        url = ::Twemoji.parse(emoji).to_s.scan(match_url_regexp)[0][1]
+        emojis.push({
+          code: ::Twemoji.find_by(unicode: emoji),
+          url: url,
+          cost: cost
+        })
+        cost += 5
+      end
+      return emojis
+    end
 end

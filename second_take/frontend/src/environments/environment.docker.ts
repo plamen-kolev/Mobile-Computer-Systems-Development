@@ -4,7 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false,
-  backendRails: 'http://localhost:3000',
-  backendExpress: 'http://localhost:4201'
+  production: true,
+  backendRails: 'http://web:3000',
+  backendExpress: 'http://express:4201'
 };

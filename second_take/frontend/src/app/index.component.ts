@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { AuthHttp, JwtHelper } from 'angular2-jwt';
 import { Response } from '@angular/http';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'index',
@@ -14,7 +15,7 @@ export class IndexComponent implements OnInit{
   constructor(public authService: AuthService, private authHttp: AuthHttp) {}
 
   ngOnInit(){
-    this.authHttp.get(localStorage.getItem('backend_url') + '/api/connections')
+    this.authHttp.get(environment.backendRails + '/api/connections')
       .subscribe((response) => this.channels = response.json());
     }
 }

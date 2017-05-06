@@ -30,3 +30,14 @@ production:
   pool: 5
   username: <%= ENV['database_user'] %>
   password: <%= ENV['database_password'] %>
+
+docker:
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  host: <%= ENV['database_host'] %>
+  database: <%= ENV['database'] %>
+  pool: 5
+  username: <%= ENV['database_user'] %>
+  password: <%= ENV['database_password'] %>

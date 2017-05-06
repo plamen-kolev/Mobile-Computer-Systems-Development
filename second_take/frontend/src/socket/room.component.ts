@@ -3,6 +3,7 @@ import * as io from 'socket.io-client';
 import { Message } from './message';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'room',
@@ -17,7 +18,6 @@ export class RoomComponent implements OnInit {
   email: string;
   room: string;
   socket: any;
-  server = 'http://localhost:4201';
   messages: Message[] = [];
   body: string;
   recipient: string;
@@ -30,7 +30,7 @@ export class RoomComponent implements OnInit {
     this.room = this.route.snapshot.params['room'];
     this.body = "";
     // socket io connection
-    this.socket = io(this.server);
+    this.socket = io(environment.backendExpress);
     this.socket.emit('join', {email: this.email, room: this.room});
   }
 
@@ -40,7 +40,7 @@ export class RoomComponent implements OnInit {
       this.router.navigate(['/login'])
     }
 
-    this.authService.get(localStorage.getItem('backend_url') + '/api/connections/' + this.room)
+    this.authService.get(environment.backendRails + '/api/connections/' + this.room)
       .subscribe((response) => {
         this.recipient = response.json().recipient
         this.karma = response.json().karma;
@@ -49,7 +49,7 @@ export class RoomComponent implements OnInit {
     );
 
     // grab all current messages for that channel
-    this.authService.get(localStorage.getItem('backend_url') + '/api/connections/' + this.room + '/messages')
+    this.authService.get(environment.backendRails + '/api/connections/' + this.room + '/messages')
       .subscribe((response) => this.messages = response.json());
 
     this.socket.on('chat', function(message){
@@ -57,13 +57,11 @@ export class RoomComponent implements OnInit {
       // upon notification with message id, ask the webserver what the message is, if the right user is asking,
       // server will allow message to be viewed
 
-      this.authService.get(localStorage.getItem('backend_url') + '/api/connections/' + this.room + '/messages/' + message.id)
+      this.authService.get(environment.backendRails + '/api/connections/' + this.room + '/messages/' + message.id)
         .subscribe(response => {
           this.messages[this.messages.length] = this._addMessageFromResponse(response);
         });
 
-      // message = new Message(this.room, message.sender, this.recipient, message.body, message.date);
-      // this.messages[this.messages.length] = message;
     }.bind(this));
   }
 
@@ -82,7 +80,7 @@ export class RoomComponent implements OnInit {
     }
 
     // first, the message gets sent to the server
-    this.authService.post(localStorage.getItem('backend_url') + '/api/connections/' + this.room + '/messages/send', {body: this.body})
+    this.authService.post(environment.backendRails + '/api/connections/' + this.room + '/messages/send', {body: this.body})
     .subscribe( response => {
       this.messages[this.messages.length] = this._addMessageFromResponse(response);
       // then send it to javascipt server

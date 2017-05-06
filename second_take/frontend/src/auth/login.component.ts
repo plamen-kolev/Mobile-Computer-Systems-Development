@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
         },
         (error) => {
           this.alert = "Invalid email or password";
+          this.alert = error
         }
       );
 

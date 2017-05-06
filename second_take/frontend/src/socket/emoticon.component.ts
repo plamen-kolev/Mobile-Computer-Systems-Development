@@ -1,8 +1,7 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Http } from '@angular/http';
-
-declare var twemoji:any;
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'emoticons',
@@ -23,12 +22,13 @@ export class EmoticonComponent implements OnInit {
   showDefault: boolean;
   rude: Emoticon[];
   default: string[];
-  backend_url: string = localStorage.getItem('backend_url')
+  backendRails: string;
 
   constructor(private http: Http, private authService: AuthService){
     this.showRude = false;
     this.showDefault = false;
     this.body = "";
+    this.backendRails = environment.backendRails;
   }
 
   ngOnInit() {}
@@ -41,7 +41,7 @@ export class EmoticonComponent implements OnInit {
 
       // init rude if null
       if (! this.rude){
-        this.http.get(localStorage.getItem('backend_url') + '/api/emoticons/rude')
+        this.http.get(this.backendRails + '/api/emoticons/rude')
           .subscribe((response) => {
             this.rude = <Emoticon[]> response.json()
         });
@@ -60,7 +60,7 @@ export class EmoticonComponent implements OnInit {
 
       // init rude if null
       if (! this.default){
-        this.http.get(localStorage.getItem('backend_url') + '/api/emoticons/default')
+        this.http.get(this.backendRails + '/api/emoticons/default')
             .subscribe((response) =>  this.default = response.json());
       }
 
@@ -76,7 +76,7 @@ export class EmoticonComponent implements OnInit {
 
   insertRude(code) {
 
-    this.authService.post(localStorage.getItem('backend_url') + '/api/connections/' + this.room + '/send_rude',
+    this.authService.post(this.backendRails + '/api/connections/' + this.room + '/send_rude',
     {emoticon: code})
     .subscribe( response => {
       this.insert(code);

@@ -211,6 +211,19 @@ Discovered that angular 2 does html escape by default, fixed it that by using th
 16:35
 Will dockerise the solution for practice, must also create 
 
-16.49
+16.49 - 18:26
 
 Crating angular 2 environment variables for production and development setup
+Finished adding environmental variables, created docker env. 
+Wrestilng with httpd.conf to serve angular module in production
+
+18:26 - 19:26 
+Still trying to get httpd configuration to properly serve routes of frontend, getting a consistent configuration to docker is the issue
+Finished with writing httpd conf file that serves the frontend app
+
+Talk about learning abouthow to write configuration -do it on your own computer instead of wasting time in volatile docker
+
+20:37 - 21:20
+
+Removing dead components and migrating
+Finalised dockarisation, it helped trim out fat and find deployment bugs

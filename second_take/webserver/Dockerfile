@@ -21,6 +21,6 @@ COPY Gemfile /usr/src/app/
 # COPY Gemfile.lock /usr/src/app/
 
 
-RUN bundle install
+RUN RAILS_ENV=docker bundle install
 
 COPY . /usr/src/app

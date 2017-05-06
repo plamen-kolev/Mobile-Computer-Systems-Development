@@ -2,14 +2,14 @@ version: '2'
 services:
   db:
     build: ./postgres
-    image: postgres:9.4.1
+    # image: postgres:9.4.1
     ports:
       - "5432:5432"
   web:
-    build: ../
+    build: ../webserver/
     command: bin/rails server --port 3000 --binding 0.0.0.0
     environment:
-      - "RAILS_ENV=production"
+      - "RAILS_ENV=docker"
     ports:
       - "3000:3000"
     links:
@@ -18,11 +18,17 @@ services:
       - .:/myapp
 
   frontend:
-    build: ../frontend
-    image: nginx:latest
+    build: ./frontend
+    # image: httpd:latest
     volumes:
-      - ../frontend/dist/:/usr/share/nginx/html/
+      - ../frontend/dist:/usr/local/apache2/htdocs/
     ports:
       - "4200:80"
-    links:
-      - web
+    # links:
+      # - web
+  express:
+    build: ../express
+    ports:
+      - 4201:4201
+    volumes:
+      - ../express/:/app

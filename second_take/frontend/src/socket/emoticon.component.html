@@ -1,7 +1,6 @@
 <div class="">
   <div *ngIf="showDefault" class="drop-content emoticon-container" id="good-emoticons-container" style="display: block;">
     <div class="emoticon_container">
-      <!-- <img *ngFor="let image of default" (click)="insert(image)" height="25px;" src="{{backend_url + '/' + image.url}}" alt=""/> -->
       <span class="default_enabled_emoticon" *ngFor="let emoji of default">
         <img (click)="insert(emoji.code)" src="{{emoji.url}}" height="25px" alt="">
         <span>0pt</span>
@@ -19,7 +18,7 @@
         </span>
 
         <span class="default_enabled_emoticon" *ngIf="karma < emoji.cost">
-          <img style="cursor:auto;" src="{{backend_url}}/images/error.svg" height="25px" alt=""/>
+          <img style="cursor:auto;" src="{{backendRails}}/images/error.svg" height="25px" alt=""/>
           <span>N/A</span>
         </span>
 
@@ -27,7 +26,7 @@
     </div>
   </div>
 </div>
-<img (click)="toggleDefault()" [src]="backend_url + '/images/emoticons/default/1f600.svg'"  height="35px" id="good-emoticons" alt="good emoticons" />
-<img (click)="toggleRude()" [src]="backend_url + '/images/emoticons/default/1f616.svg'"  height="35px" id="bad-emoticons" alt="bad emoticons" />
+<img (click)="toggleDefault()" [src]="backendRails + '/images/emoticons/default/1f600.svg'"  height="35px" id="good-emoticons" alt="good emoticons" />
+<img (click)="toggleRude()" [src]="backendRails + '/images/emoticons/default/1f616.svg'"  height="35px" id="bad-emoticons" alt="bad emoticons" />
 
 <span>Karma: <span id="karma_val">{{karma}}</span></span>

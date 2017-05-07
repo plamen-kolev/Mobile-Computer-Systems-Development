@@ -1,4 +1,47 @@
-<a href="login">login</a>
-<a (click)="authService.logout()" href="#">Log out</a>
+<div class="uk-position-relative">
+    <nav class="uk-navbar-container" uk-navbar="dropbar: true; dropbar-mode: push">
+        <div class="uk-navbar-left">
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                  <div class="uk-navbar-item">
+                    <form action="javascript:void(0)">
+                      <input class="uk-input uk-form-width-small" type="text" placeholder="Input">
+                      <button class="uk-button uk-button-default">Button</button>
+                    </form>
+                </div>
 
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="uk-navbar-right">
+
+            <ul class="uk-navbar-nav">
+              <li>
+                <a href="#"><strong>{{auth_user}}</strong></a>
+              </li>
+
+              <li *ngIf="! auth_user">
+                <a href="login">Login</a>
+              </li>
+
+              <li *ngIf="auth_user">
+                <a  (click)="authService.logout()" href="#">Logout</a>
+              </li>
+
+              <li *ngIf="! auth_user">
+                <a href="#">Register</a>
+              </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+    <div class="uk-navbar-dropbar"></div>
+</div>
 <router-outlet></router-outlet>

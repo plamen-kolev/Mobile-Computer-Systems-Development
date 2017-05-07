@@ -3,3 +3,17 @@
   height: 25px;
   margin:0px 1px 0px 1px;
 }
+
+.align-left{
+  text-align: left;
+}
+
+.wrapper {
+  max-width:940px;
+  margin:auto;
+}
+
+nav{
+  max-width:940px;
+  margin:auto;
+}

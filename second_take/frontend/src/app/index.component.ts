@@ -7,6 +7,7 @@ import { environment } from '../environments/environment';
 @Component({
   selector: 'index',
   templateUrl: './index.component.html',
+  styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit{
 

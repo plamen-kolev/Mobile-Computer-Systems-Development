@@ -15,6 +15,10 @@
     max-height: 481px;
 }
 
+.messages_container{
+  padding: 0px;
+}
+
 .new_connection, .connections_confirm{
   display:inline-block;
 }
@@ -78,10 +82,10 @@
 }
 
 #emoticon_container{
-    -webkit-box-shadow: -3px -5px 14px -10px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: -3px -5px 14px -10px rgba(0, 0, 0, 0.75);
-    box-shadow: -3px -5px 14px -10px rgba(0, 0, 0, 0.75);
-    margin: 5px 15px;
+    /*-webkit-box-shadow: -3px -5px 14px -10px rgba(0, 0, 0, 0.75);*/
+    /*-moz-box-shadow: -3px -5px 14px -10px rgba(0, 0, 0, 0.75);*/
+    /*box-shadow: -3px -5px 14px -10px rgba(0, 0, 0, 0.75);*/
+    /*margin: 5px 15px;*/
     margin-top: 0px;
     padding:10px;
 

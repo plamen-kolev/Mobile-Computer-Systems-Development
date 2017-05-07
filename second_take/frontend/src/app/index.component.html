@@ -1,22 +1,26 @@
-<div class="">
-  <a href="room/a">Go to room</a>
-</div>
 
-<div class="">
-Auth user: {{auth_user}}
-</div>
+  <div uk-grid>
+      <div class="uk-width-1-3"></div>
+      <div class="uk-child-width-1-4">
 
-<div *ngFor="let channel of channels" class="">
-  <span *ngIf="channel.confirmed === true">
-    Chat with <a href="room/{{channel.channel}}">{{channel.recipient}}</a>
-  </span>
+        <div *ngFor="let channel of channels" uk-grid  class="uk-background-muted item uk-width-1-1">
+            <div class="uk-width-1-4">
+              <img class="avatar" src="http://www.infragistics.com/media/8948/anonymous_200.gif" alt="Picture of user">
+            </div>
+            <div class="uk-width-3-4">
+              {{channel.recipient}}
+              <span *ngIf="channel.confirmed === true">
+                <a href="room/{{channel.channel}}" class="uk-button uk-alert-primary chat_button">Chat</a>
 
-  <span *ngIf="channel.confirmed === false">
-    Friend request to {{channel.recipient}} pending
-  </span>
+              </span>
 
-</div>
+              <span *ngIf="channel.confirmed === false">
+                <a href="" class="uk-button uk-alert-danger chat_disabled">Pending</a>
+              </span>
+            </div>
 
-<div class="">
-  <a href="meet">Find friends</a>
-</div>
+        </div>
+
+      </div>
+      <div class="uk-width-1-3"></div>
+  </div>

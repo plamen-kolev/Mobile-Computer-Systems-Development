@@ -12,10 +12,15 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   alert: string;
+  auth_user: string;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
+    this.auth_user = localStorage.getItem('auth_user');
+    if (this.auth_user){
+      this.router.navigateByUrl('/');
+    }
   }
 
   login() : void {

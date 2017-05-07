@@ -29,6 +29,7 @@ export class RoomComponent implements OnInit {
     this.email = localStorage.getItem("auth_user");
     this.room = this.route.snapshot.params['room'];
     this.body = "";
+    this.height =  document.body.scrollHeight
     // socket io connection
     this.socket = io(environment.backendExpress);
     this.socket.emit('join', {email: this.email, room: this.room});

@@ -1,23 +1,43 @@
-<div *ngIf="alert">
-  <div class="col-md-12 container">
-    <div class="alert alert-danger" role="alert">
-      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-      <span class="sr-only">Error:</span>
-      {{alert}}
-    </div>
-  </div>
-</div>
 
-<div class="col-md-12 container">
-  <form>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="text" class="form-control" id="email" name="email" [(ngModel)]="email" required>
-      </div>
-      <div class="form-group">
-        <label for="alterEgo">Password</label>
-        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password">
-      </div>
-      <button type="submit" (click)="login()" class="btn btn-success">Submit</button>
-    </form>
+
+<div class="uk-child-width-expand@s uk-text-center" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default"></div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default  uk-card-body">
+          <div *ngIf="alert">
+
+            <div class="uk-alert-danger" uk-alert>
+                <a class="uk-alert-close" uk-close></a>
+                <p>{{alert}}</p>
+            </div>
+
+          </div>
+          <form>
+              <div class="uk-margin">
+                  <div class="uk-inline">
+                      <span class="uk-form-icon" uk-icon="icon: user"></span>
+                      <input placeholder="Terica" class="uk-input" type="text" id="email" name="email" [(ngModel)]="email" required>
+                  </div>
+              </div>
+
+              <div class="uk-margin">
+                  <div class="uk-inline">
+                      <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                      <input placeholder="supersecret" class="uk-input" type="password" id="password" name="password" [(ngModel)]="password" required>
+                  </div>
+              </div>
+
+              <div class="uk-margin">
+                  <div class="uk-inline">
+                    <button class="uk-button uk-button-primary" type="submit" (click)="login()">Log In</button>
+                  </div>
+              </div>
+          </form>
+        </div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default"></div>
+    </div>
 </div>

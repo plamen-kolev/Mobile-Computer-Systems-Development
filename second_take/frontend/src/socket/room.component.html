@@ -1,11 +1,11 @@
-<div class="col-md-12 container">
-
-  <section>
+<div uk-grid class="wrapper">
+  <div class="uk-width-1-6"></div>
+  <section class="uk-width-2-6 messages_container">
       <div class="col-md-12 container">
           <p class="tool_container" id="partner_name">Talking with {{recipient}}</p>
       </div>
 
-      <div  #scroll style="overflow: scroll-y;" class="col-md-12 container" id="messages">
+      <div  #scroll style="overflow: scroll-y;" class="col-md-12 container theheight" id="messages">
 
           <div *ngFor="let message of messages" [ngClass]="email === message.sender ? 'message-bubble-me' : 'message-bubble-you'" class="message-container col-md-12" >
             {{scrollToBottom()}}
@@ -30,14 +30,14 @@
           </div>
 
           <div class="col-md-12 container">
-            <input (click)="sendMessage()" class="btn btn-primary" type="submit"value="Send" style="float: right" id="send_button" />
+            <input (click)="sendMessage()" class="uk-button uk-button-primary" type="submit"value="Send" style="float: right" id="send_button" />
             <div placeholder="Say it !" style="overflow: hidden; padding-right: .5em;">
-                <textarea [(ngModel)]="body" name="body" id="chat-input" class="form-control custom-control" type="text" style="width: 100%;" ></textarea>
+                <textarea [(ngModel)]="body" name="body" id="chat-input" class="uk-textarea" type="text" style="width: 100%;" ></textarea>
             </div>
 
           </div>
       </div>
 
   </section>
-
+  <div class="uk-width-1-6"></div>
 </div>

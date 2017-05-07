@@ -227,3 +227,11 @@ Talk about learning abouthow to write configuration -do it on your own computer 
 
 Removing dead components and migrating
 Finalised dockarisation, it helped trim out fat and find deployment bugs
+
+07.05.2017
+08:00 - 09:40
+Started working on the UI, using UI kit as bootstrap feels boring
+Ported most of the visual components to UI
+
+09:46
+Find friend feature search bar begun

@@ -18,7 +18,7 @@
         </span>
 
         <span class="default_enabled_emoticon" *ngIf="karma < emoji.cost">
-          <img style="cursor:auto;" src="{{backendRails}}/images/error.svg" height="25px" alt=""/>
+          <img style="cursor:auto;" src="assets/images/error.svg" height="25px" alt=""/>
           <span>N/A</span>
         </span>
 
@@ -26,7 +26,7 @@
     </div>
   </div>
 </div>
-<img (click)="toggleDefault()" [src]="backendRails + '/images/emoticons/default/1f600.svg'"  height="35px" id="good-emoticons" alt="good emoticons" />
-<img (click)="toggleRude()" [src]="backendRails + '/images/emoticons/default/1f616.svg'"  height="35px" id="bad-emoticons" alt="bad emoticons" />
+<img (click)="toggleDefault()" title=":grinning:" alt="😀" src="https://twemoji.maxcdn.com/2/svg/1f600.svg"  height="35px" id="good-emoticons">
 
+<img title=":confounded:" alt="😖" (click)="toggleRude()" src="https://twemoji.maxcdn.com/2/svg/1f616.svg" height="35px" id="bad-emoticons">
 <span>Karma: <span id="karma_val">{{karma}}</span></span>

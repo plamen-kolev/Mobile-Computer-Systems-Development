@@ -11,8 +11,9 @@ Rails.application.routes.draw do
 
     get 'connections/:connection_id/messages/:message_id', to: 'connections#message'
     post 'connections/:connection_id/messages/send',  to: 'connections#send_message'
-    post 'connections/:connection_id/confirm', to: 'connections#confirm'
+    get 'connections/:connection_id/confirm', to: 'connections#confirm'
     post 'connections/:connection_id/send_rude', to: 'connections#send_rude'
+    post 'connections/', to: 'connections#create'
 
     # emoticon endpoints
     get 'emoticons/:type', to: 'content#emoticons'
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
 
     # end
 
-    get 'users', to: 'connections#users', as: 'users'
+    get 'users(/:name)', to: 'connections#users', as: 'users'
     # post 'connections/confirm', to: 'connections#confirm', as: 'confirm'
     post 'auth' => 'user_token#create'
     # get 'categories/', to: 'api#categories', as: 'categories'

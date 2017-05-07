@@ -1,26 +1,29 @@
+<div uk-grid>
+    <div class="uk-width-1-3"></div>
+    <div class="uk-child-width-1-3">
 
-  <div uk-grid>
-      <div class="uk-width-1-3"></div>
-      <div class="uk-child-width-1-4">
+      <div *ngFor="let channel of channels" uk-grid  class="uk-background-muted item uk-width-1-1">
+          <div class="uk-width-1-4">
+            <img class="avatar" src="http://www.infragistics.com/media/8948/anonymous_200.gif" alt="Picture of user">
+          </div>
+          <div class="uk-width-3-4">
+            {{channel.recipient}}
+            <span *ngIf="channel.confirmed === true">
+              <a href="room/{{channel.channel}}" class="uk-button uk-alert-primary chat_button">Chat</a>
 
-        <div *ngFor="let channel of channels" uk-grid  class="uk-background-muted item uk-width-1-1">
-            <div class="uk-width-1-4">
-              <img class="avatar" src="http://www.infragistics.com/media/8948/anonymous_200.gif" alt="Picture of user">
-            </div>
-            <div class="uk-width-3-4">
-              {{channel.recipient}}
-              <span *ngIf="channel.confirmed === true">
-                <a href="room/{{channel.channel}}" class="uk-button uk-alert-primary chat_button">Chat</a>
+            </span>
 
-              </span>
+            <span *ngIf="channel.status === 'pending'">
+              <a href="#" class="uk-button uk-alert-danger chat_disabled">Pending</a>
+            </span>
 
-              <span *ngIf="channel.confirmed === false">
-                <a href="" class="uk-button uk-alert-danger chat_disabled">Pending</a>
-              </span>
-            </div>
-
-        </div>
+            <span *ngIf="channel.status === 'confirm'">
+              <a href="#" (click)="confirmFriend(channel.channel, channel.user_id, channel.channel)" class="uk-button uk-alert-alert">Accept</a>
+            </span>
+          </div>
 
       </div>
-      <div class="uk-width-1-3"></div>
-  </div>
+
+    </div>
+    <div class="uk-width-1-3"></div>
+</div>

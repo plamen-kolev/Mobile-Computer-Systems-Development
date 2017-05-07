@@ -13,6 +13,7 @@
     overflow-y: scroll;
     overflow-x: hidden;
     max-height: 481px;
+    min-height: 481px;
 }
 
 .messages_container{

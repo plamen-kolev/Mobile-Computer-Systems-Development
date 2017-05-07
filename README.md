@@ -233,5 +233,15 @@ Finalised dockarisation, it helped trim out fat and find deployment bugs
 Started working on the UI, using UI kit as bootstrap feels boring
 Ported most of the visual components to UI
 
-09:46
-Find friend feature search bar begun
+09:46 - 11:33
+Find friend feature search bar completed
+This bar hides when no serch term is used
+
+11:33 - 12:20
+Add new friend feature and confirm friend now
+
+13:19 13:40 
+Will be working on implementing realtime update upon adding somebody to friends
+
+13:40 - 14:00
+Fixed a bug when confirming friend request - the backend was rendering the view multiple times causing error to be thrown

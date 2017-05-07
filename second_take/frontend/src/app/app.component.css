@@ -1,0 +1,13 @@
+.search_results{
+  position: absolute;
+  z-index: 1;
+  background: white;
+  top: 81px;
+  left: 147px;
+  padding: 10px;
+  border: 2px solid #4699ef
+}
+
+.search_result{
+  margin: 0px;
+}

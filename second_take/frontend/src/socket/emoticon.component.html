@@ -12,7 +12,7 @@
     <div class="emoticon_container">
       <span *ngFor="let emoji of rude">
 
-        <span class="default_enabled_emoticon" *ngIf="karma > emoji.cost">
+        <span class="default_enabled_emoticon" *ngIf="karma >= emoji.cost">
           <img (click)="insertRude(emoji.code)" src="{{emoji.url}}" height="25px" alt=""/>
           <span>{{emoji.cost}}pt</span>
         </span>

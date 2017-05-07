@@ -21,7 +21,8 @@ class Connection < ApplicationRecord
       channel: self.channel,
       recipient: User.find(id).email,
       confirmed: self.confirmed,
-      karma: karma
+      karma: karma,
+      status: self._get_status(current_user)
     }
   end
 
@@ -38,13 +39,32 @@ class Connection < ApplicationRecord
         id = c.r_id
         karma = c.l_karma
       end
+
+      recipient = User.find(id)
       {
         channel: c.channel,
-        recipient: User.find(id).email,
+        recipient: recipient.email,
+        user_id: recipient.id,
         confirmed: c.confirmed,
-        karma: karma
+        karma: karma,
+        status: c._get_status(current_user)
+
       }
     }
+  end
+
+  def _get_status(current_user)
+    status = ''
+    if self.confirmed
+      status = 'confirmed'
+      # if you are on the left side of the relationship, pending
+    elsif self.l_id == current_user.id
+      status = 'pending'
+  # if you are on the right side of the relationship, enable confirming
+  elsif self.r_id == current_user.id
+      status = 'confirm'
+    end
+    return status
   end
 
   def self.connect(l,r)
@@ -56,7 +76,7 @@ class Connection < ApplicationRecord
     connection = Connection.where(r_id: r.id, l_id: l.id)
                 .or(Connection.where(l_id: l.id, r_id: r.id)).first
 
-    return if connection
+    return connection if connection
 
     #otherwise create one
     # channel = Digest::SHA256.hexdigest (r.email + l.email)

@@ -12,7 +12,7 @@ import { AuthService } from '../auth/auth.service';
 import { LoginComponent } from '../auth/login.component';
 import { AddFriendComponent } from '../socket/addfriend.component';
 import { EmoticonComponent } from '../socket/emoticon.component';
-
+import { FriendService } from './friend.service';
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
 }
@@ -34,6 +34,7 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   ],
   providers: [
     AuthService,
+    FriendService,
     {
       provide: AuthHttp,
       useFactory: authHttpServiceFactory,

@@ -6,19 +6,58 @@ class ConnectionsController < ApplicationController
 
   def users
     blacklisted_ids = [current_user.id]
-    users = User.all.reject { |u| blacklisted_ids.include?(u.id) }
-    render json: users
+    users = ''
+
+    if params[:name]
+      users = User.where("email LIKE ?", "%#{params[:name]}%").reject { |u| blacklisted_ids.include?(u.id) }
+    else
+      users = User.all.reject { |u| blacklisted_ids.include?(u.id) }
+    end
+
+    response = []
+    users.map{|u|
+      # determine connection type: not connected, connected or pending
+      c = Connection.where(l_id: current_user.id, r_id: u.id).or(Connection.where(r_id: current_user.id, l_id: u.id)).first()
+      status = ''
+      channel = ''
+
+      if c
+        channel = c.channel
+        if c.confirmed
+          status = 'confirmed'
+          # if you are on the left side of the relationship, pending
+        elsif c.l_id == current_user.id
+          status = 'pending'
+      # if you are on the right side of the relationship, enable confirming
+        elsif c.r_id == current_user.id
+          status = 'confirm'
+        end
+      else
+        status = 'new'
+      end
+      response.push({
+        email: u.email,
+        status: status,
+        channel: channel,
+        id: u.id
+      })
+    }
+    render json: response
   end
 
   def confirm
-    params.require(:user_id)
-    confirmee = User.find(params[:user_id])
-    connection = Connection.where(r_id: current_user.id, confirmed: false, l_id: confirmee.id).first()
 
-    render :text => "Not found", :status => 404; return if not connection
+
+    connection = Connection.where(channel: params[:connection_id]).first()
+
+    if not connection
+      render :text => "Not found", :status => 404;
+      return
+    end
 
     connection.confirmed = true
     connection.save()
+    render json: connection.to_json(current_user)
   end
 
   def index
@@ -28,11 +67,10 @@ class ConnectionsController < ApplicationController
 
   def create
     params.require(:user_id)
-
-    l =  User.find(current_user.id)
     r = User.find(params[:user_id])
 
-    Connection.connect(l,r)
+    c = Connection.connect(current_user,r)
+    render json: {channel: c.channel}
   end
 
   def message

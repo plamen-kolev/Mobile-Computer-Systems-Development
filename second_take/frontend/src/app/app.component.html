@@ -1,3 +1,30 @@
+<div *ngIf="showSearchResults" uk-grid class="">
+
+  <div class="uk-width-2-5 search_results">
+    <ul class="uk-list uk-list-divider">
+      <li *ngFor="let user of users">
+        {{user.email}}
+        <span *ngIf="user.status === 'confirmed'">
+          <a href="room/{{user.channel}}" class="">chat</a>
+        </span>
+
+        <span *ngIf="user.status === 'confirm'">
+          <a href="#" (click)="confirmFriend(user.channel, user.id)" class="uk-alert-info">confirm</a>
+        </span>
+
+        <span *ngIf="user.status === 'pending'">
+          <a href="#" class="uk-alert-alert">pending</a>
+        </span>
+
+        <span *ngIf="user.status === 'new'">
+          <a href="#" (click)="addFriend(user.id)" class="uk-alert-alert">add</a>
+        </span>
+
+      </li>
+    </ul>
+  </div>
+</div>
+
 <div class="uk-position-relative">
     <nav class="uk-navbar-container" uk-navbar="dropbar: true; dropbar-mode: push">
         <div class="uk-navbar-left">
@@ -8,8 +35,8 @@
                 <li>
                   <div class="uk-navbar-item">
                     <form action="javascript:void(0)">
-                      <input class="uk-input uk-form-width-small" type="text" placeholder="Input">
-                      <button class="uk-button uk-button-default">Button</button>
+                      <input (keyup)="onSearchChange($event.target.value)" class="uk-input uk-form-width-small" type="text" placeholder="Find friends">
+
                     </form>
                 </div>
 

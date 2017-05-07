@@ -2,7 +2,7 @@
 class ConnectionsController < ApplicationController
 
   before_action :authenticate_user
-  before_action :get_connection, only: [:show, :send_message, :message, :show_messages, :send_rude]
+  before_action :get_connection, only: [:show, :send_message, :message, :show_messages, :send_rude, :delete_message]
 
   def users
     blacklisted_ids = [current_user.id]
@@ -47,7 +47,6 @@ class ConnectionsController < ApplicationController
 
   def confirm
 
-
     connection = Connection.where(channel: params[:connection_id]).first()
 
     if not connection
@@ -82,6 +81,39 @@ class ConnectionsController < ApplicationController
     else
       render json: {status: 404}, status: 404
     end
+  end
+
+  def delete_message
+
+    m = Message.find(params[:message_id].to_i)
+
+    # check if message already deleted
+    if m.body == '(ignored)'
+      render json: {message: 'Massage already deleted'}, status: 400
+      return
+    end
+    sender = User.find(m.sender_id)
+    # check if sender is current logged in user
+    if sender.id != current_user.id
+      render json: {message: 'Cannot delete other people\' messages !'}, status: 400
+      return
+    end
+
+    m.body = '(ignored)'
+    m.save()
+
+    new_karma = -1
+    # get sender and give him karma
+    if @connection.l_id == sender.id
+      @connection.l_karma += 5
+      new_karma = @connection.l_karma
+    else
+      @connection.r_karma += 5
+      new_karma = @connection.r_karma
+    end
+    @connection.save()
+
+    render json: {karma: new_karma}
   end
 
   # messeging features

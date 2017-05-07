@@ -54,7 +54,6 @@ export class RoomComponent implements OnInit {
       .subscribe((response) => this.messages = response.json());
 
     this.socket.on('chat', function(message){
-      console.log(message.id);
       // upon notification with message id, ask the webserver what the message is, if the right user is asking,
       // server will allow message to be viewed
 
@@ -81,7 +80,7 @@ export class RoomComponent implements OnInit {
     }
 
     // first, the message gets sent to the server
-    this.authService.post(environment.backendRails + '/api/connections/' + this.room + '/messages/send', {body: this.body})
+    this.authService.post(`${environment.backendRails}/api/connections/${this.room}/messages/send`, {body: this.body})
     .subscribe( response => {
       this.messages[this.messages.length] = this._addMessageFromResponse(response);
       // then send it to javascipt server
@@ -95,6 +94,26 @@ export class RoomComponent implements OnInit {
 
       this.socket.emit('chat', message);
       this.body = "";
+
+      // now see if the responend has sent anything within the ignore threshold
+      let index = this.messages.length
+      setTimeout(() => {
+        for(let i = index; i < this.messages.length; i++){
+          console.log(this.messages[i]);
+          if (this.messages[i].recipient == this.email){
+            console.log("New message received, will not delete old message");
+            return true;
+          }
+        }
+        console.log("No new message detected, will delete message");
+        this.authService.get(`${environment.backendRails}/api/connections/${this.room}/messages/${response.json().id}/delete`)
+        .subscribe((res) => {
+          // delete the message that got ignored
+          this.messages[index - 1].body = '(ignored)';
+          this.karma = res.json().karma;
+        });
+      }, 10000);
+
     });
   }
 

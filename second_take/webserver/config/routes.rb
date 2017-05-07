@@ -6,11 +6,14 @@ Rails.application.routes.draw do
   scope "/api" do
     # resources :connections, param: :connection_id do
     get 'connections', to: 'connections#index'
-    get 'connections/:connection_id/messages', to: 'connections#show_messages'
+
     get 'connections/:connection_id', to: 'connections#show'
 
+    get 'connections/:connection_id/messages', to: 'connections#show_messages'
     get 'connections/:connection_id/messages/:message_id', to: 'connections#message'
     post 'connections/:connection_id/messages/send',  to: 'connections#send_message'
+    get 'connections/:connection_id/messages/:message_id/delete',  to: 'connections#delete_message'
+
     get 'connections/:connection_id/confirm', to: 'connections#confirm'
     post 'connections/:connection_id/send_rude', to: 'connections#send_rude'
     post 'connections/', to: 'connections#create'

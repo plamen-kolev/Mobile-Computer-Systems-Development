@@ -7,7 +7,10 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  auth_user: string;
 
   constructor(public authService: AuthService) {}
-  ngOnInit() {}
+  ngOnInit() {
+    this.auth_user = localStorage.getItem('auth_user');
+  }
 }

@@ -1,0 +1,27 @@
+.avatar{
+  max-width: 50px;
+  border-radius: 30px;
+}
+
+.item{
+  margin-top:10px;
+  margin-bottom: 10px;
+  padding-top:15px;
+  padding-bottom:15px;
+  max-width:300px;
+}
+
+.item img {
+  margin-top:5px;
+}
+
+.chat_button:hover{
+  background-color: #1e87f0;
+  color: #fff;
+}
+
+.chat_disabled:hover {
+  background-color: #f0506e;
+  color: #fff;
+  cursor: default;
+}

@@ -9,7 +9,7 @@
   border: 2px solid #96ceff;
   margin-right: 0px;
   position: absolute;
-  bottom: 61px;
+  bottom: 360px;
 }
 
 #good-emoticons, #bad-emoticons{
@@ -31,3 +31,7 @@
   padding:2px;
   width: 35px;
 }
+
+ .messages_container{
+   max-width:500px;
+ }

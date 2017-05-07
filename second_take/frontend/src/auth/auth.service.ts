@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
+import { Router } from '@angular/router';
 // import { Observable } from 'rxjs/Observable';
 // import { Product } from '../product/product';
 import { AuthHttp, JwtHelper } from 'angular2-jwt';
@@ -14,7 +15,7 @@ export class AuthService {
   password: string;
   header: Headers = new Headers();
 
-  constructor(private http: Http, private authHttp: AuthHttp) {
+  constructor(private http: Http, private authHttp: AuthHttp, private router: Router) {
     this.header.append('Content-Type', 'application/json');
   }
 
@@ -28,9 +29,9 @@ export class AuthService {
   }
 
   logout(): void{
-    console.log("triggered logout");
     localStorage.removeItem('auth_user')
     localStorage.removeItem('token');
+    this.router.navigateByUrl('/');
   }
 
   login(email:string, password: string): Observable<any> {

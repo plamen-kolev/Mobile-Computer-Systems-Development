@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
           let token = data.jwt;
           localStorage.setItem('token', token)
           localStorage.setItem('auth_user', this.email)
+          this.authService.change$.emit('login');
           this.router.navigateByUrl('/');
         },
         (error) => {

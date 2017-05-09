@@ -245,3 +245,21 @@ Will be working on implementing realtime update upon adding somebody to friends
 
 13:40 - 14:00
 Fixed a bug when confirming friend request - the backend was rendering the view multiple times causing error to be thrown
+
+09.05.2017
+18:41 - 19:00
+Discovered that the way routes was used is flawed, will refactor them which would improve the responsiveness of the website, will also create the register page. Exposing backend to register calls. Doing the look and feel of the form
+
+19:00
+Finished refactoring urls, moving on to creating register page and actual validation
+Also noticed a bug with logout, where it would not refresh the page upon press.
+Fixing a bug where logged out user would be able to search user database in the search bar
+
+19:31
+I have introduced a bug by using angular build in routes when upon logging out, the ui will not reflect it, will add events to trigger proper page layout now
+
+19:52
+doing form validation, fixed the bugs above
+
+20:04
+Created register page, does not have enough validation and general user experience quality

@@ -5,7 +5,7 @@
       <li *ngFor="let user of users">
         {{user.email}}
         <span *ngIf="user.status === 'confirmed'">
-          <a href="room/{{user.channel}}" class="">chat</a>
+          <a [routerLink]="['/room', user.channel]" class="">chat</a>
         </span>
 
         <span *ngIf="user.status === 'confirm'">
@@ -30,7 +30,7 @@
         <div class="uk-navbar-left">
             <ul class="uk-navbar-nav">
                 <li>
-                    <a href="#">Home</a>
+                    <a [routerLink]="['/home']">Home</a>
                 </li>
                 <li>
                   <div class="uk-navbar-item">
@@ -53,15 +53,15 @@
               </li>
 
               <li *ngIf="! auth_user">
-                <a href="login">Login</a>
+                <a [routerLink]="['/login']">Login</a>
               </li>
 
               <li *ngIf="auth_user">
-                <a  (click)="authService.logout()" href="#">Logout</a>
+                <a (click)="authService.logout()">Logout</a>
               </li>
 
               <li *ngIf="! auth_user">
-                <a href="#">Register</a>
+                <a [routerLink]="['/register']">Register</a>
               </li>
 
             </ul>

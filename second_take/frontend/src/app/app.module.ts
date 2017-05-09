@@ -13,6 +13,9 @@ import { LoginComponent } from '../auth/login.component';
 import { AddFriendComponent } from '../socket/addfriend.component';
 import { EmoticonComponent } from '../socket/emoticon.component';
 import { FriendService } from './friend.service';
+import { RegisterComponent } from 'auth/register.component';
+import { LogoutComponent } from '../auth/logout.component';
+
 export function authHttpServiceFactory(http: Http, options: RequestOptions) {
   return new AuthHttp(new AuthConfig(), http, options);
 }
@@ -24,7 +27,9 @@ export function authHttpServiceFactory(http: Http, options: RequestOptions) {
     IndexComponent,
     LoginComponent,
     AddFriendComponent,
-    EmoticonComponent
+    EmoticonComponent,
+    RegisterComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

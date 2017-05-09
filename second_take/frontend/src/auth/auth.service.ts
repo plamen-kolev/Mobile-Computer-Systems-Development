@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Router } from '@angular/router';
 // import { Observable } from 'rxjs/Observable';
@@ -15,8 +15,11 @@ export class AuthService {
   password: string;
   header: Headers = new Headers();
 
+  public change$: EventEmitter<string>;
+
   constructor(private http: Http, private authHttp: AuthHttp, private router: Router) {
     this.header.append('Content-Type', 'application/json');
+    this.change$ = new EventEmitter();
   }
 
   get(url) {
@@ -28,12 +31,6 @@ export class AuthService {
     return this.authHttp.post(url, JSON.stringify(data), { headers: this.header })
   }
 
-  logout(): void{
-    localStorage.removeItem('auth_user')
-    localStorage.removeItem('token');
-    this.router.navigateByUrl('/');
-  }
-
   login(email:string, password: string): Observable<any> {
     var result: boolean = true;
     this.email = email;
@@ -41,10 +38,18 @@ export class AuthService {
     let options: RequestOptions = new RequestOptions({
       headers: new Headers({ 'Content-Type': 'application/json' })
     });
+
     return this.http
       .post(environment.backendRails + '/api/auth',
       JSON.stringify({ auth: {'email': this.email, 'password': this.password }}),
       options)
       .map((response: Response) => response.json(), (err) => console.log(err))
+  }
+
+  logout(): void{
+    localStorage.removeItem('auth_user')
+    localStorage.removeItem('token');
+    // console.log("triggered logout");
+    this.change$.emit('logout');
   }
 }

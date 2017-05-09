@@ -22,7 +22,17 @@ export class AppComponent implements OnInit {
 
   @Output() searchChangeEmitter: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(public authService: AuthService, private friendService: FriendService) {}
+  constructor(public authService: AuthService, private friendService: FriendService) {
+    // subscribe to logout event
+    this.authService.change$.subscribe(event => {
+      if(event === 'login'){
+        this.auth_user = localStorage.getItem('auth_user');
+      } else {
+        this.auth_user = null;
+      }
+
+    });
+  }
 
   ngOnInit() {
     this.searchUpdated = new Subject<string>();
@@ -30,14 +40,15 @@ export class AppComponent implements OnInit {
     this.searchChangeEmitter = <any>this.searchUpdated.asObservable()
          .debounceTime(500)
           .distinctUntilChanged().subscribe((val) => {
-            console.log(val);
-            if (val){
-              this.authService.
-              get(environment.backendRails + '/api/users/' + val)
-              .subscribe((val) => this.users = val.json());
-              this.showSearchResults = true;
-            } else {
-              this.showSearchResults = false;
+            if(this.auth_user){
+              if (val){
+                this.authService.
+                get(environment.backendRails + '/api/users/' + val)
+                .subscribe((val) => this.users = val.json());
+                this.showSearchResults = true;
+              } else {
+                this.showSearchResults = false;
+              }
             }
           });
 

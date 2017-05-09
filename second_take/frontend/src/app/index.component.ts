@@ -16,16 +16,28 @@ export class IndexComponent implements OnInit{
   channels: any;
   users: User[];
   auth_user: string = localStorage.getItem('auth_user')
-  constructor(public authService: AuthService, private authHttp: AuthHttp, private friendService: FriendService) {}
+  constructor(public authService: AuthService, private authHttp: AuthHttp, private friendService: FriendService) {
+    this.authService.change$.subscribe(event => {
+      if(event === 'login'){
+        this.auth_user = localStorage.getItem('auth_user');
+      } else {
+        this.auth_user = null;
+      }
+    });
+
+  }
 
   ngOnInit(){
     this.users = [];
-    this.authHttp.get(environment.backendRails + '/api/connections')
+    if(this.auth_user){
+      this.authHttp.get(environment.backendRails + '/api/connections')
       .subscribe((response) => {
         this.channels = response.json()
         this.users.push(response.json())
         console.log(this.channels);
       });
+    }
+
   }
 
   addFriend(id) {

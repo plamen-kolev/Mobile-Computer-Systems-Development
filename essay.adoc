@@ -1,0 +1,37 @@
+# CSC3122 - Mobile Computer Systems Development
+
+## Reflective essay
+For this project, I decided to create a messaging webapp using Ruby On Rails and a variety of front-end techniques. The application's premise is that when a user sends a message to somebody who ignores it, the message becomes deleted and the sender receives 'karma' points as a result. With these karma points, angry emoticons can be sent to the recipient.
+
+During the architecture of the work, the front-end interaction was under-estimated and the assumption was made that the application can be done primarily with back-end scripting. The rationale was that any messaging real-time functionality will be pushed to a front-end library like jQuery.
+I soon realised the limitations of doing things that way. It is generally difficult to notify users upon new message arrival, making it impossible to create instant client-server-client message passing.
+
+During the attempt to tackle the problem, I received a recommendation from a friend and also read online articles about using JavaScript web sockets (socket.io). A quick evaluation was made by creating a sample chat application with limited capabilities. The main problem was that the front-end JavaScript was interacting with a web-server written in express (JavaScript) - a language that I did not have any experience with. A decision was made to not attempt to use web sockets due to learning curve and time constrains.
+
+Instead, to use real-time chat service, I decided to use Twilio's programmable chat API. They provide the ability to simply create messaging channels and receive and send messages between two clients.
+A significant chunk of work went into integrating Twilio with the existing solution, because at this point all the back-end logic was implemented (add friend, register, etc.).
+
+In the process of writing front-end JavaScript that ties with Twilio's chat app, the code started becoming more and more difficult to manage and extend due to limited knowledge of JavaScript. I also wanted to use a helper library for messaging instead of using a ready-made implementation like Twilio. The reasoning is that it will help me understand such applications when writing them in the future. At this point, I had written a jQuery and Twilio version of the app that worked and achieved the task of sending and ignoring messages, but the code was not of high quality.
+
+During that stage I became interested in full front-end frameworks, as it gives the developer the power to do complex logic in the client's browser. Abstracting away the server code from the client code was step in the right direction. For building the client code, I opted for using the framework Angular 2 as it is something often mentioned during software events and job interviews.
+Initially, as stated in the development logs, I found it very difficult to get started using it. Most of the concepts seemed unfamiliar and few attempts were made to create dummy projects that would give enough knowledge to tackle the task. This time was mostly spent during the Easter vacation and is the time where the least progress was done for the project in terms of implementation.
+
+After the Easter break, I had put enough time and knowledge to start rebuilding the application with all that experience in mind. I opted for starting a clean version of the code, but to borrow any old code that was performing reasonably to speed up the process.
+
+When writing the authentication system, I found it difficult to implement. The server-side tools used are devise and Java Web Tokens, one provides authentication, the other authorisation. The idea is that a logged in user receives a unique token, which is used by Angular to prove user authenticity. These tools had a reasonable amount of documentation, but there was not much information of integrating them together. Other authentication modules were tried, but nothing yielded a positive effect, as most of them were not maintained any more or were early alpha version.
+
+After the evaluation, a decision was made to go back and integrating Java Web Token with devise. I found an article that explained the changes that ought to be made to enable such integration and after that, authentication on the server side was mostly finished (Drifting Ruby, 2016).
+
+The next issue I stumbled upon was interacting with the back-end server. When the change was made to support token based identity, the web browsers would stop working when authenticated content was displayed. During debugging, I learned that this is due to authentication requiring headers, which are not added automatically.
+
+After trying to add server code for adding headers, I tried to switch from a browser to an API client - the tool Postman was used. This was generally in the right direction when debugging server-side code. Using this tool, I learned that it is much easier to find any issues as compared to using a browser (requests can be made more reliably with more control). Postman lacks the ability to set custom headers easily, so later on I switched it to a tool called Advanced Rest client and have been using this tool ever since.
+
+When writing the front-end code, numerous bugs were introduced due to lack of experience. Couple of bug fixing and improvement cycles were done to deliver a functioning and maintainable product.
+
+For the completion of this work, git version control was used. For the first time, every feature was developed on a new branch and upon success, the branch was merged to the master. Using that approach allowed me to discard any experimental branches easily. As a result, I will develop any future products in similar fashion.
+
+Overall the project achieved its aim but it required a lot of changes because of bad architecture planning and lack of front-end skills. As a result, in the near future I would rely more on the opinion of more experienced developers when receiving tool recommendation. In a real-world scenario, there will be not enough time to do drastic changes when a client is waiting, but was a good experience in learning from mistakes and gaining new knowledge.
+
+## References
+
+Rails API - Authentication with JWT. Drifting Ruby. 10.23.2016. Acessed on 11 May 2017 https://www.driftingruby.com/episodes/rails-api-authentication-with-jwt

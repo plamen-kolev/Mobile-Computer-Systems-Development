@@ -35,9 +35,9 @@ export class RegisterComponent implements OnInit {
           password_confirmation: this.password_confirmation,
         }
     }).subscribe((val) => {
+      console.log(val);
       this.authService.login(this.email, this.password);
       this.router.navigateByUrl('/');
-      console.log("asd");
     })
   }
 

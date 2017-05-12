@@ -263,3 +263,8 @@ doing form validation, fixed the bugs above
 
 20:04
 Created register page, does not have enough validation and general user experience quality
+https://gist.github.com/jwo/1255275 < found this snippet which would be possible to display any registration errors
+18:13
+10.05.2017
+
+Will be adding more feedback to the registration form

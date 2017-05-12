@@ -17,3 +17,11 @@ nav{
   max-width:940px;
   margin:auto;
 }
+
+.center{
+  text-align: center;
+}
+
+.margin_auto{
+  margin:auto;
+}

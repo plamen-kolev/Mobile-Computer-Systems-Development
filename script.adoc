@@ -1,0 +1,41 @@
+EmoteChat is a mobile-first chat app that enables real time communication. It features a karma system, which enables participants to send rude emojis when their messages become ignored by the recipient.
+
+To begin using the application, a user is required to log in first or create an account. Before that, the find friend feature is disabled
+On the right screen, the user mike has already been logged in
+
+On the left, sam is about to become a member
+
+During the register screen, upon filling the details correctly, the register button becomes available
+
+Now, back in the home page, sam can now log in
+
+If fields are left blank or the credentials are invalid, the system will notify the user
+
+Sam now logs in successfully and can search for friends
+
+The search bar dynamically finds users in real time
+
+Now Sam adds mike as a friend and awaits for mike's approval
+
+Upon accepting the friend request, both can now begin a conversation
+
+The website provides two tiers of emoticons, the first ones can be used whenever the user wants, the second only when the user has enough karma points
+
+Now both participants can start chatting in real time
+
+Here you can see both parties exchanging emoticons
+
+When opening the second tier of emoticons, mike has 0 karma at the moment, making all of them locked.
+5 Karma points are gained as a result of a recipient ignoring a message. The sender also gets notified that the message has been ignored.
+
+At the moment, a message is considered ignored withing 15 seconds for demonstration purposes.
+
+To illustrate gaining karma in real time, mike will send couple of messages and sam will ignore them.
+
+Now mike has few karma points, and more rude emoticons become unlocked. He also now knows that messages have been ignored.
+
+Upon using a rude emoticon, karma points are deducted, and some emoticons become unavailable.
+
+The message exchange is kept both on the front end and on the back end, so upon joining a session again, all the messages persist.
+
+This concludes the demo

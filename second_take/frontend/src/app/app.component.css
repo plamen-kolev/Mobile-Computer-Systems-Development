@@ -3,7 +3,8 @@
   z-index: 1;
   background: white;
   top: 81px;
-  left: 147px;
+  left: 25px;
+  max-width:350px;
   padding: 10px;
   border: 2px solid #4699ef
 }

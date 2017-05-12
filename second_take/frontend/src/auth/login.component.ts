@@ -35,8 +35,13 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl('/');
         },
         (error) => {
-          this.alert = "Invalid email or password";
-          this.alert = error
+          if(error.status == 400){
+            this.alert = "Please fill all fields";
+          } else if (error.status == 404) {
+            this.alert = "Username or password did not match";
+          }
+
+
         }
       );
 
